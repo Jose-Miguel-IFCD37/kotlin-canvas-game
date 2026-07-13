@@ -1,50 +1,29 @@
 package com.visualstudioex3.canvasgame.engine
 
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Rect
-import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.drawscope.DrawScope
-import androidx.compose.ui.graphics.drawscope.rotate
+import com.visualstudioex3.canvasgame.engine.renderers.IRenderer
 
 abstract class GameObject {
-    private var centerOffset = Offset.Zero
+    // TODO: Implement Transform Unity like component for position, rotation and scale logic.
+    // TODO: Implement abstract Renderer Unity like component, use for implements:
+    //  - SpriteRenderer
+    //  - TextRenderer
+    //  - LineRenderer
+    // TODO: Implement Collider Unity like component for manage basic box collisions.
+    // TODO: Implement InputTouch component to manage the input basic actions.
 
-    var position = Offset.Zero
-    var rotation: Float = 0f
-    var sprite: ImageBitmap? = null
-        set(value) {
-            field = value
+    val transform = Transform()
+    var renderer: IRenderer? = null
+    var collider: Any? = null
+    var inputTouch: Any? = null
 
-            if (value != null) {
-                centerOffset = Offset(
-                    value.width / 2f,
-                    value.height / 2f
-                )
-            }
-        }
+    var enabled: Boolean = true
 
-    val hitBox: Rect
-        get() {
-            return if (sprite != null)
-                Rect(
-                    position - centerOffset,
-                    Offset(
-                        sprite?.width!!.toFloat(),
-                        sprite?.height!!.toFloat()
-                    )
-                )
-            else Rect.Zero
-        }
+    abstract fun update()
 
     fun DrawScope.draw() {
-        if (sprite != null)
-            rotate(rotation) {
-                drawImage(
-                    sprite!!,
-                    position - centerOffset
-                )
-            }
+        renderer?.apply {
+            draw()
+        }
     }
-
-    abstract suspend fun update()
 }

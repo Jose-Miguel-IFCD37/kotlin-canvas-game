@@ -4,14 +4,13 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.drawscope.DrawScope
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import com.visualstudioex3.canvasgame.engine.GameEngine
+import com.visualstudioex3.canvasgame.game.Player
 import com.visualstudioex3.canvasgame.ui.theme.CanvasGameTheme
 
 class MainActivity : ComponentActivity() {
@@ -24,11 +23,10 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-}
 
-@Composable
-fun Game() {
-    Canvas(modifier = Modifier.fillMaxSize()) {
-        // TODO: Implement abstraction for game render.
+    @Composable
+    fun Game() {
+        var engine: GameEngine? by remember { mutableStateOf(null) }
+        (engine ?: GameEngine.initialize()).GameLoop()
     }
 }
