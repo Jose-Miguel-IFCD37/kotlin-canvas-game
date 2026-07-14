@@ -2,65 +2,47 @@ package com.visualstudioex3.canvasgame.engine.graphics
 
 import android.graphics.Point
 import android.graphics.PointF
+import android.util.Log
 import android.view.SurfaceHolder
+import androidx.core.graphics.div
+import androidx.core.graphics.times
 
 class Screen(
     surfaceHolder: SurfaceHolder
 ) {
-    private val aspectRatio: PointF
+    private val factor: Float
 
     val width: Float
     val height: Float
 
     init {
-        val surfaceSize = Point(
+        val surfaceSize: Point = sortHighestFirst(
             surfaceHolder.surfaceFrame.width(),
             surfaceHolder.surfaceFrame.height()
         )
 
-        aspectRatio = getAspectRatio(surfaceSize)
+        factor = calculateGreatestCommonFactor(surfaceSize.x, surfaceSize.y)
+        width = surfaceSize.x / factor
+        height = surfaceSize.y / factor
 
-        width = surfaceSize.x / aspectRatio.x
-        height = surfaceSize.y / aspectRatio.y
+        Log.d(
+            "Screen::init",
+            "Virtual screen size: ${width}x${height} (${surfaceSize.x}x${surfaceSize.y}px)")
     }
 
-    fun toScreenCoordinates(coordinates: PointF) =
-        PointF(
-            coordinates.x * aspectRatio.x,
-            coordinates.y * aspectRatio.y
-        )
+    fun toScreenCoordinates(coordinates: PointF) = coordinates * factor
 
-    fun toGameCoordinates(coordinates: PointF) =
-        PointF(
-            if (coordinates.x != 0f)
-                coordinates.x / aspectRatio.x
-            else
-                0f,
-            if (coordinates.y != 0f)
-                coordinates.y / aspectRatio.y
-            else
-                0f
-        )
+    fun toGameCoordinates(coordinates: PointF) = coordinates / factor
 
-    private fun getAspectRatio(size: Point): PointF {
-        val surfaceSize: Point = highestFirst(size.x, size.y)
-        val divisor: Float = gcd(surfaceSize.x, surfaceSize.y)
-
-        return PointF(
-            size.x / divisor,
-            size.y / divisor
-        )
-    }
-
-    private fun highestFirst(a: Int, b: Int): Point =
+    private fun sortHighestFirst(a: Int, b: Int): Point =
         if (a < b)
             Point(b, a)
         else
             Point(a, b)
 
-    private fun gcd(a: Int, b: Int): Float =
+    private fun calculateGreatestCommonFactor(a: Int, b: Int): Float =
         if (b == 0)
             a.toFloat()
         else
-            gcd(b, a % b)
+            calculateGreatestCommonFactor(b, a % b)
 }
