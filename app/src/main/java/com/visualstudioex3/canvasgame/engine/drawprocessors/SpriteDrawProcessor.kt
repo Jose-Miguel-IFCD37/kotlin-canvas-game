@@ -3,19 +3,19 @@ package com.visualstudioex3.canvasgame.engine.drawprocessors
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.PointF
-import com.visualstudioex3.canvasgame.engine.Screen
+import com.visualstudioex3.canvasgame.engine.GameRender
+import com.visualstudioex3.canvasgame.engine.drawcommands.IDrawCommand
 import com.visualstudioex3.canvasgame.engine.drawcommands.SpriteDrawCommand
 
-class SpriteDrawProcessor(
-    override val canvas: Canvas,
-    override val screen: Screen
-): IDrawProcessor<SpriteDrawCommand> {
+class SpriteDrawProcessor: IDrawProcessor {
     private val paint: Paint = Paint().apply {
         isAntiAlias = true
     }
 
-    override fun process(command: SpriteDrawCommand) {
-        val screenPosition: PointF = screen.toScreenCoordinates(command.position)
+    override fun process(canvas: Canvas, command: IDrawCommand) {
+        command as SpriteDrawCommand
+
+        val screenPosition: PointF = GameRender.screen.toScreenCoordinates(command.position)
         val pivot = PointF(
             screenPosition.x - (command.sprite.width / 2f),
             screenPosition.y - (command.sprite.height / 2f)

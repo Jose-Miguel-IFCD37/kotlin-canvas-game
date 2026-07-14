@@ -7,42 +7,36 @@ import android.view.SurfaceHolder
 import com.visualstudioex3.canvasgame.engine.drawcommands.IDrawCommand
 import com.visualstudioex3.canvasgame.engine.drawcommands.SpriteDrawCommand
 import com.visualstudioex3.canvasgame.engine.drawcommands.TextDrawCommand
+import com.visualstudioex3.canvasgame.engine.drawprocessors.DrawProcessorFactory
 import com.visualstudioex3.canvasgame.engine.drawprocessors.SpriteDrawProcessor
 import com.visualstudioex3.canvasgame.engine.drawprocessors.TextDrawProcessor
 
 class GameRender(
     private val surfaceHolder: SurfaceHolder
 ) {
-    private var canvas: Canvas? = null
-    private val commands = ArrayDeque<IDrawCommand>()
-    private val spriteDrawProcessor: SpriteDrawProcessor? = null
-    private val textDrawProcessor: TextDrawProcessor? = null
+    companion object {
+        lateinit var screen: Screen
+    }
 
-    val screen = Screen(surfaceHolder)
+    private val commands = ArrayDeque<IDrawCommand>()
+    private val drawProcessors = DrawProcessorFactory()
+
+    init {
+        screen = Screen(surfaceHolder)
+    }
 
     fun addCommand(command: IDrawCommand) {
         commands.add(command)
     }
 
     fun draw() {
-        canvas = surfaceHolder.lockCanvas()
+        val canvas: Canvas = surfaceHolder.lockCanvas()
 
         synchronized(surfaceHolder) {
-            canvas?.drawColor(Color.BLACK)
+            canvas.drawColor(Color.BLACK)
 
-            while (commands.isNotEmpty()) {
-                // TODO: Replace by draw processor factory:
-                when (val command: IDrawCommand = commands.removeFirst()) {
-                    is SpriteDrawCommand -> {
-                        (spriteDrawProcessor ?: SpriteDrawProcessor(canvas!!, screen))
-                            .process(command)
-                    }
-                    is TextDrawCommand -> {
-                        (textDrawProcessor ?: TextDrawProcessor(canvas!!, screen))
-                            .process(command)
-                    }
-                }
-            }
+            while (commands.isNotEmpty())
+                drawProcessors.process(canvas, commands.removeFirst())
         }
 
         surfaceHolder.unlockCanvasAndPost(canvas)
