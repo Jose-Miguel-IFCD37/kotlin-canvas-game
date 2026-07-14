@@ -15,18 +15,21 @@ class GameRender(
     private val surfaceHolder: SurfaceHolder
 ) {
     companion object {
-        lateinit var screen: Screen
+        private lateinit var _screen: Screen
+        private val commands = ArrayDeque<IDrawCommand>()
+
+        val screen: Screen
+            get() = _screen
+
+        fun addDrawCommand(command: IDrawCommand) {
+            commands.add(command)
+        }
     }
 
-    private val commands = ArrayDeque<IDrawCommand>()
     private val drawProcessors = DrawProcessorFactory()
 
     init {
-        screen = Screen(surfaceHolder)
-    }
-
-    fun addCommand(command: IDrawCommand) {
-        commands.add(command)
+        _screen = Screen(surfaceHolder)
     }
 
     fun draw() {

@@ -1,31 +1,26 @@
 package com.visualstudioex3.canvasgame.engine.renderers
 
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.drawscope.DrawScope
-import androidx.compose.ui.graphics.drawscope.scale
-import androidx.compose.ui.text.TextLayoutResult
-import androidx.compose.ui.text.drawText
-import com.visualstudioex3.canvasgame.engine.GameEngine
+import android.graphics.Color
+import androidx.core.graphics.toColor
 import com.visualstudioex3.canvasgame.engine.GameObject
+import com.visualstudioex3.canvasgame.engine.GameRender
+import com.visualstudioex3.canvasgame.engine.drawcommands.TextDrawCommand
 
 class TextRenderer(
     override val gameObject: GameObject
 ) : IRenderer {
     var text: String = ""
+    var color: Color = Color.WHITE.toColor()
+    var fontSize: Float = 24f
 
-    override fun DrawScope.draw() {
-        scale(gameObject.transform.scale, gameObject.transform.position) {
-            drawText(
-                composeTextLayoutResult(),
-                color = Color.White,
-                topLeft = gameObject.transform.position
+    override fun draw() {
+        GameRender.addDrawCommand(
+            TextDrawCommand(
+                gameObject.transform.position,
+                color,
+                fontSize,
+                text
             )
-        }
-    }
-
-    private fun composeTextLayoutResult(): TextLayoutResult =
-        GameEngine.globalSettings.textMeasurer.measure(
-            text = text,
-            style = GameEngine.globalSettings.materialTextStyle
         )
+    }
 }
