@@ -15,7 +15,7 @@ import java.lang.Thread.sleep
 import kotlin.system.exitProcess
 
 class GameEngine(
-    startScene: Scene
+    private val startScene: Scene
 ) {
     companion object {
         private lateinit var _currentScene: Scene
@@ -32,11 +32,6 @@ class GameEngine(
         }
     }
 
-    init {
-        _currentScene = startScene
-        _currentScene.onCreate()
-    }
-
     @Composable
     fun GameLoop() {
         Surface(Modifier.fillMaxSize()) {
@@ -45,6 +40,8 @@ class GameEngine(
                     override fun surfaceCreated(holder: SurfaceHolder) {
                         Thread {
                             val render = GameRender(holder)
+
+                            loadStartScene()
 
                             while (gameLoop) {
                                 _currentScene.update()
@@ -92,6 +89,11 @@ class GameEngine(
                     }
             )
         }
+    }
+
+    fun loadStartScene() {
+        _currentScene = startScene
+        _currentScene.onCreate()
     }
 
     private fun quitApplication() {
