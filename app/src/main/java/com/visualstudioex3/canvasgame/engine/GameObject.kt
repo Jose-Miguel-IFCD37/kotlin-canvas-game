@@ -10,7 +10,7 @@ abstract class GameObject {
 
     var enabled: Boolean = true
 
-    abstract fun update()
+    abstract fun onUpdate()
 
     fun draw() {
         renderer?.draw()

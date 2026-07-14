@@ -27,7 +27,7 @@ class GameRender(
         _screen = Screen(surfaceHolder)
     }
 
-    fun draw() {
+    fun present() {
         val canvas: Canvas = surfaceHolder.lockCanvas()
 
         synchronized(surfaceHolder) {
