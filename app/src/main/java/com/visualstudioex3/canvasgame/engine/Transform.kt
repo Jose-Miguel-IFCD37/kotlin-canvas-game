@@ -8,5 +8,7 @@ class Transform {
     var rotation: Float = 0f
     var scale: Float = 1f
 
-    fun move(x: Float = 0f, y: Float = 0f) = position + PointF(x, y)
+    fun move(x: Float = 0f, y: Float = 0f) {
+        position += PointF(x, y)
+    }
 }
