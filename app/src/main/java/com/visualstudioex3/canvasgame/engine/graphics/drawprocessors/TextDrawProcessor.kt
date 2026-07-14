@@ -1,11 +1,11 @@
-package com.visualstudioex3.canvasgame.engine.drawprocessors
+package com.visualstudioex3.canvasgame.engine.graphics.drawprocessors
 
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.PointF
-import com.visualstudioex3.canvasgame.engine.GameRender
-import com.visualstudioex3.canvasgame.engine.drawcommands.IDrawCommand
-import com.visualstudioex3.canvasgame.engine.drawcommands.TextDrawCommand
+import com.visualstudioex3.canvasgame.engine.graphics.GameRender
+import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.IDrawCommand
+import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.TextDrawCommand
 
 class TextDrawProcessor: IDrawProcessor {
     override fun process(canvas: Canvas, command: IDrawCommand) {

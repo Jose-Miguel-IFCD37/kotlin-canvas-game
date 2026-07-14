@@ -1,10 +1,10 @@
-package com.visualstudioex3.canvasgame.engine.renderers
+package com.visualstudioex3.canvasgame.engine.components.renderers
 
 import android.graphics.Bitmap
 import com.visualstudioex3.canvasgame.engine.GameObject
-import com.visualstudioex3.canvasgame.engine.GameRender
+import com.visualstudioex3.canvasgame.engine.graphics.GameRender
 import com.visualstudioex3.canvasgame.engine.Transform
-import com.visualstudioex3.canvasgame.engine.drawcommands.SpriteDrawCommand
+import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.SpriteDrawCommand
 
 class SpriteRenderer(
     override val gameObject: GameObject

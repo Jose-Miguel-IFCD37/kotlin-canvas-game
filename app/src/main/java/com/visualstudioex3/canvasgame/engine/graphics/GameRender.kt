@@ -1,15 +1,10 @@
-package com.visualstudioex3.canvasgame.engine
+package com.visualstudioex3.canvasgame.engine.graphics
 
 import android.graphics.Canvas
 import android.graphics.Color
-import android.graphics.Paint
 import android.view.SurfaceHolder
-import com.visualstudioex3.canvasgame.engine.drawcommands.IDrawCommand
-import com.visualstudioex3.canvasgame.engine.drawcommands.SpriteDrawCommand
-import com.visualstudioex3.canvasgame.engine.drawcommands.TextDrawCommand
-import com.visualstudioex3.canvasgame.engine.drawprocessors.DrawProcessorFactory
-import com.visualstudioex3.canvasgame.engine.drawprocessors.SpriteDrawProcessor
-import com.visualstudioex3.canvasgame.engine.drawprocessors.TextDrawProcessor
+import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.IDrawCommand
+import com.visualstudioex3.canvasgame.engine.graphics.drawprocessors.DrawProcessorFactory
 
 class GameRender(
     private val surfaceHolder: SurfaceHolder

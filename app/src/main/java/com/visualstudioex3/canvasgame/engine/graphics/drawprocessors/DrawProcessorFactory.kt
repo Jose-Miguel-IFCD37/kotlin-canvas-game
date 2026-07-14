@@ -1,9 +1,9 @@
-package com.visualstudioex3.canvasgame.engine.drawprocessors
+package com.visualstudioex3.canvasgame.engine.graphics.drawprocessors
 
 import android.graphics.Canvas
-import com.visualstudioex3.canvasgame.engine.drawcommands.IDrawCommand
-import com.visualstudioex3.canvasgame.engine.drawcommands.SpriteDrawCommand
-import com.visualstudioex3.canvasgame.engine.drawcommands.TextDrawCommand
+import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.IDrawCommand
+import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.SpriteDrawCommand
+import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.TextDrawCommand
 
 class DrawProcessorFactory {
     private val processors = hashMapOf(

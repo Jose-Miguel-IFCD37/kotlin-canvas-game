@@ -1,10 +1,10 @@
-package com.visualstudioex3.canvasgame.engine.renderers
+package com.visualstudioex3.canvasgame.engine.components.renderers
 
 import android.graphics.Color
 import androidx.core.graphics.toColor
 import com.visualstudioex3.canvasgame.engine.GameObject
-import com.visualstudioex3.canvasgame.engine.GameRender
-import com.visualstudioex3.canvasgame.engine.drawcommands.TextDrawCommand
+import com.visualstudioex3.canvasgame.engine.graphics.GameRender
+import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.TextDrawCommand
 
 class TextRenderer(
     override val gameObject: GameObject

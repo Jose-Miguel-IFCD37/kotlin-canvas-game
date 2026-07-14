@@ -1,6 +1,6 @@
 package com.visualstudioex3.canvasgame.engine
 
-import com.visualstudioex3.canvasgame.engine.renderers.IRenderer
+import com.visualstudioex3.canvasgame.engine.components.renderers.IRenderer
 
 abstract class GameObject {
     val transform = Transform()

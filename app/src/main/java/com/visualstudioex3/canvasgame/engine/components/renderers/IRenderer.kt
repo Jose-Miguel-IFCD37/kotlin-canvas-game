@@ -1,4 +1,4 @@
-package com.visualstudioex3.canvasgame.engine.renderers
+package com.visualstudioex3.canvasgame.engine.components.renderers
 
 import com.visualstudioex3.canvasgame.engine.GameObject
 

@@ -1,34 +1,30 @@
 package com.visualstudioex3.canvasgame.game
 
+import android.graphics.PointF
 import android.util.Log
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.ImageBitmap
-import androidx.compose.ui.res.imageResource
-import com.visualstudioex3.canvasgame.R
-import com.visualstudioex3.canvasgame.engine.GameEngine
 import com.visualstudioex3.canvasgame.engine.GameObject
-import com.visualstudioex3.canvasgame.engine.renderers.SpriteRenderer
+import com.visualstudioex3.canvasgame.engine.components.renderers.SpriteRenderer
 
 class Player: GameObject() {
     var i: Int = 0
 
     init {
         renderer = SpriteRenderer(this)
-        (renderer as SpriteRenderer).image =
-            ImageBitmap.imageResource(
-                GameEngine.globalSettings.appResources,
-                R.drawable.player_ship
-            )
-        transform.position = Offset(500f, 1000f)
+//        (renderer as SpriteRenderer).image =
+//            ImageBitmap.imageResource(
+//                GameEngine.globalSettings.appResources,
+//                R.drawable.player_ship
+//            )
+        transform.position = PointF(3f, 5f)
         transform.scale = 5f
         transform.rotation = 45f
     }
 
     override fun update() {
-        if (i < 5) {
-            i++
-            transform.move(50f)
-            Log.d("player_loop", "Move iteration $i")
-        }
+//        if (i < 5) {
+//            i++
+//            transform.move(2.5f)
+//            Log.d("player_loop", "Move iteration $i")
+//        }
     }
 }

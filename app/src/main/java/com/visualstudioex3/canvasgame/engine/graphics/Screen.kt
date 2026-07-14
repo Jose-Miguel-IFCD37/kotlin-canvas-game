@@ -1,4 +1,4 @@
-package com.visualstudioex3.canvasgame.engine
+package com.visualstudioex3.canvasgame.engine.graphics
 
 import android.graphics.Point
 import android.graphics.PointF
@@ -32,8 +32,14 @@ class Screen(
 
     fun toGameCoordinates(coordinates: PointF) =
         PointF(
-            coordinates.x / aspectRatio.x,
-            coordinates.y / aspectRatio.y
+            if (coordinates.x != 0f)
+                coordinates.x / aspectRatio.x
+            else
+                0f,
+            if (coordinates.y != 0f)
+                coordinates.y / aspectRatio.y
+            else
+                0f
         )
 
     private fun getAspectRatio(size: Point): PointF {
