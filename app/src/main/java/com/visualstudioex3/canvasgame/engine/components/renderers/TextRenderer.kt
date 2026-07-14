@@ -4,6 +4,7 @@ import android.graphics.Color
 import androidx.core.graphics.toColor
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.graphics.GameRender
+import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.TextAlign
 import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.TextDrawCommand
 
 class TextRenderer(
@@ -19,6 +20,7 @@ class TextRenderer(
                 gameObject.transform.position,
                 color,
                 fontSize,
+                TextAlign.Left,
                 text
             )
         )
