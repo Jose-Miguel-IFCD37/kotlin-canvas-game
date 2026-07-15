@@ -10,14 +10,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.visualstudioex3.canvasgame.engine.graphics.GameRender
-import java.lang.Thread.sleep
 import kotlin.system.exitProcess
 
 class GameEngine(
@@ -30,7 +28,7 @@ class GameEngine(
         val scene: Scene
             get() = _currentScene
 
-        var gameLoop = true
+        var gameActive = true
 
         fun loadScene(scene: Scene) {
             _currentScene.onDestroy()
@@ -38,6 +36,8 @@ class GameEngine(
             _currentScene.onCreate()
         }
     }
+
+    private lateinit var gameRender: GameRender
 
     init {
         hideSystemBars(activity)
@@ -50,22 +50,15 @@ class GameEngine(
             val surfaceHolderCallback = remember {
                 object : SurfaceHolder.Callback {
                     override fun surfaceCreated(holder: SurfaceHolder) {
-                        Thread {
-                            val render = GameRender(holder)
-
-                            loadStartScene()
-
-                            while (gameLoop) {
-                                _currentScene.update()
-                                _currentScene.draw()
-
-                                render.present()
-                                // TODO: Implement proper wait until max FPS rate.
-                                sleep(16)
+                        gameLoop(
+                            onStart = {
+                                gameRender = GameRender(holder)
+                                loadStartScene()
+                            },
+                            onQuit = {
+                                quitApplication()
                             }
-
-                            quitApplication()
-                        }.start()
+                        )
                     }
 
                     override fun surfaceChanged(
@@ -116,6 +109,22 @@ class GameEngine(
                 ViewCompat.onApplyWindowInsets(view, windowInsets)
             }
         }
+    }
+
+    private fun gameLoop(
+        onStart: () -> Unit,
+        onQuit: () -> Unit
+    ) {
+        Thread {
+            onStart()
+
+            while (gameActive) {
+                scene.onFrame(GameTime.getDeltaTime())
+                gameRender.present()
+            }
+
+            onQuit()
+        }.start()
     }
 
     private fun loadStartScene() {
