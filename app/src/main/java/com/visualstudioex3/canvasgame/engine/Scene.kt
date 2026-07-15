@@ -9,14 +9,19 @@ abstract class Scene {
 
     abstract fun onDestroy()
 
-    fun update() {
+    fun onFrame(deltaTime: Float) {
+        update(deltaTime)
+        draw()
+    }
+
+    private fun update(deltaTime: Float) {
         gameObjects.forEach {
             if (it.enabled)
-                it.onUpdate()
+                it.onUpdate(deltaTime)
         }
     }
 
-    fun draw() {
+    private fun draw() {
         gameObjects.forEach {
             if (it.enabled)
                 it.draw()

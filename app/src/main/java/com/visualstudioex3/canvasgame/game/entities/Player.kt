@@ -22,6 +22,6 @@ class Player: GameObject() {
         Log.d("Player::init", "${transform.position}")
     }
 
-    override fun onUpdate() {
+    override fun onUpdate(deltaTime: Float) {
     }
 }

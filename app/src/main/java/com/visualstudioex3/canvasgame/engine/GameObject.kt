@@ -10,7 +10,7 @@ abstract class GameObject {
 
     var enabled: Boolean = true
 
-    abstract fun onUpdate()
+    abstract fun onUpdate(deltaTime: Float)
 
     fun draw() {
         renderer?.draw()

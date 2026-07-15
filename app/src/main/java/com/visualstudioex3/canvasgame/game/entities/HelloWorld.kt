@@ -19,6 +19,6 @@ class HelloWorld: GameObject() {
         transform.position = PointF(0f, 0.5f)
     }
 
-    override fun onUpdate() {
+    override fun onUpdate(deltaTime: Float) {
     }
 }
