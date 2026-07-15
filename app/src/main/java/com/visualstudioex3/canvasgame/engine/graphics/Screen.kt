@@ -2,6 +2,7 @@ package com.visualstudioex3.canvasgame.engine.graphics
 
 import android.graphics.Point
 import android.graphics.PointF
+import android.graphics.RectF
 import android.util.Log
 import android.view.SurfaceHolder
 import androidx.core.graphics.div
@@ -32,7 +33,17 @@ class Screen(
 
     fun toScreenCoordinates(coordinates: PointF) = coordinates * factor
 
+    fun toScreenCoordinates(rect: RectF) = rect * factor
+
     fun toGameCoordinates(coordinates: PointF) = coordinates / factor
+
+    // RectF no implementa operador de division.
+    fun toGameCoordinates(rect: RectF) = RectF(
+        rect.left / factor,
+        rect.top / factor,
+        rect.right / factor,
+        rect.bottom / factor,
+    )
 
     private fun calculateGreatestCommonFactor(a: Int, b: Int): Float =
         if (b == 0)
