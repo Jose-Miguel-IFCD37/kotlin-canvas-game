@@ -1,7 +1,5 @@
 package com.visualstudioex3.canvasgame.engine
 
-import android.util.Log
-
 class GameTime {
     companion object {
         private var endTime: Long = 0

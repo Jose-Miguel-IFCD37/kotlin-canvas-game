@@ -3,6 +3,7 @@ package com.visualstudioex3.canvasgame.engine.graphics.drawcommands
 import android.graphics.Color
 import android.graphics.PointF
 
+@Suppress("unused")
 enum class TextAlign {
     Left,
     Right,
