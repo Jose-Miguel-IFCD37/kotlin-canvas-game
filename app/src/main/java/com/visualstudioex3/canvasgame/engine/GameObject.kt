@@ -11,8 +11,11 @@ abstract class GameObject {
     var enabled: Boolean = true
 
     abstract fun onUpdate(deltaTime: Float)
+    open fun onDraw() {
+    }
 
     fun draw() {
         renderer?.draw()
+        onDraw()
     }
 }
