@@ -20,6 +20,7 @@ class GameRender(
 
         val screen: Screen
             get() = _screen
+        val primitives = Primitives()
 
         var showFPSCounter: Boolean = false
 
@@ -41,6 +42,8 @@ class GameRender(
             addFPSCounterCommand()
 
         synchronized(surfaceHolder) {
+            primitives.setCanvas(canvas)
+
             canvas.drawColor(Color.BLACK)
 
             while (commands.isNotEmpty())
