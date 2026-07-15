@@ -2,6 +2,7 @@ package com.visualstudioex3.canvasgame.engine
 
 import android.view.SurfaceHolder
 import android.view.SurfaceView
+import androidx.activity.ComponentActivity
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
@@ -10,11 +11,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import com.visualstudioex3.canvasgame.engine.graphics.GameRender
 import java.lang.Thread.sleep
 import kotlin.system.exitProcess
 
 class GameEngine(
+    activity: ComponentActivity,
     private val startScene: Scene
 ) {
     companion object {
@@ -30,6 +36,10 @@ class GameEngine(
             _currentScene = scene
             _currentScene.onCreate()
         }
+    }
+
+    init {
+        hideSystemBars(activity)
     }
 
     @Composable
@@ -91,7 +101,22 @@ class GameEngine(
         }
     }
 
-    fun loadStartScene() {
+    private fun hideSystemBars(activity: ComponentActivity) {
+        activity.apply {
+            val windowInsetsController: WindowInsetsControllerCompat =
+                WindowCompat.getInsetsController(window, window.decorView)
+
+            windowInsetsController.systemBarsBehavior =
+                WindowInsetsControllerCompat.BEHAVIOR_DEFAULT
+
+            ViewCompat.setOnApplyWindowInsetsListener(window.decorView) { view, windowInsets ->
+                windowInsetsController.hide(WindowInsetsCompat.Type.systemBars())
+                ViewCompat.onApplyWindowInsets(view, windowInsets)
+            }
+        }
+    }
+
+    private fun loadStartScene() {
         _currentScene = startScene
         _currentScene.onCreate()
     }

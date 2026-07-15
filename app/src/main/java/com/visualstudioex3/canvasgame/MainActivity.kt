@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
     @Composable
     fun Game() {
         val gameEngine: GameEngine = remember {
-            GameEngine(MainScene())
+            GameEngine(this, MainScene())
         }
 
         gameEngine.GameLoop()
