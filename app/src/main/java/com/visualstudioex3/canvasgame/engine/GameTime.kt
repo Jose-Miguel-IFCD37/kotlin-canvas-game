@@ -1,17 +1,23 @@
 package com.visualstudioex3.canvasgame.engine
 
+import android.util.Log
+
 class GameTime {
     companion object {
-        private var oldTime: Long = getTime()
-        private var elapsedTime: Long = 0
+        private var endTime: Long = 0
+        private var deltaTime: Float = 0f
+
+        var framesPerSecond: Float = 0f
+            private set
 
         fun getDeltaTime(): Float {
             val currentTime: Long = getTime()
 
-            elapsedTime = currentTime - oldTime
-            oldTime = currentTime
+            deltaTime = ((currentTime - endTime) / 1_000_000_000.0).toFloat()
+            endTime = currentTime
+            framesPerSecond = 1f / deltaTime
 
-            return (elapsedTime / 1_000_000_000.0).toFloat()
+            return deltaTime
         }
 
         private fun getTime(): Long = System.nanoTime()
