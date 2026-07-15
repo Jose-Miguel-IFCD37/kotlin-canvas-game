@@ -16,7 +16,7 @@ class Screen(
     val height: Float
 
     init {
-        val surfaceSize: Point = sortHighestFirst(
+        val surfaceSize= Point(
             surfaceHolder.surfaceFrame.width(),
             surfaceHolder.surfaceFrame.height()
         )
@@ -33,12 +33,6 @@ class Screen(
     fun toScreenCoordinates(coordinates: PointF) = coordinates * factor
 
     fun toGameCoordinates(coordinates: PointF) = coordinates / factor
-
-    private fun sortHighestFirst(a: Int, b: Int): Point =
-        if (a < b)
-            Point(b, a)
-        else
-            Point(a, b)
 
     private fun calculateGreatestCommonFactor(a: Int, b: Int): Float =
         if (b == 0)
