@@ -1,0 +1,11 @@
+package com.visualstudioex3.canvasgame.engine.graphics.drawcommands
+
+import android.graphics.Color
+import android.graphics.RectF
+
+data class RectDrawCommand(
+    val rect: RectF,
+    val scale: Float,
+    val color: Color,
+    val fill: Boolean
+): IDrawCommand
