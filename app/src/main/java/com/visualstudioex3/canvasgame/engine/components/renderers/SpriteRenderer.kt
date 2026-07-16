@@ -11,6 +11,9 @@ class SpriteRenderer(
 ) : IRenderer {
     var image: Bitmap? = null
 
+    override fun update(deltaTime: Float) {
+    }
+
     override fun draw() {
         if (image != null) {
             val transform: Transform = gameObject.transform

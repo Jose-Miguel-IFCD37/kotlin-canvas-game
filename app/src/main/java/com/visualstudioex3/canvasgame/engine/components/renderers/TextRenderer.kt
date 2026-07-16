@@ -14,6 +14,9 @@ class TextRenderer(
     var color: Color = Color.WHITE.toColor()
     var fontSize: Float = 24f
 
+    override fun update(deltaTime: Float) {
+    }
+
     override fun draw() {
         RenderManager.addDrawCommand(
             TextDrawCommand(

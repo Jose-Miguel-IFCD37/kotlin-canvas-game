@@ -18,6 +18,9 @@ class RectRenderer(
     var color = Color()
     var fill: Boolean = true
 
+    override fun update(deltaTime: Float) {
+    }
+
     override fun draw() {
         if (size != PointF()) {
             val transform: Transform = gameObject.transform
