@@ -22,26 +22,17 @@ class GameEngine(
     activity: ComponentActivity,
     private val startScene: Scene
 ) {
-    /*
-        En vez de implementar un SceneManager, dado la simplicidad de este juego, he optado por
-        un sistema sencillo de reemplazo de escena.
-     */
     companion object {
-        private lateinit var _currentScene: Scene
+        var gameActive: Boolean = false
+            private set
 
-        val scene: Scene
-            get() = _currentScene
-
-        var gameActive = true
-
-        fun loadScene(scene: Scene) {
-            _currentScene.onDestroy()
-            _currentScene = scene
-            _currentScene.onCreate()
+        fun quit() {
+            gameActive = false
         }
     }
 
     private lateinit var renderManager: RenderManager
+    private val sceneManager = SceneManager()
 
     init {
         hideSystemBars(activity)
@@ -57,7 +48,9 @@ class GameEngine(
                         gameLoop(
                             onStart = {
                                 renderManager = RenderManager(holder)
-                                loadStartScene()
+                                SceneManager.loadScene(startScene)
+
+                                gameActive = true
                             },
                             onQuit = {
                                 quitApplication()
@@ -158,17 +151,14 @@ class GameEngine(
             onStart()
 
             while (gameActive) {
-                scene.onFrame(Time.getDeltaTime())
+                val deltaTime: Float = Time.getDeltaTime()
+                
+                sceneManager.update(deltaTime)
                 renderManager.present()
             }
 
             onQuit()
         }.start()
-    }
-
-    private fun loadStartScene() {
-        _currentScene = startScene
-        _currentScene.onCreate()
     }
 
     private fun quitApplication() {
