@@ -8,7 +8,21 @@ import android.view.SurfaceHolder
 import androidx.core.graphics.div
 import androidx.core.graphics.times
 
-class Screen(
+/*
+    Camara que implemente sistema de coordenadas virtual para abstraernos de las dimensiones reales
+    de la pantalla del dispositivo.
+
+    Igual que en Unity y otros motores, normalizamos el sistema a unidades en coma floante. En este
+    caso el calculo y conversion se realiza con el factor de ratio de aspecto de la pantalla.
+
+    Esto permite trabajar siempre con un sistema de coordenadas universal, (1.0f, 3.5f) vs (125, 370)
+    y que funcione igual en cualquier dispositivo tenga la resolucion que tenga. Solo habria que
+    tener en cuenta los posibles ratios de pantalla para posicion correctamente elementos de
+    interfaz en pantalla y definir una area segura de juego que entre en cualquier pantalla (esto en
+    general se consigue o bien obteniendo el "safe area" si la proporciona el hardware o bien
+    definiendo una lista de areas seguras usando los ratios de pantalla estandar del mercado).
+ */
+class Camera(
     surfaceHolder: SurfaceHolder
 ) {
     private val factor: Float
@@ -17,7 +31,7 @@ class Screen(
     val height: Float
 
     init {
-        val surfaceSize= Point(
+        val surfaceSize = Point(
             surfaceHolder.surfaceFrame.width(),
             surfaceHolder.surfaceFrame.height()
         )
@@ -35,10 +49,10 @@ class Screen(
 
     fun toScreenCoordinates(rect: RectF) = rect * factor
 
-    fun toGameCoordinates(coordinates: PointF) = coordinates / factor
+    fun toCameraCoordinates(coordinates: PointF) = coordinates / factor
 
     // RectF no implementa operador de division.
-    fun toGameCoordinates(rect: RectF) = RectF(
+    fun toCameraCoordinates(rect: RectF) = RectF(
         rect.left / factor,
         rect.top / factor,
         rect.right / factor,
