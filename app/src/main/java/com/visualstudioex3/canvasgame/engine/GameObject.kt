@@ -1,9 +1,12 @@
 package com.visualstudioex3.canvasgame.engine
 
-import android.graphics.PointF
 import com.visualstudioex3.canvasgame.engine.components.IComponent
 import com.visualstudioex3.canvasgame.engine.components.renderers.IRenderer
 
+/*
+    GameObject basado en la implementacion de Unity y su arquitectura de componentes.
+    https://docs.unity3d.com/6000.0/Documentation/ScriptReference/GameObject.html
+ */
 abstract class GameObject {
     val transform = Transform()
     val components = mutableListOf<IComponent>()
@@ -30,12 +33,18 @@ abstract class GameObject {
     }
 
     fun update(deltaTime: Float) {
-        components.forEach { it.update(deltaTime) }
+        components.forEach {
+            if (it.enable)
+                it.update(deltaTime)
+        }
         onUpdate(deltaTime)
     }
 
     fun draw() {
-        components.forEach { if (it is IRenderer) it.draw() }
+        components.forEach {
+            if (it is IRenderer && it.enable)
+                it.draw()
+        }
         onDraw()
     }
 }

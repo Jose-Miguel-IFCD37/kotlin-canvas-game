@@ -9,6 +9,7 @@ import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.SpriteDrawCom
 class SpriteRenderer(
     override val gameObject: GameObject
 ) : IRenderer {
+    override var enable: Boolean = true
     var image: Bitmap? = null
 
     override fun update(deltaTime: Float) {
