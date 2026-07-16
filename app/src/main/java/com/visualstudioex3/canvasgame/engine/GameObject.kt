@@ -29,8 +29,6 @@ abstract class GameObject {
         components.firstOrNull { it::class.java == T::class.java } as? T
 
     abstract fun onUpdate(deltaTime: Float)
-    open fun onDraw() {
-    }
 
     fun update(deltaTime: Float) {
         components.forEach {
@@ -45,6 +43,5 @@ abstract class GameObject {
             if (it is IRenderer && it.enable)
                 it.draw()
         }
-        onDraw()
     }
 }
