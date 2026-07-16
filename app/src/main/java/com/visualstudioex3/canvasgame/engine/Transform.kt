@@ -11,4 +11,8 @@ class Transform {
     fun move(x: Float = 0f, y: Float = 0f) {
         position += PointF(x, y)
     }
+
+    fun translate(x: Float = position.x, y: Float = position.y) {
+        position = PointF(x, y)
+    }
 }
