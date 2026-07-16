@@ -8,10 +8,7 @@ import com.visualstudioex3.canvasgame.engine.components.renderers.TextRenderer
 
 class HelloWorld: GameObject() {
     init {
-
-        val renderer = addComponent<TextRenderer>()
-
-        renderer.let {
+        addComponent<TextRenderer>().let {
             it.text = "Hello, World!"
             it.color = Color.GREEN.toColor()
             it.fontSize = 48f
