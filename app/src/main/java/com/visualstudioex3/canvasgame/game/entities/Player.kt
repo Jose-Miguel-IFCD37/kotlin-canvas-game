@@ -1,21 +1,21 @@
 package com.visualstudioex3.canvasgame.game.entities
 
-import android.graphics.Color
 import android.graphics.PointF
 import android.util.Log
 import com.visualstudioex3.canvasgame.R
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.GameResources
+import com.visualstudioex3.canvasgame.engine.components.physics.SpriteCollider
+import com.visualstudioex3.canvasgame.engine.components.renderers.SpriteColliderRenderer
 import com.visualstudioex3.canvasgame.engine.components.renderers.SpriteRenderer
-import com.visualstudioex3.canvasgame.engine.graphics.BitmapExtensions.Companion.getBounds
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 
 class Player : GameObject() {
-    var renderer: SpriteRenderer = addComponent<SpriteRenderer>()
-
     init {
-        renderer.image =
-            GameResources.loadBitmap(R.drawable.player_ship)
+        addComponent<SpriteCollider>()
+        addComponent<SpriteColliderRenderer>()
+        addComponent<SpriteRenderer>()
+            .image = GameResources.loadBitmap(R.drawable.player_ship)
 
         transform.position = PointF(
             RenderManager.camera.width / 2,
@@ -26,15 +26,5 @@ class Player : GameObject() {
     }
 
     override fun onUpdate(deltaTime: Float) {
-    }
-
-    override fun onDraw() {
-        if (renderer.image != null) {
-            RenderManager.primitives.drawRect(
-                renderer.image?.getBounds(transform.position)!!,
-                transform.scale,
-                color = Color.valueOf(1f, 0f, 0f, .25f),
-            )
-        }
     }
 }
