@@ -11,9 +11,10 @@ import com.visualstudioex3.canvasgame.engine.graphics.BitmapExtensions.Companion
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 
 class Player : GameObject() {
+    var renderer: SpriteRenderer = addComponent<SpriteRenderer>()
+
     init {
-        renderer = SpriteRenderer(this)
-        (renderer as SpriteRenderer).image =
+        renderer.image =
             GameResources.loadBitmap(R.drawable.player_ship)
 
         transform.position = PointF(
@@ -28,14 +29,12 @@ class Player : GameObject() {
     }
 
     override fun onDraw() {
-        (renderer as SpriteRenderer).let {
-            if (it.image != null) {
-                RenderManager.primitives.drawRect(
-                    it.image?.getBounds(transform.position)!!,
-                    transform.scale,
-                    color = Color.valueOf(1f, 0f, 0f, .25f),
-                )
-            }
+        if (renderer.image != null) {
+            RenderManager.primitives.drawRect(
+                renderer.image?.getBounds(transform.position)!!,
+                transform.scale,
+                color = Color.valueOf(1f, 0f, 0f, .25f),
+            )
         }
     }
 }
