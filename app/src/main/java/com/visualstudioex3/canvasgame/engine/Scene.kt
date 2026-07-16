@@ -21,7 +21,7 @@ abstract class Scene {
     private fun update(deltaTime: Float) {
         gameObjects.forEach {
             if (it.enabled)
-                it.onUpdate(deltaTime)
+                it.update(deltaTime)
         }
     }
 
