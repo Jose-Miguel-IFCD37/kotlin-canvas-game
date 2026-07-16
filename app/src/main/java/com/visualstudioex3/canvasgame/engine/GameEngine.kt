@@ -1,5 +1,6 @@
 package com.visualstudioex3.canvasgame.engine
 
+import android.graphics.PointF
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 import androidx.activity.ComponentActivity
@@ -16,6 +17,8 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
+import com.visualstudioex3.canvasgame.engine.input.InputManager
+import com.visualstudioex3.canvasgame.engine.input.TouchGestures
 import kotlin.system.exitProcess
 
 class GameEngine(
@@ -33,6 +36,7 @@ class GameEngine(
 
     private lateinit var renderManager: RenderManager
     private val sceneManager = SceneManager()
+    private val inputManager = InputManager()
 
     init {
         hideSystemBars(activity)
@@ -82,7 +86,22 @@ class GameEngine(
                     .pointerInput(Unit) {
                         detectTapGestures(
                             onTap = { offset ->
-                                // TODO: Implement onTap callback.
+                                inputManager.cacheState(
+                                    TouchGestures.Tap,
+                                    PointF(offset.x, offset.y)
+                                )
+                            },
+                            onDoubleTap = { offset ->
+                                inputManager.cacheState(
+                                    TouchGestures.DoubleTap,
+                                    PointF(offset.x, offset.y)
+                                )
+                            },
+                            onLongPress = { offset ->
+                                inputManager.cacheState(
+                                    TouchGestures.LongPress,
+                                    PointF(offset.x, offset.y)
+                                )
                             }
                         )
                     }
@@ -152,7 +171,8 @@ class GameEngine(
 
             while (gameActive) {
                 val deltaTime: Float = Time.getDeltaTime()
-                
+
+                inputManager.update()
                 sceneManager.update(deltaTime)
                 renderManager.present()
             }
