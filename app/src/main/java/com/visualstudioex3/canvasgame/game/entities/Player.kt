@@ -8,7 +8,7 @@ import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.GameResources
 import com.visualstudioex3.canvasgame.engine.components.renderers.SpriteRenderer
 import com.visualstudioex3.canvasgame.engine.graphics.BitmapExtensions.Companion.getBounds
-import com.visualstudioex3.canvasgame.engine.graphics.GameRender
+import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 
 class Player : GameObject() {
     init {
@@ -17,8 +17,8 @@ class Player : GameObject() {
             GameResources.loadBitmap(R.drawable.player_ship)
 
         transform.position = PointF(
-            GameRender.screen.width / 2,
-            GameRender.screen.height - 1f
+            RenderManager.camera.width / 2,
+            RenderManager.camera.height - 1f
         )
 
         Log.d("Player::init", "${transform.position}")
@@ -30,7 +30,7 @@ class Player : GameObject() {
     override fun onDraw() {
         (renderer as SpriteRenderer).let {
             if (it.image != null) {
-                GameRender.primitives.drawRect(
+                RenderManager.primitives.drawRect(
                     it.image?.getBounds(transform.position)!!,
                     transform.scale,
                     color = Color.valueOf(1f, 0f, 0f, .25f),

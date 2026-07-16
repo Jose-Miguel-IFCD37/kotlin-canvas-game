@@ -18,7 +18,7 @@ class Primitives {
         color: Color,
         fill: Boolean = true
     ) {
-        GameRender.addDrawCommand(
+        RenderManager.addDrawCommand(
             RectDrawCommand(rect, scale, color, fill)
         )
     }

@@ -2,7 +2,7 @@ package com.visualstudioex3.canvasgame.engine.components.renderers
 
 import android.graphics.Bitmap
 import com.visualstudioex3.canvasgame.engine.GameObject
-import com.visualstudioex3.canvasgame.engine.graphics.GameRender
+import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.Transform
 import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.SpriteDrawCommand
 
@@ -15,7 +15,7 @@ class SpriteRenderer(
         if (image != null) {
             val transform: Transform = gameObject.transform
 
-            GameRender.addDrawCommand(
+            RenderManager.addDrawCommand(
                 SpriteDrawCommand(
                     transform.position,
                     transform.rotation,

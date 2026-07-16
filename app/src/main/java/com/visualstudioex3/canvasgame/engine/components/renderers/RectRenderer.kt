@@ -8,7 +8,7 @@ import androidx.core.graphics.minus
 import androidx.core.graphics.plus
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.Transform
-import com.visualstudioex3.canvasgame.engine.graphics.GameRender
+import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.RectDrawCommand
 
 class RectRenderer(
@@ -24,7 +24,7 @@ class RectRenderer(
             val leftTop: PointF = transform.position - (size / 2f)
             val rightBottom: PointF = leftTop + size
 
-            GameRender.addDrawCommand(
+            RenderManager.addDrawCommand(
                 RectDrawCommand(
                     RectF(
                         leftTop.x,

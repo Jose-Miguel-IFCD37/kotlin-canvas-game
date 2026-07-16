@@ -3,7 +3,7 @@ package com.visualstudioex3.canvasgame.engine.components.renderers
 import android.graphics.Color
 import androidx.core.graphics.toColor
 import com.visualstudioex3.canvasgame.engine.GameObject
-import com.visualstudioex3.canvasgame.engine.graphics.GameRender
+import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.TextAlign
 import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.TextDrawCommand
 
@@ -15,7 +15,7 @@ class TextRenderer(
     var fontSize: Float = 24f
 
     override fun draw() {
-        GameRender.addDrawCommand(
+        RenderManager.addDrawCommand(
             TextDrawCommand(
                 gameObject.transform.position,
                 color,

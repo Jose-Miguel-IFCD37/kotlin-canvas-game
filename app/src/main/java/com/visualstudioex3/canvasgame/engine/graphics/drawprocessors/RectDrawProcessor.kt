@@ -3,7 +3,7 @@ package com.visualstudioex3.canvasgame.engine.graphics.drawprocessors
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.RectF
-import com.visualstudioex3.canvasgame.engine.graphics.GameRender
+import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.RectDrawCommand
 import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.IDrawCommand
 
@@ -15,7 +15,10 @@ class RectDrawProcessor: IDrawProcessor {
         command as RectDrawCommand
 
         if (!command.rect.isEmpty) {
-            val rect: RectF = GameRender.screen.toScreenCoordinates(command.rect)
+            val rect: RectF =
+                RenderManager.camera.toScreenCoordinates(
+                    command.rect
+                )
 
             if (command.scale != 1f)
                 canvas.scale(
@@ -28,7 +31,10 @@ class RectDrawProcessor: IDrawProcessor {
             canvas.drawRect(
                 rect,
                 Paint().apply {
-                    style = if (command.fill) Paint.Style.FILL else Paint.Style.STROKE
+                    style = if (command.fill)
+                        Paint.Style.FILL
+                    else
+                        Paint.Style.STROKE
                     color = command.color.toArgb()
                     isAntiAlias = true
                 }

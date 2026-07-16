@@ -10,12 +10,13 @@ import androidx.core.graphics.plus
 class BitmapExtensions {
     companion object {
         fun Bitmap.getBounds(center: PointF): RectF {
-            val size: PointF = GameRender.screen.toGameCoordinates(
-                PointF(
-                    width.toFloat(),
-                    height.toFloat()
+            val size: PointF =
+                RenderManager.camera.toCameraCoordinates(
+                    PointF(
+                        width.toFloat(),
+                        height.toFloat()
+                    )
                 )
-            )
             val leftTop: PointF = center - (size / 2f)
             val rightBottom: PointF = leftTop + size
 

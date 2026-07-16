@@ -37,7 +37,7 @@ class GameEngine(
         }
     }
 
-    private lateinit var gameRender: GameRender
+    private lateinit var renderManager: RenderManager
 
     init {
         hideSystemBars(activity)
@@ -52,7 +52,7 @@ class GameEngine(
                     override fun surfaceCreated(holder: SurfaceHolder) {
                         gameLoop(
                             onStart = {
-                                gameRender = GameRender(holder)
+                                renderManager = RenderManager(holder)
                                 loadStartScene()
                             },
                             onQuit = {
@@ -119,8 +119,8 @@ class GameEngine(
             onStart()
 
             while (gameActive) {
-                scene.onFrame(GameTime.getDeltaTime())
-                gameRender.present()
+                scene.onFrame(Time.getDeltaTime())
+                renderManager.present()
             }
 
             onQuit()
