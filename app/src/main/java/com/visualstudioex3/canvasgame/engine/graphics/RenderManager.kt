@@ -38,7 +38,6 @@ class RenderManager(
          */
         val camera: Camera
             get() = _camera
-        val primitives = Primitives()
 
         var showFPSCounter: Boolean = false
 
@@ -60,8 +59,6 @@ class RenderManager(
             addFPSCounterCommand()
 
         synchronized(surfaceHolder) {
-            primitives.setCanvas(canvas)
-
             canvas.drawColor(Color.BLACK)
 
             while (commands.isNotEmpty())
