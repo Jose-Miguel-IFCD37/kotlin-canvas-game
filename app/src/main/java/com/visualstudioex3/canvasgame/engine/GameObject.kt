@@ -26,7 +26,9 @@ abstract class GameObject {
 
     inline fun <reified T> getComponent(): T?
             where T : IComponent =
-        components.firstOrNull { it::class.java == T::class.java } as? T
+        components.firstOrNull {
+            it::class.java == T::class.java
+        } as? T
 
     abstract fun onUpdate(deltaTime: Float)
 

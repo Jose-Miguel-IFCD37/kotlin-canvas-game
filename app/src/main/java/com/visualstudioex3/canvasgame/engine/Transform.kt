@@ -4,7 +4,7 @@ import android.graphics.PointF
 import androidx.core.graphics.plus
 
 class Transform {
-    var position = PointF(0f, 0f)
+    var position = PointF()
     var rotation: Float = 0f
     var scale: Float = 1f
 
