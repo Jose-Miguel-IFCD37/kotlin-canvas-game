@@ -16,12 +16,15 @@ class SpriteCollider(
     var bounds = RectF()
         private set
 
+    var onCollision: (GameObject) -> Unit = {}
+    var onCollisionEnter: (GameObject) -> Unit = {}
+    var onCollisionExit: (GameObject) -> Unit = {}
     var onExitCameraBounds: () -> Unit = {}
     var onEnterCameraBounds: () -> Unit = {}
 
     init {
         condition = {
-            RenderManager.camera.bounds.contains(bounds)
+            RenderManager.camera.bounds.intersect(bounds)
         }
         onEnter = onEnterCameraBounds
         onExit = onExitCameraBounds
