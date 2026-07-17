@@ -2,23 +2,32 @@ package com.visualstudioex3.canvasgame.engine.components.physics
 
 import android.graphics.RectF
 import com.visualstudioex3.canvasgame.engine.GameObject
-import com.visualstudioex3.canvasgame.engine.components.IComponent
+import com.visualstudioex3.canvasgame.engine.components.events.EventHandler
 import com.visualstudioex3.canvasgame.engine.components.renderers.SpriteRenderer
 import com.visualstudioex3.canvasgame.engine.graphics.BitmapExtensions.Companion.getBounds
+import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 
 class SpriteCollider(
     override val gameObject: GameObject
-) : IComponent {
-    private var spriteRenderer: SpriteRenderer? = null
+) : EventHandler(gameObject) {
+    private var spriteRenderer = gameObject.getComponent<SpriteRenderer>()
 
     override var enable: Boolean = true
     var bounds = RectF()
         private set
 
-    override fun update(deltaTime: Float) {
-        if (spriteRenderer == null)
-            spriteRenderer = gameObject.getComponent<SpriteRenderer>()
+    var onExitCameraBounds: () -> Unit = {}
+    var onEnterCameraBounds: () -> Unit = {}
 
+    init {
+        condition = {
+            RenderManager.camera.bounds.contains(bounds)
+        }
+        onEnter = onEnterCameraBounds
+        onExit = onExitCameraBounds
+    }
+
+    override fun update(deltaTime: Float) {
         bounds = spriteRenderer?.image
             ?.getBounds(gameObject.transform.position) ?: RectF()
     }

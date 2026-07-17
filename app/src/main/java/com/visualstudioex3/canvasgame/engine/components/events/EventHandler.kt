@@ -3,7 +3,7 @@ package com.visualstudioex3.canvasgame.engine.components.events
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.components.IComponent
 
-class EventHandler(
+open class EventHandler(
     override val gameObject: GameObject
 ) : IComponent {
     private var eventRaised: Boolean = false
