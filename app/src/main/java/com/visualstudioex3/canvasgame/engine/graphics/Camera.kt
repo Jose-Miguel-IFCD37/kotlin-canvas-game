@@ -29,6 +29,7 @@ class Camera(
 
     val width: Float
     val height: Float
+    val bounds: RectF
 
     init {
         val surfaceSize = Point(
@@ -39,6 +40,7 @@ class Camera(
         factor = calculateGreatestCommonFactor(surfaceSize.x, surfaceSize.y)
         width = surfaceSize.x / factor
         height = surfaceSize.y / factor
+        bounds = RectF(0f, 0f, width, height)
 
         Log.d(
             "Screen::init",
