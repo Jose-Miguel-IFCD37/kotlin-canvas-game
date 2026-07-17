@@ -11,6 +11,14 @@ abstract class GameObject: IEnableState {
     val transform = Transform()
     val components = mutableListOf<IComponent>()
     override var enable: Boolean = true
+        set(value) {
+            field = value
+
+            if (value)
+                onEnable()
+            else
+                onDisable()
+        }
 
     inline fun <reified T> addComponent(): T
             where T : IComponent {
@@ -29,6 +37,12 @@ abstract class GameObject: IEnableState {
         components.firstOrNull {
             it::class.java == T::class.java
         } as? T
+
+    open fun onEnable() {
+    }
+
+    open fun onDisable() {
+    }
 
     abstract fun onUpdate(deltaTime: Float)
 
