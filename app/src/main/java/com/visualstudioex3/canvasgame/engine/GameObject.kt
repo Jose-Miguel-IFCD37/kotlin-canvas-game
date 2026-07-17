@@ -7,10 +7,10 @@ import com.visualstudioex3.canvasgame.engine.components.renderers.IRenderer
     GameObject basado en la implementacion de Unity y su arquitectura de componentes.
     https://docs.unity3d.com/6000.0/Documentation/ScriptReference/GameObject.html
  */
-abstract class GameObject {
+abstract class GameObject: IEnableState {
     val transform = Transform()
     val components = mutableListOf<IComponent>()
-    var enabled: Boolean = true
+    override var enable: Boolean = true
 
     inline fun <reified T> addComponent(): T
             where T : IComponent {
