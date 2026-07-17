@@ -1,4 +1,6 @@
-package com.visualstudioex3.canvasgame.engine
+package com.visualstudioex3.canvasgame.engine.scenes
+
+import com.visualstudioex3.canvasgame.engine.GameObject
 
 /*
     Las escenas habitualmente gestionan un grafo o jerarquita de objetos. En nuestro caso se

@@ -1,4 +1,4 @@
-package com.visualstudioex3.canvasgame.engine
+package com.visualstudioex3.canvasgame.engine.scenes
 
 class SceneManager {
     companion object {

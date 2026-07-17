@@ -19,6 +19,8 @@ import androidx.core.view.WindowInsetsControllerCompat
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.input.InputManager
 import com.visualstudioex3.canvasgame.engine.input.TouchGestures
+import com.visualstudioex3.canvasgame.engine.scenes.Scene
+import com.visualstudioex3.canvasgame.engine.scenes.SceneManager
 import kotlin.system.exitProcess
 
 class GameEngine(
