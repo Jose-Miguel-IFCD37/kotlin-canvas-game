@@ -4,7 +4,7 @@ import android.graphics.RectF
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.components.events.EventHandler
 import com.visualstudioex3.canvasgame.engine.components.renderers.SpriteRenderer
-import com.visualstudioex3.canvasgame.engine.graphics.BitmapExtensions.Companion.getBounds
+import com.visualstudioex3.canvasgame.engine.graphics.extensions.BitmapExtensions.Companion.getBounds
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 
 class SpriteCollider(

@@ -1,4 +1,4 @@
-package com.visualstudioex3.canvasgame.engine.graphics
+package com.visualstudioex3.canvasgame.engine.graphics.extensions
 
 import android.graphics.Bitmap
 import android.graphics.PointF
@@ -6,6 +6,7 @@ import android.graphics.RectF
 import androidx.core.graphics.div
 import androidx.core.graphics.minus
 import androidx.core.graphics.plus
+import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 
 class BitmapExtensions {
     companion object {
