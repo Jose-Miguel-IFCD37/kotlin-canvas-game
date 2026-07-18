@@ -6,10 +6,6 @@ import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.IDrawCommand
 import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.SpriteDrawCommand
 import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.TextDrawCommand
 
-/*
-    Factoria de procesadores graficos. Permite facilmente añadir o quitar procesadores para
-    nuevos comandos de dibujado y centralizar en una unica llamada el procesado de un comando.
- */
 class DrawProcessorFactory {
     private val processors = hashMapOf(
         SpriteDrawCommand::class.java to SpriteDrawProcessor(),

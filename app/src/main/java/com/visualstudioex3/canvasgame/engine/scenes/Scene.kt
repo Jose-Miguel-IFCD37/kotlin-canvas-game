@@ -2,10 +2,6 @@ package com.visualstudioex3.canvasgame.engine.scenes
 
 import com.visualstudioex3.canvasgame.engine.GameObject
 
-/*
-    Las escenas habitualmente gestionan un grafo o jerarquita de objetos. En nuestro caso se
-    implementa como una lista plana de objetos.
- */
 abstract class Scene {
     companion object {
         val gameObjects = mutableListOf<GameObject>()

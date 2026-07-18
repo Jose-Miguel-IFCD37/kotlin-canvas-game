@@ -1,12 +1,5 @@
 package com.visualstudioex3.canvasgame.engine
 
-/*
-    En videojuegos y programas multimedia se busca evitar la continua creacion y destruccion de
-    instancias de objetos, sobre todo en lenguajes como Kotlin con gestion automatizada de memoria
-    (garbage collector). En su lugar se utilizan listas de objetos reciclables usando el patron
-    Object Pool. Este gestiona uan lista fija e inicializada de instancias de un tipo concreto y
-    permite solicitar la primera instancia disponible (desactivada o marcada como libre) de la lista.
- */
 abstract class ObjectPool<T : IEnableState>(
     instances: Int
 ) {
