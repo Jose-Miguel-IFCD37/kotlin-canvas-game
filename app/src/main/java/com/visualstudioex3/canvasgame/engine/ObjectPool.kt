@@ -11,12 +11,13 @@ abstract class ObjectPool<T : IEnableState>(
     instances: Int
 ) {
     private val pool = buildList {
-        for (i in 0 until instances)
+        repeat(instances) {
             add(
                 onCreateInstance().apply {
                     enable = false
                 }
             )
+        }
     }
 
     val count: Int = instances
