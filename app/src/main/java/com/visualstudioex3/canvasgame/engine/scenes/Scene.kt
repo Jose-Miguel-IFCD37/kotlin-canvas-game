@@ -3,9 +3,7 @@ package com.visualstudioex3.canvasgame.engine.scenes
 import com.visualstudioex3.canvasgame.engine.GameObject
 
 abstract class Scene {
-    companion object {
-        val gameObjects = mutableListOf<GameObject>()
-    }
+    val gameObjects = mutableListOf<GameObject>()
 
     abstract fun onCreate()
 
