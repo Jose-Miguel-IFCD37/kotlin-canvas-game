@@ -2,16 +2,19 @@ package com.visualstudioex3.canvasgame.engine
 
 class Time {
     companion object {
-        private var endTime: Long = 0
+        private var endTime: Float = 0f
         private var deltaTime: Float = 0f
 
         var framesPerSecond: Float = 0f
             private set
 
-        fun getDeltaTime(): Float {
-            val currentTime: Long = getTime()
+        fun getTime(): Float =
+            (System.nanoTime().toFloat() / 1_000_000_000.0).toFloat()
 
-            deltaTime = ((currentTime - endTime) / 1_000_000_000.0).toFloat()
+        fun getDeltaTime(): Float {
+            val currentTime: Float = getTime()
+
+            deltaTime = currentTime - endTime
             endTime = currentTime
             framesPerSecond = 1f / deltaTime
 
