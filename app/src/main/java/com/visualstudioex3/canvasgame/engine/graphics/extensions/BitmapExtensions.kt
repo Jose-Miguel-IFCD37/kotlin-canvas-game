@@ -10,14 +10,16 @@ import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 
 class BitmapExtensions {
     companion object {
-        fun Bitmap.getBounds(center: PointF): RectF {
-            val size: PointF =
-                RenderManager.camera.toCameraCoordinates(
-                    PointF(
-                        width.toFloat(),
-                        height.toFloat()
-                    )
+        fun Bitmap.getSize(): PointF =
+            RenderManager.camera.toCameraCoordinates(
+                PointF(
+                    width.toFloat(),
+                    height.toFloat()
                 )
+            )
+
+        fun Bitmap.getBounds(center: PointF): RectF {
+            val size: PointF = getSize()
             val leftTop: PointF = center - (size / 2f)
             val rightBottom: PointF = leftTop + size
 
