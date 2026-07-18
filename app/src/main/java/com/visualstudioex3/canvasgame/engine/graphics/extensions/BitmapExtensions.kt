@@ -6,17 +6,14 @@ import android.graphics.RectF
 import androidx.core.graphics.div
 import androidx.core.graphics.minus
 import androidx.core.graphics.plus
-import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
+import com.visualstudioex3.canvasgame.engine.extensions.PointFExtensions.Companion.toCameraCoordinates
 
 class BitmapExtensions {
     companion object {
-        fun Bitmap.getSize(): PointF =
-            RenderManager.camera.toCameraCoordinates(
-                PointF(
-                    width.toFloat(),
-                    height.toFloat()
-                )
-            )
+        fun Bitmap.getSize() = PointF(
+            width.toFloat(),
+            height.toFloat()
+        ).toCameraCoordinates()
 
         fun Bitmap.getBounds(center: PointF = PointF()): RectF {
             val size: PointF = getSize()

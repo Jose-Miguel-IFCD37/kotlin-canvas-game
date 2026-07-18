@@ -3,7 +3,7 @@ package com.visualstudioex3.canvasgame.engine.graphics.drawprocessors
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.PointF
-import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
+import com.visualstudioex3.canvasgame.engine.extensions.PointFExtensions.Companion.toScreenCoordinates
 import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.IDrawCommand
 import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.SpriteDrawCommand
 
@@ -15,11 +15,8 @@ class SpriteDrawProcessor: IDrawProcessor {
     override fun process(canvas: Canvas, command: IDrawCommand) {
         command as SpriteDrawCommand
 
-        val screenPosition: PointF =
-            RenderManager.camera.toScreenCoordinates(
-                command.position
-            )
-        val spritePosition = PointF(
+        val screenPosition: PointF = command.position.toScreenCoordinates()
+        val spriteCenteredPosition = PointF(
             screenPosition.x - (command.sprite.width / 2f),
             screenPosition.y - (command.sprite.height / 2f)
         )
@@ -41,8 +38,8 @@ class SpriteDrawProcessor: IDrawProcessor {
 
         canvas.drawBitmap(
             command.sprite,
-            spritePosition.x,
-            spritePosition.y,
+            spriteCenteredPosition.x,
+            spriteCenteredPosition.y,
             paint
         )
     }

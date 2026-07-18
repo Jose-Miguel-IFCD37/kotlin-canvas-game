@@ -3,9 +3,9 @@ package com.visualstudioex3.canvasgame.engine.graphics.drawprocessors
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.RectF
-import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
-import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.RectDrawCommand
+import com.visualstudioex3.canvasgame.engine.extensions.RectFExtensions.Companion.toScreenCoordinates
 import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.IDrawCommand
+import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.RectDrawCommand
 
 class RectDrawProcessor: IDrawProcessor {
     override fun process(
@@ -15,10 +15,7 @@ class RectDrawProcessor: IDrawProcessor {
         command as RectDrawCommand
 
         if (!command.rect.isEmpty) {
-            val rect: RectF =
-                RenderManager.camera.toScreenCoordinates(
-                    command.rect
-                )
+            val rect: RectF = command.rect.toScreenCoordinates()
 
             if (command.scale != 1f)
                 canvas.scale(

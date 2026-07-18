@@ -1,7 +1,7 @@
 package com.visualstudioex3.canvasgame.engine.input
 
 import android.graphics.PointF
-import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
+import com.visualstudioex3.canvasgame.engine.extensions.PointFExtensions.Companion.toCameraCoordinates
 
 class InputManager {
     companion object {
@@ -12,7 +12,7 @@ class InputManager {
     }
 
     fun cacheState(gesture: TouchGestures, offset: PointF) {
-        cacheState = InputState(gesture, RenderManager.camera.toCameraCoordinates(offset))
+        cacheState = InputState(gesture, offset.toCameraCoordinates())
     }
 
     fun update() {
