@@ -19,7 +19,7 @@ class SpriteDrawProcessor: IDrawProcessor {
             RenderManager.camera.toScreenCoordinates(
                 command.position
             )
-        val pivot = PointF(
+        val spritePosition = PointF(
             screenPosition.x - (command.sprite.width / 2f),
             screenPosition.y - (command.sprite.height / 2f)
         )
@@ -27,22 +27,23 @@ class SpriteDrawProcessor: IDrawProcessor {
         if (command.rotation != 0f)
             canvas.rotate(
                 command.rotation,
-                pivot.x,
-                pivot.y
+                screenPosition.x,
+                screenPosition.y
             )
 
         if (command.scale != 1f)
             canvas.scale(
                 command.scale,
                 command.scale,
-                pivot.x,
-                pivot.y
+                screenPosition.x,
+                screenPosition.y
             )
 
         canvas.drawBitmap(
             command.sprite,
-            pivot.x,
-            pivot.y, paint
+            spritePosition.x,
+            spritePosition.y,
+            paint
         )
     }
 }
