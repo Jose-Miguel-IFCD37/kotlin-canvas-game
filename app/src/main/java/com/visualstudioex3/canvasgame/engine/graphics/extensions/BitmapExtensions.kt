@@ -18,7 +18,7 @@ class BitmapExtensions {
                 )
             )
 
-        fun Bitmap.getBounds(center: PointF): RectF {
+        fun Bitmap.getBounds(center: PointF = PointF()): RectF {
             val size: PointF = getSize()
             val leftTop: PointF = center - (size / 2f)
             val rightBottom: PointF = leftTop + size
