@@ -5,6 +5,7 @@ import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.RectDrawComma
 import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.IDrawCommand
 import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.SpriteDrawCommand
 import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.TextDrawCommand
+import androidx.core.graphics.withSave
 
 class DrawProcessorFactory {
     private val processors = hashMapOf(
@@ -18,6 +19,8 @@ class DrawProcessorFactory {
             ?: error("No se encuentra procesador de dibujado para el comando " +
                     "${command.javaClass.name}")
 
-        processor.process(canvas, command)
+        canvas.withSave {
+            processor.process(this, command)
+        }
     }
 }
