@@ -15,6 +15,8 @@ class SpriteCollider(
     var bounds = RectF()
         private set
 
+    var onCollision: ((GameObject) -> Unit)? = null
+
     override fun update(deltaTime: Float) {
         if (spriteRenderer == null)
             spriteRenderer = gameObject.getComponent<SpriteRenderer>()

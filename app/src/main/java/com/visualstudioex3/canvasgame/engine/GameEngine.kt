@@ -19,6 +19,7 @@ import androidx.core.view.WindowInsetsControllerCompat
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.input.InputManager
 import com.visualstudioex3.canvasgame.engine.input.TouchGestures
+import com.visualstudioex3.canvasgame.engine.physics.PhysicsManager
 import com.visualstudioex3.canvasgame.engine.scenes.Scene
 import com.visualstudioex3.canvasgame.engine.scenes.SceneManager
 import kotlin.system.exitProcess
@@ -39,6 +40,7 @@ class GameEngine(
     private lateinit var renderManager: RenderManager
     private val sceneManager = SceneManager()
     private val inputManager = InputManager()
+    private val physicsManager = PhysicsManager()
 
     init {
         hideSystemBars(activity)
@@ -137,6 +139,7 @@ class GameEngine(
                 val deltaTime: Float = Time.getDeltaTime()
 
                 inputManager.update()
+                physicsManager.update()
                 sceneManager.update(deltaTime)
                 renderManager.present()
             }
