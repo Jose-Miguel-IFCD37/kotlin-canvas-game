@@ -10,6 +10,7 @@ import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
 import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteColliderRenderer
 import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteRenderer
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
+import com.visualstudioex3.canvasgame.game.entities.enemies.BaseEnemy
 
 class Player : GameObject() {
     private var targetPosition: Float = 0f
@@ -28,7 +29,13 @@ class Player : GameObject() {
         addComponent<SpriteRenderer>().apply {
             image = GameResources.loadBitmap(R.drawable.player_ship)
         }
-        addComponent<SpriteCollider>()
+        addComponent<SpriteCollider>().apply {
+            onCollision = { other ->
+                if (other is BaseEnemy) {
+                    this@Player.enable = false
+                }
+            }
+        }
         addComponent<SpriteColliderRenderer>()
 
         transform.position = PointF(
