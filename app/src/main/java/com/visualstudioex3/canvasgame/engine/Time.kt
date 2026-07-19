@@ -9,7 +9,7 @@ class Time {
             private set
 
         fun getTime(): Float =
-            (System.nanoTime().toFloat() / 1_000_000_000.0).toFloat()
+            (System.nanoTime() / 1_000_000_000.0).toFloat()
 
         fun getDeltaTime(): Float {
             val currentTime: Float = getTime()
