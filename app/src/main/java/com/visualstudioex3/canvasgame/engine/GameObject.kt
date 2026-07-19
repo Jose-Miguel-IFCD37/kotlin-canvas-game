@@ -1,7 +1,6 @@
 package com.visualstudioex3.canvasgame.engine
 
-import com.visualstudioex3.canvasgame.engine.components.IComponent
-import com.visualstudioex3.canvasgame.engine.components.renderers.IRenderer
+import com.visualstudioex3.canvasgame.engine.graphics.components.IRenderer
 
 /*
     GameObject basado en la implementacion de Unity y su arquitectura de componentes.

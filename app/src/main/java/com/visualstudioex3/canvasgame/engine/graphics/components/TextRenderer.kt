@@ -1,4 +1,4 @@
-package com.visualstudioex3.canvasgame.engine.components.renderers
+package com.visualstudioex3.canvasgame.engine.graphics.components
 
 import android.graphics.Color
 import androidx.core.graphics.toColor

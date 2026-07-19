@@ -1,6 +1,6 @@
 package com.visualstudioex3.canvasgame.engine.physics
 
-import com.visualstudioex3.canvasgame.engine.components.physics.SpriteCollider
+import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
 import com.visualstudioex3.canvasgame.engine.scenes.SceneManager
 
 class PhysicsManager {

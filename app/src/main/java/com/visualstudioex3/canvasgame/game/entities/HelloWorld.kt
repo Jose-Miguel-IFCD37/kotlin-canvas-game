@@ -4,7 +4,7 @@ import android.graphics.Color
 import android.graphics.PointF
 import androidx.core.graphics.toColor
 import com.visualstudioex3.canvasgame.engine.GameObject
-import com.visualstudioex3.canvasgame.engine.components.renderers.TextRenderer
+import com.visualstudioex3.canvasgame.engine.graphics.components.TextRenderer
 
 class HelloWorld: GameObject() {
     init {

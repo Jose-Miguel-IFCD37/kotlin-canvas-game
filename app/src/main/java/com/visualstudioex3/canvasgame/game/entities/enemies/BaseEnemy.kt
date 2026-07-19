@@ -5,9 +5,9 @@ import android.graphics.PointF
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.GameResources
 import com.visualstudioex3.canvasgame.engine.IEnableState
-import com.visualstudioex3.canvasgame.engine.components.physics.SpriteCollider
-import com.visualstudioex3.canvasgame.engine.components.renderers.SpriteColliderRenderer
-import com.visualstudioex3.canvasgame.engine.components.renderers.SpriteRenderer
+import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
+import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteColliderRenderer
+import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteRenderer
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.graphics.extensions.BitmapExtensions.Companion.getSize
 import kotlin.random.Random

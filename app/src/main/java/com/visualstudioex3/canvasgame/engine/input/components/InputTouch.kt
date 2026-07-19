@@ -1,11 +1,11 @@
-package com.visualstudioex3.canvasgame.engine.components.input
+package com.visualstudioex3.canvasgame.engine.input.components
 
 import android.graphics.PointF
 import com.visualstudioex3.canvasgame.engine.GameObject
+import com.visualstudioex3.canvasgame.engine.IComponent
 import com.visualstudioex3.canvasgame.engine.input.InputManager
 import com.visualstudioex3.canvasgame.engine.input.InputState
 import com.visualstudioex3.canvasgame.engine.input.TouchGestures
-import com.visualstudioex3.canvasgame.engine.components.IComponent
 
 class InputTouch(
     override val gameObject: GameObject

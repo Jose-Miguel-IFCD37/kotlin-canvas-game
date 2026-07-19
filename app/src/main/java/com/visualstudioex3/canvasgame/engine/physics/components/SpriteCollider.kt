@@ -1,9 +1,9 @@
-package com.visualstudioex3.canvasgame.engine.components.physics
+package com.visualstudioex3.canvasgame.engine.physics.components
 
 import android.graphics.RectF
 import com.visualstudioex3.canvasgame.engine.GameObject
-import com.visualstudioex3.canvasgame.engine.components.IComponent
-import com.visualstudioex3.canvasgame.engine.components.renderers.SpriteRenderer
+import com.visualstudioex3.canvasgame.engine.IComponent
+import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteRenderer
 import com.visualstudioex3.canvasgame.engine.graphics.extensions.BitmapExtensions.Companion.getBounds
 
 class SpriteCollider(
