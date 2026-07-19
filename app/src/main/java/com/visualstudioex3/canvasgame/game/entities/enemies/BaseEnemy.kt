@@ -9,46 +9,40 @@ import com.visualstudioex3.canvasgame.engine.components.physics.SpriteCollider
 import com.visualstudioex3.canvasgame.engine.components.renderers.SpriteColliderRenderer
 import com.visualstudioex3.canvasgame.engine.components.renderers.SpriteRenderer
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
-import kotlin.math.min
+import com.visualstudioex3.canvasgame.engine.graphics.extensions.BitmapExtensions.Companion.getSize
 import kotlin.random.Random
 
-abstract class BaseEnemy: GameObject(), IEnableState {
-    companion object {
-        const val BASE_MOVEMENT_SPEED: Float = 3f
-    }
-
+abstract class BaseEnemy : GameObject(), IEnableState {
     private var sprites = mutableListOf<Bitmap>()
-    private val spriteRenderer: SpriteRenderer
-
-    var speed: Float = BASE_MOVEMENT_SPEED
-
-    init {
-        addComponent<SpriteCollider>().apply {
-            onExitCameraBounds = {
-                enable = !(transform.position.y > 0f)
-            }
-        }
+    private val renderer = addComponent<SpriteRenderer>()
+    private val collider = addComponent<SpriteCollider>().apply {
         addComponent<SpriteColliderRenderer>()
-        spriteRenderer = addComponent<SpriteRenderer>()
     }
+
+    val speed: Float = 3f
 
     fun addSprite(resourceId: Int) {
         sprites.add(GameResources.loadBitmap(resourceId))
     }
 
     override fun onEnable() {
-        spriteRenderer.image = sprites.random()
+        renderer.image = sprites.random()
         transform.position = PointF(
             Random.nextDouble( // Random no implementa nextFloat(from, until)
                 1.0,
                 RenderManager.camera.width - 1.0
             ).toFloat(),
-            -spriteRenderer.image?.height!!.toFloat()
+            -renderer.image?.getSize()?.y!!
         )
-        speed = min(0.1f, Random.nextFloat()) * BASE_MOVEMENT_SPEED
     }
 
     override fun onUpdate(deltaTime: Float) {
         transform.move(y = deltaTime * speed)
+
+        if (!RenderManager.camera.getBounds().intersect(collider.bounds)) {
+            if (transform.position.y > 0) {
+                enable = false
+            }
+        }
     }
 }
