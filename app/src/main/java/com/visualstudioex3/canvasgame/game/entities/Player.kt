@@ -1,10 +1,10 @@
 package com.visualstudioex3.canvasgame.game.entities
 
 import android.graphics.PointF
-import androidx.compose.ui.util.lerp
 import com.visualstudioex3.canvasgame.R
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.GameResources
+import com.visualstudioex3.canvasgame.engine.MathF
 import com.visualstudioex3.canvasgame.engine.components.input.InputTouch
 import com.visualstudioex3.canvasgame.engine.components.physics.SpriteCollider
 import com.visualstudioex3.canvasgame.engine.components.renderers.SpriteColliderRenderer
@@ -18,7 +18,11 @@ class Player : GameObject() {
     init {
         addComponent<InputTouch>().apply {
             onTap = { offset ->
-                targetPosition = offset.x
+                targetPosition = MathF.clamp(
+                    offset.x,
+                    1f,
+                    RenderManager.camera.width - 1f
+                )
             }
         }
         addComponent<SpriteRenderer>().apply {
@@ -37,7 +41,7 @@ class Player : GameObject() {
 
     override fun onUpdate(deltaTime: Float) {
         transform.translate(
-            lerp(
+            MathF.lerp(
                 transform.position.x,
                 targetPosition,
                 deltaTime * movementSpeed
