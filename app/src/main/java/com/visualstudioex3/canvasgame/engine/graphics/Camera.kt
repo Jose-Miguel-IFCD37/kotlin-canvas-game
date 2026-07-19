@@ -15,7 +15,6 @@ class Camera(
 
     val width: Float
     val height: Float
-    val bounds: RectF
 
     init {
         val surfaceSize = Point(
@@ -26,12 +25,13 @@ class Camera(
         factor = calculateGreatestCommonFactor(surfaceSize.x, surfaceSize.y)
         width = surfaceSize.x / factor
         height = surfaceSize.y / factor
-        bounds = RectF(0f, 0f, width, height)
 
         Log.d(
             "Screen::init",
             "Virtual screen size: ${width}x${height} (${surfaceSize.x}x${surfaceSize.y}px)")
     }
+
+    fun getBounds() = RectF(0f, 0f, width, height)
 
     fun toScreenCoordinates(coordinates: PointF) = coordinates * factor
 
