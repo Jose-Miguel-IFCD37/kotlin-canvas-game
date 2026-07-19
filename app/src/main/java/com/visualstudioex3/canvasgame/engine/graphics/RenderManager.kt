@@ -6,10 +6,10 @@ import android.graphics.PointF
 import android.view.SurfaceHolder
 import androidx.core.graphics.toColor
 import com.visualstudioex3.canvasgame.engine.Time
-import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.IDrawCommand
-import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.TextAlign
-import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.TextDrawCommand
-import com.visualstudioex3.canvasgame.engine.graphics.drawprocessors.DrawProcessorFactory
+import com.visualstudioex3.canvasgame.engine.graphics.commands.IDrawCommand
+import com.visualstudioex3.canvasgame.engine.graphics.commands.TextAlign
+import com.visualstudioex3.canvasgame.engine.graphics.commands.TextDrawCommand
+import com.visualstudioex3.canvasgame.engine.graphics.processors.DrawProcessorFactory
 
 class RenderManager(
     private val surfaceHolder: SurfaceHolder

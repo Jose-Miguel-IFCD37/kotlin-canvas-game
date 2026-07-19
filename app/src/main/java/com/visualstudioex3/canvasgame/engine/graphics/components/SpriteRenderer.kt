@@ -4,7 +4,7 @@ import android.graphics.Bitmap
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.Transform
-import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.SpriteDrawCommand
+import com.visualstudioex3.canvasgame.engine.graphics.commands.SpriteDrawCommand
 
 class SpriteRenderer(
     override val gameObject: GameObject

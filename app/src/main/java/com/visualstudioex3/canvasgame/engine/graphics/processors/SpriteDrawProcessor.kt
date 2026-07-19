@@ -1,11 +1,11 @@
-package com.visualstudioex3.canvasgame.engine.graphics.drawprocessors
+package com.visualstudioex3.canvasgame.engine.graphics.processors
 
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.PointF
 import com.visualstudioex3.canvasgame.engine.extensions.PointFExtensions.Companion.toScreenCoordinates
-import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.IDrawCommand
-import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.SpriteDrawCommand
+import com.visualstudioex3.canvasgame.engine.graphics.commands.IDrawCommand
+import com.visualstudioex3.canvasgame.engine.graphics.commands.SpriteDrawCommand
 
 class SpriteDrawProcessor: IDrawProcessor {
     private val paint: Paint = Paint().apply {

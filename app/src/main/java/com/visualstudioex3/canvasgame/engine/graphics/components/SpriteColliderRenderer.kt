@@ -4,7 +4,7 @@ import android.graphics.Color
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
-import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.RectDrawCommand
+import com.visualstudioex3.canvasgame.engine.graphics.commands.RectDrawCommand
 
 class SpriteColliderRenderer(
     override val gameObject: GameObject

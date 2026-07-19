@@ -1,11 +1,11 @@
-package com.visualstudioex3.canvasgame.engine.graphics.drawprocessors
+package com.visualstudioex3.canvasgame.engine.graphics.processors
 
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.RectF
 import com.visualstudioex3.canvasgame.engine.extensions.RectFExtensions.Companion.toScreenCoordinates
-import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.IDrawCommand
-import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.RectDrawCommand
+import com.visualstudioex3.canvasgame.engine.graphics.commands.IDrawCommand
+import com.visualstudioex3.canvasgame.engine.graphics.commands.RectDrawCommand
 
 class RectDrawProcessor: IDrawProcessor {
     override fun process(

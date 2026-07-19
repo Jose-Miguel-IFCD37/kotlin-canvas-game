@@ -1,10 +1,10 @@
-package com.visualstudioex3.canvasgame.engine.graphics.drawprocessors
+package com.visualstudioex3.canvasgame.engine.graphics.processors
 
 import android.graphics.Canvas
-import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.RectDrawCommand
-import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.IDrawCommand
-import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.SpriteDrawCommand
-import com.visualstudioex3.canvasgame.engine.graphics.drawcommands.TextDrawCommand
+import com.visualstudioex3.canvasgame.engine.graphics.commands.RectDrawCommand
+import com.visualstudioex3.canvasgame.engine.graphics.commands.IDrawCommand
+import com.visualstudioex3.canvasgame.engine.graphics.commands.SpriteDrawCommand
+import com.visualstudioex3.canvasgame.engine.graphics.commands.TextDrawCommand
 import androidx.core.graphics.withSave
 
 class DrawProcessorFactory {
