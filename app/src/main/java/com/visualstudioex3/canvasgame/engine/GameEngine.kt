@@ -139,8 +139,8 @@ class GameEngine(
                 val deltaTime: Float = Time.getDeltaTime()
 
                 inputManager.update()
-                physicsManager.update()
                 sceneManager.update(deltaTime)
+                physicsManager.update()
                 renderManager.present()
             }
 
