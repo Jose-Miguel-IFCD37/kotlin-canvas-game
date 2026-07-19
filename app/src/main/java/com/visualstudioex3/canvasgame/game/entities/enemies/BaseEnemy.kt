@@ -10,13 +10,19 @@ import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteColliderR
 import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteRenderer
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.graphics.extensions.BitmapExtensions.Companion.getSize
+import com.visualstudioex3.canvasgame.game.entities.player.PlayerBullet
 import kotlin.random.Random
 
 abstract class BaseEnemy : GameObject(), IEnableState {
     private var sprites = mutableListOf<Bitmap>()
     private val renderer = addComponent<SpriteRenderer>()
     private val collider = addComponent<SpriteCollider>().apply {
-        addComponent<SpriteColliderRenderer>()
+        addComponent<SpriteColliderRenderer>().apply {
+            onCollision = { other ->
+                if (other is PlayerBullet)
+                    this@BaseEnemy.enable = false
+            }
+        }
     }
 
     val speed: Float = 3f

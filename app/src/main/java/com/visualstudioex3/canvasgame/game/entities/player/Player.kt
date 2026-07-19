@@ -1,16 +1,17 @@
-package com.visualstudioex3.canvasgame.game.entities
+package com.visualstudioex3.canvasgame.game.entities.player
 
 import android.graphics.PointF
 import com.visualstudioex3.canvasgame.R
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.GameResources
 import com.visualstudioex3.canvasgame.engine.MathF
-import com.visualstudioex3.canvasgame.engine.input.components.InputTouch
-import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
+import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteColliderRenderer
 import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteRenderer
-import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
+import com.visualstudioex3.canvasgame.engine.input.components.InputTouch
+import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
 import com.visualstudioex3.canvasgame.game.entities.enemies.BaseEnemy
+import com.visualstudioex3.canvasgame.game.entities.player.components.PlayerBulletSpawner
 
 class Player : GameObject() {
     private var targetPosition: Float = 0f
@@ -37,6 +38,7 @@ class Player : GameObject() {
             }
         }
         addComponent<SpriteColliderRenderer>()
+        addComponent<PlayerBulletSpawner>()
 
         transform.position = PointF(
             RenderManager.camera.width / 2,
