@@ -13,6 +13,6 @@ class Asteroid: BaseEnemy() {
     override fun onUpdate(deltaTime: Float) {
         super.onUpdate(deltaTime)
 
-        transform.rotation += deltaTime * speed
+        transform.rotation += deltaTime * 45f
     }
 }
