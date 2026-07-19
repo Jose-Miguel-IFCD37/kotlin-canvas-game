@@ -4,6 +4,7 @@ import com.visualstudioex3.canvasgame.engine.GameObject
 
 abstract class Scene {
     val gameObjects = mutableListOf<GameObject>()
+    val services = mutableListOf<IService>()
 
     abstract fun onCreate()
 
