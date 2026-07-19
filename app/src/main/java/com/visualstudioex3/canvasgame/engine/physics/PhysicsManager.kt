@@ -11,7 +11,7 @@ class PhysicsManager {
             colliders.forEach {
                 if (it != current) {
                     if (current.bounds.intersect(it.bounds)) {
-                        it.onCollision?.invoke(it.gameObject)
+                        it.onCollision?.invoke(current.gameObject)
                     }
                 }
             }
@@ -22,6 +22,8 @@ class PhysicsManager {
         SceneManager.scene.gameObjects.mapNotNull {
             it.getComponent<SpriteCollider>()
         }.filter {
-            it.enable
+            it.gameObject.enable &&
+            it.enable &&
+            !it.bounds.isEmpty
         }
 }
