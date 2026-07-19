@@ -12,6 +12,7 @@ class DrawProcessorFactory {
         SpriteDrawCommand::class.java to SpriteDrawProcessor(),
         TextDrawCommand::class.java to TextDrawProcessor(),
         RectDrawCommand::class.java to RectDrawProcessor(),
+        CircleDrawProcessor::class.java to CircleDrawProcessor(),
     )
 
     fun process(canvas: Canvas, command: IDrawCommand) {
