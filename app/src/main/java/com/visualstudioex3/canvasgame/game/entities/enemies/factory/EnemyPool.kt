@@ -17,9 +17,11 @@ class EnemyPool(
     }
 
     override fun onCreateInstance(): BaseEnemy =
-        (enemyTypes.random()
-            .getDeclaredConstructor()
-            .newInstance() as BaseEnemy).apply {
+        createInstanceOf(enemyTypes.random()).apply {
             SceneManager.scene.gameObjects.add(this)
         }
+
+    private fun createInstanceOf(type: Class<out BaseEnemy>): BaseEnemy =
+        type.getDeclaredConstructor()
+            .newInstance() as BaseEnemy
 }
