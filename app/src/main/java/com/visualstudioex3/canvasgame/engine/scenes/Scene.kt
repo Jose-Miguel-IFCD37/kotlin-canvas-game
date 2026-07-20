@@ -4,7 +4,13 @@ import com.visualstudioex3.canvasgame.engine.GameObject
 
 abstract class Scene {
     val gameObjects = mutableListOf<GameObject>()
-    val services = mutableListOf<IService>()
+    val services = HashSet<IService>()
+
+    inline fun <reified T> getService(): T?
+            where T : IService =
+        gameObjects.firstOrNull {
+            it::class.java == T::class.java
+        } as? T
 
     abstract fun onCreate()
 

@@ -1,6 +1,8 @@
 package com.visualstudioex3.canvasgame.engine
 
 import com.visualstudioex3.canvasgame.engine.graphics.components.IRenderer
+import com.visualstudioex3.canvasgame.engine.scenes.IService
+import com.visualstudioex3.canvasgame.engine.scenes.SceneManager
 
 /*
     GameObject basado en la implementacion de Unity y su arquitectura de componentes.
@@ -36,6 +38,10 @@ abstract class GameObject {
         components.firstOrNull {
             it::class.java == T::class.java
         } as? T
+
+    inline fun <reified T> getService(): T?
+            where T : IService =
+        SceneManager.scene.getService()
 
     open fun onEnable() {
     }
