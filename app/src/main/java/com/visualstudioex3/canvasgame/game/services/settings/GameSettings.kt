@@ -8,6 +8,10 @@ import com.visualstudioex3.canvasgame.engine.scenes.IService
 
 class GameSettings: IService {
     val settings = GameSettingsData(
+        debugSettings = DebugSettingsData(
+            showFPSCounter = true,
+            showColliders = false,
+        ),
         playerSettings = PlayerSettingsData(
             speed = 3f,
             bitmapResourceId = R.drawable.player_ship,

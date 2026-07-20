@@ -4,10 +4,16 @@ import android.graphics.Color
 import com.visualstudioex3.canvasgame.engine.graphics.commands.TextAlign
 
 data class GameSettingsData(
+    val debugSettings: DebugSettingsData,
     val playerSettings: PlayerSettingsData,
     val enemySettings: EnemySettingsData,
     val explossionSettings: ExplossionSettingsData,
     val scorerSettings: ScorerSettingsData,
+)
+
+data class DebugSettingsData(
+    val showFPSCounter: Boolean,
+    val showColliders: Boolean,
 )
 
 data class FactorySettingsData(
