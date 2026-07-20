@@ -15,6 +15,8 @@ class CircleDrawProcessor: IDrawProcessor {
         command as CircleDrawCommand
 
         val screenPosition: PointF = command.position.toScreenCoordinates()
+        val screenRadius: Float = PointF(command.radius, 0f)
+            .toScreenCoordinates().x
 
         if (command.scale != 1f)
             canvas.scale(
@@ -27,7 +29,7 @@ class CircleDrawProcessor: IDrawProcessor {
         canvas.drawCircle(
             screenPosition.x,
             screenPosition.y,
-            command.radius,
+            screenRadius,
             Paint().apply {
                 style = if (command.fill)
                     Paint.Style.FILL
