@@ -8,7 +8,7 @@ abstract class Scene {
 
     inline fun <reified T> getService(): T?
             where T : IService =
-        gameObjects.firstOrNull {
+        services.firstOrNull {
             it::class.java == T::class.java
         } as? T
 
