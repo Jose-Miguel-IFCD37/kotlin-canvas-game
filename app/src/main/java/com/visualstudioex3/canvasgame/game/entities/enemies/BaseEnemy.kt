@@ -16,7 +16,7 @@ import com.visualstudioex3.canvasgame.game.services.settings.EnemySettingsData
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 import kotlin.random.Random
 
-abstract class BaseEnemy : GameObject(), IEnableState {
+abstract class BaseEnemy : GameObject(), IEnemy {
     private val settings: EnemySettingsData = getService<GameSettings>()!!
         .settings.enemySettings
     private val explossionFactory = getService<ExplossionFactory>()!!

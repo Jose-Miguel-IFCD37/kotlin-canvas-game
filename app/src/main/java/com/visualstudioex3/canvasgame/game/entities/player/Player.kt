@@ -10,6 +10,8 @@ import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteRenderer
 import com.visualstudioex3.canvasgame.engine.input.components.InputTouch
 import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
 import com.visualstudioex3.canvasgame.game.entities.enemies.BaseEnemy
+import com.visualstudioex3.canvasgame.game.entities.enemies.EnemyBullet
+import com.visualstudioex3.canvasgame.game.entities.enemies.IEnemy
 import com.visualstudioex3.canvasgame.game.entities.player.components.PlayerBulletSpawner
 import com.visualstudioex3.canvasgame.game.services.explossion.ExplossionFactory
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
@@ -36,7 +38,7 @@ class Player : GameObject() {
         }
         addComponent<SpriteCollider>().apply {
             onCollision = { other ->
-                if (other is BaseEnemy) {
+                if (other is IEnemy) {
                     explossionFactory.explode(this@Player.transform.position)
                     this@Player.enable = false
                 }
