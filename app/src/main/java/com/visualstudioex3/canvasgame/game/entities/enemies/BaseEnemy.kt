@@ -5,7 +5,6 @@ import android.graphics.PointF
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.GameResources
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
-import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteColliderRenderer
 import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteRenderer
 import com.visualstudioex3.canvasgame.engine.graphics.extensions.BitmapExtensions.Companion.getSize
 import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
@@ -15,6 +14,7 @@ import com.visualstudioex3.canvasgame.game.entities.scorer.GameScore
 import com.visualstudioex3.canvasgame.game.services.explossion.ExplossionFactory
 import com.visualstudioex3.canvasgame.game.services.settings.EnemySettingsData
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
+import com.visualstudioex3.canvasgame.game.utils.GameObjectUtils
 import kotlin.random.Random
 
 abstract class BaseEnemy : GameObject(), IEnemy {
@@ -23,15 +23,15 @@ abstract class BaseEnemy : GameObject(), IEnemy {
     private val explossionFactory = getService<ExplossionFactory>()!!
     private val renderer = addComponent<SpriteRenderer>()
     private val collider = addComponent<SpriteCollider>().apply {
-        addComponent<SpriteColliderRenderer>().apply {
-            onCollision = { other ->
-                if (other is PlayerBullet) {
-                    scorer.addPoints(points)
-                    explossionFactory.explode(this@BaseEnemy.transform.position)
-                    this@BaseEnemy.enable = false
-                }
+        onCollision = { other ->
+            if (other is PlayerBullet) {
+                scorer.addPoints(points)
+                explossionFactory.explode(this@BaseEnemy.transform.position)
+                this@BaseEnemy.enable = false
             }
         }
+
+        GameObjectUtils.addSpriteColliderRendererIfDebugEnable(this@BaseEnemy)
     }
     private val scorer = SceneManager.scene.gameObjects
         .first { it is GameScore } as GameScore

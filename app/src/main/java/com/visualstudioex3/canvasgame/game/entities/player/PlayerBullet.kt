@@ -10,6 +10,7 @@ import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
 import com.visualstudioex3.canvasgame.game.entities.enemies.BaseEnemy
 import com.visualstudioex3.canvasgame.game.services.settings.BulletSettingsData
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
+import com.visualstudioex3.canvasgame.game.utils.GameObjectUtils
 
 class PlayerBullet: GameObject(), IEnableState {
     private val settings: BulletSettingsData = getService<GameSettings>()!!
@@ -27,7 +28,9 @@ class PlayerBullet: GameObject(), IEnableState {
                 }
             }
         }
-        addComponent<SpriteColliderRenderer>()
+        addComponent<SpriteColliderRenderer>().apply {
+            GameObjectUtils.addSpriteColliderRendererIfDebugEnable(this@PlayerBullet)
+        }
     }
 
     override fun onUpdate(deltaTime: Float) {

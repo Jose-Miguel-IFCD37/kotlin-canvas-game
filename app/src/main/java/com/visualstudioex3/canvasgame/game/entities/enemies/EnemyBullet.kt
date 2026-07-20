@@ -9,10 +9,11 @@ import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
 import com.visualstudioex3.canvasgame.game.entities.player.Player
 import com.visualstudioex3.canvasgame.game.services.settings.BulletSettingsData
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
+import com.visualstudioex3.canvasgame.game.utils.GameObjectUtils
 
 class EnemyBullet: GameObject(), IEnemy {
-    private val settings: BulletSettingsData = getService<GameSettings>()!!
-        .settings.enemySettings.enemyShipSettings.bulletsSettings
+    private val gameSettings = getService<GameSettings>()!!
+    private val settings: BulletSettingsData = gameSettings.settings.enemySettings.enemyShipSettings.bulletsSettings
     private val collider: SpriteCollider
 
     init {
@@ -26,7 +27,9 @@ class EnemyBullet: GameObject(), IEnemy {
                 }
             }
         }
-        addComponent<SpriteColliderRenderer>()
+        addComponent<SpriteColliderRenderer>().apply {
+            GameObjectUtils.addSpriteColliderRendererIfDebugEnable(this@EnemyBullet)
+        }
     }
 
     override fun onUpdate(deltaTime: Float) {

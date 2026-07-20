@@ -13,8 +13,10 @@ import com.visualstudioex3.canvasgame.game.entities.enemies.IEnemy
 import com.visualstudioex3.canvasgame.game.entities.player.components.PlayerBulletSpawner
 import com.visualstudioex3.canvasgame.game.entities.player.components.PlayerTemporalInvulnerability
 import com.visualstudioex3.canvasgame.game.services.explossion.ExplossionFactory
+import com.visualstudioex3.canvasgame.game.services.settings.DebugSettingsData
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 import com.visualstudioex3.canvasgame.game.services.settings.PlayerSettingsData
+import com.visualstudioex3.canvasgame.game.utils.GameObjectUtils
 
 class Player : GameObject() {
     private val settings: PlayerSettingsData = getService<GameSettings>()!!
@@ -48,8 +50,10 @@ class Player : GameObject() {
                     onPlayerDead?.invoke()
                 }
             }
+
+            GameObjectUtils.addSpriteColliderRendererIfDebugEnable(this@Player)
         }
-        addComponent<SpriteColliderRenderer>()
+
         addComponent<PlayerBulletSpawner>()
     }
 
