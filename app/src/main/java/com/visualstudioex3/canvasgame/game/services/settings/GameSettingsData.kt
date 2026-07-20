@@ -1,5 +1,7 @@
 package com.visualstudioex3.canvasgame.game.services.settings
 
+import android.graphics.Color
+
 data class GameSettingsData(
     val playerSettings: PlayerSettingsData,
     val enemySettings: EnemySettingsData,
@@ -42,7 +44,10 @@ data class EnemyShipSettingsData(
 )
 
 data class ExplossionSettingsData(
-    val maxRadius: Float,
-    val growSpeed: Float,
+    val startRadius: Float,
+    val endRadius: Float,
+    val startColor: Color,
+    val endColor: Color,
+    val speed: Float,
     val factorySettings: FactorySettingsData
 )

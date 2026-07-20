@@ -1,5 +1,8 @@
 package com.visualstudioex3.canvasgame.game.services.settings
 
+import android.graphics.Color
+import androidx.core.graphics.alpha
+import androidx.core.graphics.toColor
 import com.visualstudioex3.canvasgame.R
 import com.visualstudioex3.canvasgame.engine.scenes.IService
 
@@ -50,8 +53,11 @@ class GameSettings: IService {
             )
         ),
         explossionSettings = ExplossionSettingsData(
-            maxRadius = 25f,
-            growSpeed = 50f,
+            startRadius = 0.25f,
+            endRadius = 2.5f,
+            startColor = Color.WHITE.toColor(),
+            endColor = Color.BLACK.toColor(),
+            speed = 15f,
             factorySettings = FactorySettingsData(
                 maxInstances = 5
             )
