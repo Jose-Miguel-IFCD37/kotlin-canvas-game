@@ -3,6 +3,7 @@ package com.visualstudioex3.canvasgame.game.services.settings
 import android.graphics.Color
 import androidx.core.graphics.toColor
 import com.visualstudioex3.canvasgame.R
+import com.visualstudioex3.canvasgame.engine.graphics.commands.TextAlign
 import com.visualstudioex3.canvasgame.engine.scenes.IService
 
 class GameSettings: IService {
@@ -40,7 +41,8 @@ class GameSettings: IService {
                     R.drawable.asteroid_3,
                     R.drawable.asteroid_4
                 ),
-                rotation = 45f
+                rotation = 45f,
+                points = 250
             ),
             enemyShipSettings = EnemyShipSettingsData(
                 bitmapResourceIds = listOf(
@@ -55,7 +57,8 @@ class GameSettings: IService {
                         maxInstances = 3,
                         spawnTime = 2f
                     )
-                )
+                ),
+                points = 500
             )
         ),
         explossionSettings = ExplossionSettingsData(
@@ -67,6 +70,12 @@ class GameSettings: IService {
             factorySettings = FactorySettingsData(
                 maxInstances = 5
             )
+        ),
+        scorerSettings = ScorerSettingsData(
+            fontSize = 128f,
+            align = TextAlign.Center,
+            color = Color.WHITE.toColor(),
+            format = "%08d",
         )
     )
 }

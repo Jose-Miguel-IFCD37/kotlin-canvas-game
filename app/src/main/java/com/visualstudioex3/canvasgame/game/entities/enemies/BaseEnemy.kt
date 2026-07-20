@@ -9,7 +9,9 @@ import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteColliderR
 import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteRenderer
 import com.visualstudioex3.canvasgame.engine.graphics.extensions.BitmapExtensions.Companion.getSize
 import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
+import com.visualstudioex3.canvasgame.engine.scenes.SceneManager
 import com.visualstudioex3.canvasgame.game.entities.player.PlayerBullet
+import com.visualstudioex3.canvasgame.game.entities.scorer.GameScore
 import com.visualstudioex3.canvasgame.game.services.explossion.ExplossionFactory
 import com.visualstudioex3.canvasgame.game.services.settings.EnemySettingsData
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
@@ -24,12 +26,16 @@ abstract class BaseEnemy : GameObject(), IEnemy {
         addComponent<SpriteColliderRenderer>().apply {
             onCollision = { other ->
                 if (other is PlayerBullet) {
+                    scorer.addPoints(points)
                     explossionFactory.explode(this@BaseEnemy.transform.position)
                     this@BaseEnemy.enable = false
                 }
             }
         }
     }
+    private val scorer = SceneManager.scene.gameObjects
+        .first { it is GameScore } as GameScore
+    abstract val points: Int
 
     private var sprites = mutableListOf<Bitmap>()
 

@@ -6,6 +6,7 @@ import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 class Asteroid: BaseEnemy() {
     private val settings: AsteroidSettingsData = getService<GameSettings>()!!
         .settings.enemySettings.asteroidSettings
+    override val points: Int = settings.points
 
     init {
         settings.bitmapResourceIds.forEach {

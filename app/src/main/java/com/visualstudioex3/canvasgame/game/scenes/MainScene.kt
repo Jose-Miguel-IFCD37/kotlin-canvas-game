@@ -6,6 +6,7 @@ import com.visualstudioex3.canvasgame.game.entities.HelloWorld
 import com.visualstudioex3.canvasgame.game.entities.player.Player
 import com.visualstudioex3.canvasgame.game.entities.enemies.factory.EnemySpawner
 import com.visualstudioex3.canvasgame.game.entities.player.PlayerManager
+import com.visualstudioex3.canvasgame.game.entities.scorer.GameScore
 import com.visualstudioex3.canvasgame.game.services.explossion.ExplossionFactory
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 
@@ -14,7 +15,7 @@ class MainScene: Scene() {
         services.add(GameSettings())
         services.add(ExplossionFactory())
 
-        gameObjects.add(HelloWorld())
+        gameObjects.add(GameScore())
         gameObjects.add(Player())
         gameObjects.add(PlayerManager())
         gameObjects.add(EnemySpawner())
