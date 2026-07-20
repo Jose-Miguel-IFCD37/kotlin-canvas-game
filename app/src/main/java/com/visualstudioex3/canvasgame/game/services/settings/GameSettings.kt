@@ -8,7 +8,6 @@ import com.visualstudioex3.canvasgame.engine.scenes.IService
 class GameSettings: IService {
     val settings = GameSettingsData(
         playerSettings = PlayerSettingsData(
-            lives = 3,
             speed = 3f,
             bitmapResourceId = R.drawable.player_ship,
             bulletsSettings = BulletSettingsData(
@@ -22,6 +21,10 @@ class GameSettings: IService {
             invulnerabilitySettings = PlayerInvulnerabilitySettingsData(
                 duration = 5f,
                 blinkInterval = 0.15f
+            ),
+            playerManagerSettings = PlayerManagerSettingsData(
+                lives = 3,
+                respawnDelay = 1.5f
             )
         ),
         enemySettings = EnemySettingsData(

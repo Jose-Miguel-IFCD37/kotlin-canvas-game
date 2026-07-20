@@ -23,6 +23,8 @@ class Player : GameObject() {
     private val invulnerability = addComponent<PlayerTemporalInvulnerability>()
     private var targetPosition: Float = 0f
 
+    var onPlayerDead: (() -> Unit)? = null
+
     init {
         addComponent<InputTouch>().apply {
             onTap = { offset ->
@@ -43,6 +45,7 @@ class Player : GameObject() {
                 ) {
                     explossionFactory.explode(this@Player.transform.position)
                     this@Player.enable = false
+                    onPlayerDead?.invoke()
                 }
             }
         }

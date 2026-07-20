@@ -14,11 +14,16 @@ data class FactorySettingsData(
 )
 
 data class PlayerSettingsData(
-    val lives: Int,
     val speed: Float,
     val bitmapResourceId: Int,
     val bulletsSettings: BulletSettingsData,
-    val invulnerabilitySettings: PlayerInvulnerabilitySettingsData
+    val invulnerabilitySettings: PlayerInvulnerabilitySettingsData,
+    val playerManagerSettings: PlayerManagerSettingsData
+)
+
+data class PlayerManagerSettingsData(
+    val lives: Int,
+    val respawnDelay: Float
 )
 
 data class PlayerInvulnerabilitySettingsData(

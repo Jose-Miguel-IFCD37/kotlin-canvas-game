@@ -5,6 +5,7 @@ import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.game.entities.HelloWorld
 import com.visualstudioex3.canvasgame.game.entities.player.Player
 import com.visualstudioex3.canvasgame.game.entities.enemies.factory.EnemySpawner
+import com.visualstudioex3.canvasgame.game.entities.player.PlayerManager
 import com.visualstudioex3.canvasgame.game.services.explossion.ExplossionFactory
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 
@@ -15,6 +16,7 @@ class MainScene: Scene() {
 
         gameObjects.add(HelloWorld())
         gameObjects.add(Player())
+        gameObjects.add(PlayerManager())
         gameObjects.add(EnemySpawner())
 
         RenderManager.showFPSCounter = true
