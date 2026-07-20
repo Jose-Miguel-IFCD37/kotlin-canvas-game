@@ -5,9 +5,11 @@ import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.game.entities.HelloWorld
 import com.visualstudioex3.canvasgame.game.entities.player.Player
 import com.visualstudioex3.canvasgame.game.entities.enemies.factory.EnemySpawner
+import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 
 class MainScene: Scene() {
     override fun onCreate() {
+        services.add(GameSettings())
         gameObjects.add(HelloWorld())
         gameObjects.add(Player())
         gameObjects.add(EnemySpawner())
