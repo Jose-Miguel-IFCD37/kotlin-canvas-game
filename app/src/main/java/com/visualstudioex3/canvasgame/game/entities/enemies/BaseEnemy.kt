@@ -4,7 +4,6 @@ import android.graphics.Bitmap
 import android.graphics.PointF
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.GameResources
-import com.visualstudioex3.canvasgame.engine.IEnableState
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteColliderRenderer
 import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteRenderer
@@ -24,9 +23,10 @@ abstract class BaseEnemy : GameObject(), IEnemy {
     private val collider = addComponent<SpriteCollider>().apply {
         addComponent<SpriteColliderRenderer>().apply {
             onCollision = { other ->
-                if (other is PlayerBullet)
+                if (other is PlayerBullet) {
                     explossionFactory.explode(this@BaseEnemy.transform.position)
                     this@BaseEnemy.enable = false
+                }
             }
         }
     }
