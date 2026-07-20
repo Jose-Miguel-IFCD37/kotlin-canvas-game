@@ -16,7 +16,7 @@ class TextDrawProcessor: IDrawProcessor {
             color = command.color.toArgb()
             textSize = command.fontSize
             isAntiAlias = true
-            textAlign = Paint.Align.entries[command.align.ordinal]
+            textAlign = command.align.value
         }
 
         canvas.drawText(

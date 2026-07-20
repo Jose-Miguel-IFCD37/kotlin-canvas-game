@@ -53,7 +53,7 @@ class RenderManager(
     private fun addFPSCounterCommand() {
         addDrawCommand(
             TextDrawCommand(
-                position = PointF(camera.width - 1f, 0.5f),
+                position = PointF(camera.width, 0.5f),
                 color = Color.YELLOW.toColor(),
                 fontSize = 48f,
                 align = TextAlign.Right,

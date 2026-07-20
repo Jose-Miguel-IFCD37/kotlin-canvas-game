@@ -14,6 +14,7 @@ class TextRenderer(
     var text: String = ""
     var color: Color = Color.WHITE.toColor()
     var fontSize: Float = 24f
+    var align: TextAlign = TextAlign.Left
 
     override fun update(deltaTime: Float) {
     }
@@ -24,7 +25,7 @@ class TextRenderer(
                 gameObject.transform.position,
                 color,
                 fontSize,
-                TextAlign.Left,
+                align,
                 text
             )
         )

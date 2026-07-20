@@ -1,13 +1,14 @@
 package com.visualstudioex3.canvasgame.engine.graphics.commands
 
 import android.graphics.Color
+import android.graphics.Paint
 import android.graphics.PointF
 
 @Suppress("unused")
-enum class TextAlign {
-    Left,
-    Right,
-    Center,
+enum class TextAlign(val value: Paint.Align) {
+    Left(Paint.Align.LEFT),
+    Right(Paint.Align.RIGHT),
+    Center(Paint.Align.CENTER),
 }
 
 data class TextDrawCommand(
