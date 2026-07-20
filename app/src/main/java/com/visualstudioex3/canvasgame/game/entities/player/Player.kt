@@ -1,7 +1,6 @@
 package com.visualstudioex3.canvasgame.game.entities.player
 
 import android.graphics.PointF
-import com.visualstudioex3.canvasgame.R
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.GameResources
 import com.visualstudioex3.canvasgame.engine.MathF
@@ -12,10 +11,14 @@ import com.visualstudioex3.canvasgame.engine.input.components.InputTouch
 import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
 import com.visualstudioex3.canvasgame.game.entities.enemies.BaseEnemy
 import com.visualstudioex3.canvasgame.game.entities.player.components.PlayerBulletSpawner
+import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
+import com.visualstudioex3.canvasgame.game.services.settings.PlayerSettingsData
 
 class Player : GameObject() {
+    private val settings: PlayerSettingsData = getService<GameSettings>()!!
+        .settings.playerSettings
+
     private var targetPosition: Float = 0f
-    private var movementSpeed: Float = 3f
 
     init {
         addComponent<InputTouch>().apply {
@@ -28,7 +31,7 @@ class Player : GameObject() {
             }
         }
         addComponent<SpriteRenderer>().apply {
-            image = GameResources.loadBitmap(R.drawable.player_ship)
+            image = GameResources.loadBitmap(settings.bitmapResourceId)
         }
         addComponent<SpriteCollider>().apply {
             onCollision = { other ->
@@ -53,7 +56,7 @@ class Player : GameObject() {
             MathF.lerp(
                 transform.position.x,
                 targetPosition,
-                deltaTime * movementSpeed
+                deltaTime * settings.speed
             )
         )
     }

@@ -2,9 +2,14 @@ package com.visualstudioex3.canvasgame.game.services.explossion
 
 import android.graphics.PointF
 import com.visualstudioex3.canvasgame.engine.scenes.IService
+import com.visualstudioex3.canvasgame.engine.scenes.SceneManager
+import com.visualstudioex3.canvasgame.game.services.settings.FactorySettingsData
+import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 
 class ExplossionFactory: IService {
-    val pool = ExplossionPool(5)
+    private val settings: FactorySettingsData = SceneManager.scene.getService<GameSettings>()!!
+        .settings.explossionSettings.factorySettings
+    private val pool = ExplossionPool(settings.maxInstances)
 
     fun explode(position: PointF) {
         pool.getInstance().apply {

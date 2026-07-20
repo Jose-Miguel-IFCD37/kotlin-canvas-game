@@ -5,16 +5,19 @@ import android.graphics.PointF
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.GameResources
 import com.visualstudioex3.canvasgame.engine.IEnableState
-import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
+import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteColliderRenderer
 import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteRenderer
-import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.graphics.extensions.BitmapExtensions.Companion.getSize
+import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
 import com.visualstudioex3.canvasgame.game.entities.player.PlayerBullet
+import com.visualstudioex3.canvasgame.game.services.settings.EnemySettingsData
+import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 import kotlin.random.Random
 
 abstract class BaseEnemy : GameObject(), IEnableState {
-    private var sprites = mutableListOf<Bitmap>()
+    private val settings: EnemySettingsData = getService<GameSettings>()!!
+        .settings.enemySettings
     private val renderer = addComponent<SpriteRenderer>()
     private val collider = addComponent<SpriteCollider>().apply {
         addComponent<SpriteColliderRenderer>().apply {
@@ -25,7 +28,7 @@ abstract class BaseEnemy : GameObject(), IEnableState {
         }
     }
 
-    val speed: Float = 3f
+    private var sprites = mutableListOf<Bitmap>()
 
     fun addSprite(resourceId: Int) {
         sprites.add(GameResources.loadBitmap(resourceId))
@@ -43,7 +46,7 @@ abstract class BaseEnemy : GameObject(), IEnableState {
     }
 
     override fun onUpdate(deltaTime: Float) {
-        transform.move(y = deltaTime * speed)
+        transform.move(y = deltaTime * settings.speed)
 
         if (!RenderManager.camera.getBounds().intersect(collider.bounds)) {
             if (transform.position.y > 0) {

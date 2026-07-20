@@ -1,11 +1,15 @@
 package com.visualstudioex3.canvasgame.game.entities.enemies
 
-import com.visualstudioex3.canvasgame.R
+import com.visualstudioex3.canvasgame.game.services.settings.EnemyShipSettingsData
+import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 
 class EnemyShip: BaseEnemy() {
+    private val settings: EnemyShipSettingsData = getService<GameSettings>()!!
+        .settings.enemySettings.enemyShipSettings
+
     init {
-        addSprite(R.drawable.enemy_ship_1)
-        addSprite(R.drawable.enemy_ship_2)
-        addSprite(R.drawable.enemy_ship_3)
+        settings.bitmapResourceIds.forEach {
+            addSprite(it)
+        }
     }
 }
