@@ -11,13 +11,14 @@ import com.visualstudioex3.canvasgame.engine.input.components.InputTouch
 import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
 import com.visualstudioex3.canvasgame.game.entities.enemies.BaseEnemy
 import com.visualstudioex3.canvasgame.game.entities.player.components.PlayerBulletSpawner
+import com.visualstudioex3.canvasgame.game.services.explossion.ExplossionFactory
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 import com.visualstudioex3.canvasgame.game.services.settings.PlayerSettingsData
 
 class Player : GameObject() {
     private val settings: PlayerSettingsData = getService<GameSettings>()!!
         .settings.playerSettings
-
+    private val explossionFactory = getService<ExplossionFactory>()!!
     private var targetPosition: Float = 0f
 
     init {
@@ -36,6 +37,7 @@ class Player : GameObject() {
         addComponent<SpriteCollider>().apply {
             onCollision = { other ->
                 if (other is BaseEnemy) {
+                    explossionFactory.explode(this@Player.transform.position)
                     this@Player.enable = false
                 }
             }

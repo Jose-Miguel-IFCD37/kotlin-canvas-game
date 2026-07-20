@@ -11,6 +11,7 @@ import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteRenderer
 import com.visualstudioex3.canvasgame.engine.graphics.extensions.BitmapExtensions.Companion.getSize
 import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
 import com.visualstudioex3.canvasgame.game.entities.player.PlayerBullet
+import com.visualstudioex3.canvasgame.game.services.explossion.ExplossionFactory
 import com.visualstudioex3.canvasgame.game.services.settings.EnemySettingsData
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 import kotlin.random.Random
@@ -18,11 +19,13 @@ import kotlin.random.Random
 abstract class BaseEnemy : GameObject(), IEnableState {
     private val settings: EnemySettingsData = getService<GameSettings>()!!
         .settings.enemySettings
+    private val explossionFactory = getService<ExplossionFactory>()!!
     private val renderer = addComponent<SpriteRenderer>()
     private val collider = addComponent<SpriteCollider>().apply {
         addComponent<SpriteColliderRenderer>().apply {
             onCollision = { other ->
                 if (other is PlayerBullet)
+                    explossionFactory.explode(this@BaseEnemy.transform.position)
                     this@BaseEnemy.enable = false
             }
         }
