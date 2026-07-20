@@ -6,13 +6,14 @@ import com.visualstudioex3.canvasgame.engine.graphics.commands.IDrawCommand
 import com.visualstudioex3.canvasgame.engine.graphics.commands.SpriteDrawCommand
 import com.visualstudioex3.canvasgame.engine.graphics.commands.TextDrawCommand
 import androidx.core.graphics.withSave
+import com.visualstudioex3.canvasgame.engine.graphics.commands.CircleDrawCommand
 
 class DrawProcessorFactory {
     private val processors = hashMapOf(
         SpriteDrawCommand::class.java to SpriteDrawProcessor(),
         TextDrawCommand::class.java to TextDrawProcessor(),
         RectDrawCommand::class.java to RectDrawProcessor(),
-        CircleDrawProcessor::class.java to CircleDrawProcessor(),
+        CircleDrawCommand::class.java to CircleDrawProcessor(),
     )
 
     fun process(canvas: Canvas, command: IDrawCommand) {
