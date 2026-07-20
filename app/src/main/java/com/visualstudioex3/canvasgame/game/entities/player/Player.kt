@@ -9,8 +9,6 @@ import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteColliderR
 import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteRenderer
 import com.visualstudioex3.canvasgame.engine.input.components.InputTouch
 import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
-import com.visualstudioex3.canvasgame.game.entities.enemies.BaseEnemy
-import com.visualstudioex3.canvasgame.game.entities.enemies.EnemyBullet
 import com.visualstudioex3.canvasgame.game.entities.enemies.IEnemy
 import com.visualstudioex3.canvasgame.game.entities.player.components.PlayerBulletSpawner
 import com.visualstudioex3.canvasgame.game.entities.player.components.PlayerTemporalInvulnerability
@@ -50,17 +48,15 @@ class Player : GameObject() {
         }
         addComponent<SpriteColliderRenderer>()
         addComponent<PlayerBulletSpawner>()
-
-        transform.position = PointF(
-            RenderManager.camera.width / 2,
-            RenderManager.camera.height - 1f
-        )
-
-        targetPosition = transform.position.x
     }
 
     override fun onEnable() {
         invulnerability.enable = true
+        transform.position = PointF(
+            RenderManager.camera.width / 2,
+            RenderManager.camera.height - 1f
+        )
+        targetPosition = transform.position.x
     }
 
     override fun onUpdate(deltaTime: Float) {

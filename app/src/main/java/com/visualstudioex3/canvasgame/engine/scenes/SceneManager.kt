@@ -23,7 +23,7 @@ class SceneManager {
     private fun switchToNextScene() {
         currentScene?.onDestroy()
         currentScene = nextScene
-        currentScene?.onCreate()
+        currentScene?.initialize()
         nextScene = null
     }
 }

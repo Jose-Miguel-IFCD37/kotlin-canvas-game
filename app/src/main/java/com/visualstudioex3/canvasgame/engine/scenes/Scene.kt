@@ -16,6 +16,15 @@ abstract class Scene {
 
     abstract fun onDestroy()
 
+    fun initialize() {
+        onCreate()
+
+        gameObjects.forEach {
+            if (it.enable)
+                it.onEnable()
+        }
+    }
+
     fun onFrame(deltaTime: Float) {
         update(deltaTime)
         draw()
