@@ -18,6 +18,10 @@ class GameSettings: IService {
                     maxInstances = 5,
                     spawnTime = 0.75f
                 )
+            ),
+            invulnerabilitySettings = PlayerInvulnerabilitySettingsData(
+                duration = 5f,
+                blinkInterval = 0.15f
             )
         ),
         enemySettings = EnemySettingsData(

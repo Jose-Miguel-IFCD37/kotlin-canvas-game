@@ -17,7 +17,13 @@ data class PlayerSettingsData(
     val lives: Int,
     val speed: Float,
     val bitmapResourceId: Int,
-    val bulletsSettings: BulletSettingsData
+    val bulletsSettings: BulletSettingsData,
+    val invulnerabilitySettings: PlayerInvulnerabilitySettingsData
+)
+
+data class PlayerInvulnerabilitySettingsData(
+    val duration: Float,
+    val blinkInterval: Float
 )
 
 data class BulletSettingsData(

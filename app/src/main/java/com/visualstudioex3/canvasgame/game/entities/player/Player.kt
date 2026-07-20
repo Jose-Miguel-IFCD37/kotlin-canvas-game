@@ -13,6 +13,7 @@ import com.visualstudioex3.canvasgame.game.entities.enemies.BaseEnemy
 import com.visualstudioex3.canvasgame.game.entities.enemies.EnemyBullet
 import com.visualstudioex3.canvasgame.game.entities.enemies.IEnemy
 import com.visualstudioex3.canvasgame.game.entities.player.components.PlayerBulletSpawner
+import com.visualstudioex3.canvasgame.game.entities.player.components.PlayerTemporalInvulnerability
 import com.visualstudioex3.canvasgame.game.services.explossion.ExplossionFactory
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 import com.visualstudioex3.canvasgame.game.services.settings.PlayerSettingsData
@@ -21,6 +22,7 @@ class Player : GameObject() {
     private val settings: PlayerSettingsData = getService<GameSettings>()!!
         .settings.playerSettings
     private val explossionFactory = getService<ExplossionFactory>()!!
+    private val invulnerability = addComponent<PlayerTemporalInvulnerability>()
     private var targetPosition: Float = 0f
 
     init {
@@ -38,7 +40,9 @@ class Player : GameObject() {
         }
         addComponent<SpriteCollider>().apply {
             onCollision = { other ->
-                if (other is IEnemy) {
+                if (!invulnerability.enable &&
+                    other is IEnemy
+                ) {
                     explossionFactory.explode(this@Player.transform.position)
                     this@Player.enable = false
                 }
@@ -53,6 +57,10 @@ class Player : GameObject() {
         )
 
         targetPosition = transform.position.x
+    }
+
+    override fun onEnable() {
+        invulnerability.enable = true
     }
 
     override fun onUpdate(deltaTime: Float) {
