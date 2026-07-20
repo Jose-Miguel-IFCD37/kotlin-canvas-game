@@ -16,7 +16,7 @@ class GameSettings: IService {
                 bitmapResourceId = R.drawable.player_bullet,
                 factorySettings = FactorySettingsData(
                     maxInstances = 5,
-                    spawnTime = 0.25f
+                    spawnTime = 0.75f
                 )
             )
         ),
@@ -24,7 +24,7 @@ class GameSettings: IService {
             speed = 3f,
             factorySettings = FactorySettingsData(
                 maxInstances = 5,
-                spawnTime = 3f
+                spawnTime = 1.5f
             ),
             asteroidSettings = AsteroidSettingsData(
                 bitmapResourceIds = listOf(
@@ -46,7 +46,7 @@ class GameSettings: IService {
                     bitmapResourceId = R.drawable.enemy_bullet,
                     factorySettings = FactorySettingsData(
                         maxInstances = 3,
-                        spawnTime = 2.5f
+                        spawnTime = 2f
                     )
                 )
             )
