@@ -3,6 +3,7 @@ package com.visualstudioex3.canvasgame.game.entities.player
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.Timer
 import com.visualstudioex3.canvasgame.engine.scenes.SceneManager
+import com.visualstudioex3.canvasgame.game.scenes.GameOverScene
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 import com.visualstudioex3.canvasgame.game.services.settings.PlayerManagerSettingsData
 
@@ -15,7 +16,7 @@ class PlayerManager : GameObject() {
         interval = settings.respawnDelay
         onTime = {
             if (--lives == 0) {
-                // Game Over
+                SceneManager.loadScene(GameOverScene())
             } else {
                 player?.enable = true
                 this.enable = false
