@@ -10,13 +10,13 @@ import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 
 class GameScene: Scene() {
     override fun onCreate() {
-        services.add(GameSettings())
-        services.add(ExplossionFactory())
+        addService<GameSettings>()
+        addService<ExplossionFactory>()
 
-        gameObjects.add(GameScore())
-        gameObjects.add(Player())
-        gameObjects.add(PlayerManager())
-        gameObjects.add(EnemySpawner())
+        addGameObject<GameScore>()
+        addGameObject<Player>()
+        addGameObject<PlayerManager>()
+        addGameObject<EnemySpawner>()
     }
 
     override fun onDestroy() {

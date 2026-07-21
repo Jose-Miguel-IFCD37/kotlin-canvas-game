@@ -9,12 +9,12 @@ import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 
 class GameOverScene: Scene() {
     override fun onCreate() {
-        services.add(GameSettings())
+        addService<GameSettings>()
 
-        gameObjects.add(GameOverTitle())
-        gameObjects.add(GameOverMessage())
-        gameObjects.add(GameOverInputListener())
-        gameObjects.add(FadeToBlackBackground())
+        addGameObject<GameOverTitle>()
+        addGameObject<GameOverMessage>()
+        addGameObject<GameOverInputListener>()
+        addGameObject<FadeToBlackBackground>()
     }
 
     override fun onDestroy() {

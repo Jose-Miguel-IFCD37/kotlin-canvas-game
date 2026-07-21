@@ -28,14 +28,16 @@ class PlayerManager : GameObject() {
     private var lives: Int = settings.lives
 
     override fun onUpdate(deltaTime: Float) {
+        resolvePlayerIfNull()
+        timer.update()
+    }
+
+    private fun resolvePlayerIfNull() {
         if (player == null) {
-            player = SceneManager.scene.gameObjects
-                .firstOrNull { it is Player } as Player
+            player = findGameObject<Player>()
             player?.onPlayerDead = {
                 timer.enable = true
             }
         }
-
-        timer.update()
     }
 }
