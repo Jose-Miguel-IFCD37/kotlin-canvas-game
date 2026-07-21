@@ -57,7 +57,8 @@ class RenderManager(
                 color = Color.YELLOW.toColor(),
                 fontSize = 48f,
                 align = TextAlign.Right,
-                text = "%,.2ffps".format(Time.framesPerSecond)
+                text = "%,.2ffps".format(Time.framesPerSecond),
+                maxWidth = 0f
             )
         )
     }

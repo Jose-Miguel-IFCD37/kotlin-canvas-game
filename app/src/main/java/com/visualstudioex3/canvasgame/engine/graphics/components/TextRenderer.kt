@@ -15,6 +15,7 @@ class TextRenderer(
     var color: Color = Color.WHITE.toColor()
     var fontSize: Float = 24f
     var align: TextAlign = TextAlign.Left
+    var maxWidth: Float = 0f
 
     override fun update(deltaTime: Float) {
     }
@@ -26,7 +27,8 @@ class TextRenderer(
                 color,
                 fontSize,
                 align,
-                text
+                text,
+                maxWidth
             )
         )
     }

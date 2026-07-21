@@ -16,5 +16,6 @@ data class TextDrawCommand(
     val color: Color,
     val fontSize: Float,
     val align: TextAlign,
-    val text: String
+    val text: String,
+    val maxWidth: Float
 ) : IDrawCommand
