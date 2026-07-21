@@ -84,6 +84,7 @@ data class ScorerSettingsData(
 data class GameOverSettingsData(
     val title: TextSettingsData,
     val message: TextSettingsData,
+    val fadeToBlackSpeed: Float,
 )
 
 data class TextSettingsData(

@@ -94,6 +94,7 @@ class GameSettings: IService {
                 align = TextAlign.Center,
                 color = Color.WHITE.toColor(),
             ),
+            fadeToBlackSpeed = 3f,
         )
     )
 }
