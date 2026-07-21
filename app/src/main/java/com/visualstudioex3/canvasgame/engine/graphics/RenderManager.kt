@@ -21,7 +21,7 @@ class RenderManager(
         val camera: Camera
             get() = _camera
 
-        var clearColor: Color = Color.BLACK.toColor()
+        var clearColor: Color = Color.BLUE.toColor()
         var showFPSCounter: Boolean = false
 
         fun addDrawCommand(command: IDrawCommand) {
