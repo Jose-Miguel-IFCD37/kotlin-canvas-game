@@ -6,12 +6,14 @@ import com.visualstudioex3.canvasgame.game.entities.gamescene.player.Player
 import com.visualstudioex3.canvasgame.game.entities.gamescene.player.PlayerManager
 import com.visualstudioex3.canvasgame.game.entities.gamescene.scorer.GameScore
 import com.visualstudioex3.canvasgame.game.entities.gamescene.explossion.services.ExplossionFactory
+import com.visualstudioex3.canvasgame.game.entities.gamescene.scorer.ScorePointsFactory
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 
 class GameScene: Scene() {
     override fun onCreate() {
         addService<GameSettings>()
         addService<ExplossionFactory>()
+        addService<ScorePointsFactory>()
 
         addGameObject<GameScore>()
         addGameObject<Player>()
