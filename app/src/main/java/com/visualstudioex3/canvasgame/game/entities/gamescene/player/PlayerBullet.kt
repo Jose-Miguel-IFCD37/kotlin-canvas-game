@@ -4,7 +4,6 @@ import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.GameResources
 import com.visualstudioex3.canvasgame.engine.IEnableState
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
-import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteColliderRenderer
 import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteRenderer
 import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
 import com.visualstudioex3.canvasgame.game.entities.gamescene.enemies.BaseEnemy
@@ -28,9 +27,7 @@ class PlayerBullet: GameObject(), IEnableState {
                 }
             }
         }
-        addComponent<SpriteColliderRenderer>().apply {
-            GameObjectUtils.addSpriteColliderRendererIfDebugEnable(this@PlayerBullet)
-        }
+        GameObjectUtils.addSpriteColliderRendererIfDebugEnable(this@PlayerBullet)
     }
 
     override fun onUpdate(deltaTime: Float) {

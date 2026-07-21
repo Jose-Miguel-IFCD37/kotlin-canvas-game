@@ -27,9 +27,7 @@ class EnemyBullet: GameObject(), IEnemy {
                 }
             }
         }
-        addComponent<SpriteColliderRenderer>().apply {
-            GameObjectUtils.addSpriteColliderRendererIfDebugEnable(this@EnemyBullet)
-        }
+        GameObjectUtils.addSpriteColliderRendererIfDebugEnable(this@EnemyBullet)
     }
 
     override fun onUpdate(deltaTime: Float) {
