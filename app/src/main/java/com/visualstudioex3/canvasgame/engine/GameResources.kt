@@ -19,5 +19,13 @@ class GameResources {
                 error("Error al cargar el recurso como Bitmap: ${e.message}")
             }
         }
+
+        fun getString(resourceId: Int): String {
+            try {
+                return resources.getString(resourceId)
+            } catch (e: Exception) {
+                error("Error al cargar el recurso como String: ${e.message}")
+            }
+        }
     }
 }
