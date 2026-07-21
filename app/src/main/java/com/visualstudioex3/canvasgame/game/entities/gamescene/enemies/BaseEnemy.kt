@@ -11,6 +11,7 @@ import com.visualstudioex3.canvasgame.engine.scenes.SceneManager
 import com.visualstudioex3.canvasgame.game.entities.gamescene.player.PlayerBullet
 import com.visualstudioex3.canvasgame.game.entities.gamescene.scorer.GameScore
 import com.visualstudioex3.canvasgame.game.entities.gamescene.explossion.services.ExplossionFactory
+import com.visualstudioex3.canvasgame.game.entities.gamescene.scorer.ScorePointsFactory
 import com.visualstudioex3.canvasgame.game.services.settings.EnemySettingsData
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 import com.visualstudioex3.canvasgame.game.utils.GameObjectUtils
@@ -20,12 +21,14 @@ abstract class BaseEnemy : GameObject(), IEnemy {
     private val settings: EnemySettingsData = getRequiredService<GameSettings>()
         .settings.enemySettings
     private val explossionFactory = getRequiredService<ExplossionFactory>()
+    private val scorePointsFactory = getRequiredService<ScorePointsFactory>()
     private val renderer = addComponent<SpriteRenderer>()
     private val collider = addComponent<SpriteCollider>().apply {
         onCollision = { other ->
             if (other is PlayerBullet) {
                 scorer.addPoints(points)
-                explossionFactory.explode(this@BaseEnemy.transform.position)
+                explossionFactory.explode(transform.position)
+                scorePointsFactory.show(transform.position, points)
                 this@BaseEnemy.enable = false
             }
         }
