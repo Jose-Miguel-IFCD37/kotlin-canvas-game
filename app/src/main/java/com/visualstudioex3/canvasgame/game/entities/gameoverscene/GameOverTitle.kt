@@ -4,7 +4,7 @@ import android.graphics.PointF
 import androidx.core.graphics.plus
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.GameResources
-import com.visualstudioex3.canvasgame.engine.extensions.RectFExtensions.Companion.getCenter
+import com.visualstudioex3.canvasgame.engine.extensions.RectFExtensions.getCenter
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.graphics.components.TextRenderer
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings

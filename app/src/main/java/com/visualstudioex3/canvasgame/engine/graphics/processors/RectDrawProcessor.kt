@@ -3,7 +3,7 @@ package com.visualstudioex3.canvasgame.engine.graphics.processors
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.RectF
-import com.visualstudioex3.canvasgame.engine.extensions.RectFExtensions.Companion.toScreenCoordinates
+import com.visualstudioex3.canvasgame.engine.extensions.RectFExtensions.toScreenCoordinates
 import com.visualstudioex3.canvasgame.engine.graphics.commands.IDrawCommand
 import com.visualstudioex3.canvasgame.engine.graphics.commands.RectDrawCommand
 

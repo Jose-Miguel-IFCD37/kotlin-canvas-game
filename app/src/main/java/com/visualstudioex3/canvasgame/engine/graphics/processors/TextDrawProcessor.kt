@@ -4,7 +4,7 @@ import android.graphics.Canvas
 import android.graphics.PointF
 import android.text.StaticLayout
 import android.text.TextPaint
-import com.visualstudioex3.canvasgame.engine.extensions.PointFExtensions.Companion.toScreenCoordinates
+import com.visualstudioex3.canvasgame.engine.extensions.PointFExtensions.toScreenCoordinates
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.graphics.commands.IDrawCommand
 import com.visualstudioex3.canvasgame.engine.graphics.commands.TextDrawCommand

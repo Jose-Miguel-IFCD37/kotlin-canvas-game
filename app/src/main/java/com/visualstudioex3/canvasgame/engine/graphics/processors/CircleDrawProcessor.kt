@@ -3,7 +3,7 @@ package com.visualstudioex3.canvasgame.engine.graphics.processors
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.PointF
-import com.visualstudioex3.canvasgame.engine.extensions.PointFExtensions.Companion.toScreenCoordinates
+import com.visualstudioex3.canvasgame.engine.extensions.PointFExtensions.toScreenCoordinates
 import com.visualstudioex3.canvasgame.engine.graphics.commands.CircleDrawCommand
 import com.visualstudioex3.canvasgame.engine.graphics.commands.IDrawCommand
 

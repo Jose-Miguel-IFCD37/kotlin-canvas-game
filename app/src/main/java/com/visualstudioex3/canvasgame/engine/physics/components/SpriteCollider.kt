@@ -4,7 +4,7 @@ import android.graphics.RectF
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.IComponent
 import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteRenderer
-import com.visualstudioex3.canvasgame.engine.graphics.extensions.BitmapExtensions.Companion.getBounds
+import com.visualstudioex3.canvasgame.engine.graphics.extensions.BitmapExtensions.getBounds
 
 class SpriteCollider(
     override val gameObject: GameObject

@@ -5,16 +5,14 @@ import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteColliderR
 import com.visualstudioex3.canvasgame.game.services.settings.DebugSettingsData
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 
-class GameObjectUtils {
-    companion object {
-        fun addSpriteColliderRendererIfDebugEnable(
-            gameObject: GameObject
-        ) {
-            val settings: DebugSettingsData = gameObject.getRequiredService<GameSettings>()
-                .settings.debugSettings
+object GameObjectUtils {
+    fun addSpriteColliderRendererIfDebugEnable(
+        gameObject: GameObject
+    ) {
+        val settings: DebugSettingsData = gameObject.getRequiredService<GameSettings>()
+            .settings.debugSettings
 
-            if (settings.showColliders)
-                gameObject.addComponent<SpriteColliderRenderer>()
-        }
+        if (settings.showColliders)
+            gameObject.addComponent<SpriteColliderRenderer>()
     }
 }

@@ -5,7 +5,7 @@ import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.GameResources
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteRenderer
-import com.visualstudioex3.canvasgame.engine.graphics.extensions.BitmapExtensions.Companion.getSize
+import com.visualstudioex3.canvasgame.engine.graphics.extensions.BitmapExtensions.getSize
 import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
 import com.visualstudioex3.canvasgame.engine.scenes.SceneManager
 import com.visualstudioex3.canvasgame.game.entities.gamescene.player.PlayerBullet

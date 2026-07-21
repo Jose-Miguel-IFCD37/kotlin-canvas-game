@@ -1,7 +1,7 @@
 package com.visualstudioex3.canvasgame.engine.input
 
 import android.graphics.PointF
-import com.visualstudioex3.canvasgame.engine.extensions.PointFExtensions.Companion.toCameraCoordinates
+import com.visualstudioex3.canvasgame.engine.extensions.PointFExtensions.toCameraCoordinates
 
 class InputManager {
     companion object {
