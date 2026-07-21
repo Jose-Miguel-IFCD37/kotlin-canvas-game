@@ -14,8 +14,8 @@ class ExplossionFactory: IService {
     private val pool = ExplossionPool(settings.maxInstances)
 
     fun explode(position: PointF) {
-        pool.getInstance().apply {
-            this?.transform?.position = position
+        pool.getInstance()?.apply {
+            transform.position = position
         }
     }
 }
