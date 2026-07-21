@@ -16,7 +16,7 @@ class PlayerBulletSpawner(
     private val timer = Timer().apply {
         interval = settings.spawnTime
         onTime = {
-            instances.getInstance()!!.apply {
+            instances.getInstance()?.apply {
                 transform.position = gameObject.transform.position
             }
         }
