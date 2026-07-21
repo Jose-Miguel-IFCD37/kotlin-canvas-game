@@ -76,10 +76,22 @@ class GameSettings: IService {
             )
         ),
         scorerSettings = ScorerSettingsData(
-            fontSize = 128f,
-            align = TextAlign.Center,
-            color = Color.WHITE.toColor(),
-            format = "%08d",
+            mainScorerSettings = MainScorerSettingsData(
+                textSettings = TextSettingsData(
+                    fontSize = 128f,
+                    align = TextAlign.Center,
+                    color = Color.WHITE.toColor(),
+                ),
+                format = "%08d",
+            ),
+            scorePointsSettings = ScorePointsSettingsData(
+                textSettings = TextSettingsData(
+                    fontSize = 48f,
+                    align = TextAlign.Center,
+                    color = Color.YELLOW.toColor(),
+                ),
+                fadeOutSpeed = 3f,
+            )
         ),
         gameOverSettings = GameOverSettingsData(
             title = TextSettingsData(

@@ -75,10 +75,18 @@ data class ExplossionSettingsData(
 )
 
 data class ScorerSettingsData(
-    val fontSize: Float,
-    val align: TextAlign,
-    val color: Color,
+    val mainScorerSettings: MainScorerSettingsData,
+    val scorePointsSettings: ScorePointsSettingsData,
+)
+
+data class MainScorerSettingsData(
+    val textSettings: TextSettingsData,
     val format: String,
+)
+
+data class ScorePointsSettingsData(
+    val textSettings: TextSettingsData,
+    val fadeOutSpeed: Float,
 )
 
 data class GameOverSettingsData(
@@ -88,7 +96,7 @@ data class GameOverSettingsData(
 )
 
 data class TextSettingsData(
-    val stringResourceId: Int,
+    val stringResourceId: Int = 0,
     val fontSize: Float,
     val align: TextAlign,
     val color: Color,

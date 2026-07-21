@@ -5,15 +5,16 @@ import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.graphics.components.TextRenderer
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
+import com.visualstudioex3.canvasgame.game.services.settings.MainScorerSettingsData
 import com.visualstudioex3.canvasgame.game.services.settings.ScorerSettingsData
 
 class GameScore: GameObject() {
-    private val settings: ScorerSettingsData = getRequiredService<GameSettings>()
-        .settings.scorerSettings
+    private val settings: MainScorerSettingsData = getRequiredService<GameSettings>()
+        .settings.scorerSettings.mainScorerSettings
     private val textRenderer = addComponent<TextRenderer>().apply {
-        fontSize = settings.fontSize
-        color = settings.color
-        align = settings.align
+        fontSize = settings.textSettings.fontSize
+        color = settings.textSettings.color
+        align = settings.textSettings.align
     }
 
     var score: Int = 0
@@ -26,7 +27,7 @@ class GameScore: GameObject() {
     init {
         transform.position = PointF(
             RenderManager.camera.width / 2f,
-            1.25f
+            0f
         )
 
         score = 0
