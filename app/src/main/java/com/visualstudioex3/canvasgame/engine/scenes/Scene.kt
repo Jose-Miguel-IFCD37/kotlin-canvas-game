@@ -1,6 +1,7 @@
 package com.visualstudioex3.canvasgame.engine.scenes
 
 import com.visualstudioex3.canvasgame.engine.GameObject
+import com.visualstudioex3.canvasgame.engine.IService
 
 abstract class Scene {
     val gameObjects = mutableListOf<GameObject>()

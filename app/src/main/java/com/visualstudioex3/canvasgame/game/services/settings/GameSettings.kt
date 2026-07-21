@@ -4,7 +4,7 @@ import android.graphics.Color
 import androidx.core.graphics.toColor
 import com.visualstudioex3.canvasgame.R
 import com.visualstudioex3.canvasgame.engine.graphics.commands.TextAlign
-import com.visualstudioex3.canvasgame.engine.scenes.IService
+import com.visualstudioex3.canvasgame.engine.IService
 
 class GameSettings: IService {
     val settings = GameSettingsData(

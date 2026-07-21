@@ -1,7 +1,6 @@
 package com.visualstudioex3.canvasgame.engine
 
 import com.visualstudioex3.canvasgame.engine.graphics.components.IRenderer
-import com.visualstudioex3.canvasgame.engine.scenes.IService
 import com.visualstudioex3.canvasgame.engine.scenes.SceneManager
 
 /*

@@ -1,7 +1,7 @@
 package com.visualstudioex3.canvasgame.game.services.explossion
 
 import android.graphics.PointF
-import com.visualstudioex3.canvasgame.engine.scenes.IService
+import com.visualstudioex3.canvasgame.engine.IService
 import com.visualstudioex3.canvasgame.engine.scenes.SceneManager
 import com.visualstudioex3.canvasgame.game.services.settings.FactorySettingsData
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
