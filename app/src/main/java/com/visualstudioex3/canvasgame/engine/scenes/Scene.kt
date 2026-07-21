@@ -46,6 +46,11 @@ abstract class Scene {
             it::class.java == T::class.java
         } as? T
 
+    inline fun <reified T> findRequiredGameObject(): T
+            where T : GameObject =
+        findGameObject()
+            ?: error("No se encuentra ningun GameObject de tipo  ${T::class.simpleName}")
+
     @Suppress("UNCHECKED_CAST")
     inline fun <reified T> findGameObjects(): List<T>
             where T : GameObject =

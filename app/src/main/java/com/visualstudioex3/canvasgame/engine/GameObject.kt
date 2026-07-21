@@ -51,6 +51,10 @@ abstract class GameObject {
             where T : GameObject =
         SceneManager.scene.findGameObject()
 
+    inline fun <reified T> findRequiredGameObject(): T
+            where T : GameObject =
+        SceneManager.scene.findRequiredGameObject()
+
     inline fun <reified T> findGameObjects(): List<T>
             where T : GameObject =
         SceneManager.scene.findGameObjects()

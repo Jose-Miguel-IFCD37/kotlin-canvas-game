@@ -33,8 +33,7 @@ abstract class BaseEnemy : GameObject(), IEnemy {
 
         GameObjectUtils.addSpriteColliderRendererIfDebugEnable(this@BaseEnemy)
     }
-    private val scorer = SceneManager.scene.gameObjects
-        .first { it is GameScore } as GameScore
+    private val scorer = SceneManager.scene.findRequiredGameObject<GameScore>()
     abstract val points: Int
 
     private var sprites = mutableListOf<Bitmap>()
