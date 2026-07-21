@@ -52,6 +52,7 @@ abstract class BaseEnemy : GameObject(), IEnemy {
             ).toFloat(),
             -renderer.image?.getSize()?.y!!
         )
+        collider.sync()
     }
 
     override fun onUpdate(deltaTime: Float) {

@@ -18,6 +18,10 @@ class SpriteCollider(
     var onCollision: ((GameObject) -> Unit)? = null
 
     override fun update(deltaTime: Float) {
+        sync()
+    }
+
+    fun sync() {
         if (spriteRenderer == null)
             spriteRenderer = gameObject.getComponent<SpriteRenderer>()
         bounds = spriteRenderer?.image
