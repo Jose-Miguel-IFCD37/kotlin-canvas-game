@@ -17,7 +17,7 @@ class PlayerBulletSpawner(
         interval = settings.spawnTime
         onTime = {
             instances.getInstance()!!.apply {
-                gameObject.transform.position = gameObject.transform.position
+                transform.position = gameObject.transform.position
             }
         }
     }
