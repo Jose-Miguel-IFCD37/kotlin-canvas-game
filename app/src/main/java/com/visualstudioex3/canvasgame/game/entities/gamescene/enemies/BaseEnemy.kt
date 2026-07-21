@@ -10,7 +10,7 @@ import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
 import com.visualstudioex3.canvasgame.engine.scenes.SceneManager
 import com.visualstudioex3.canvasgame.game.entities.gamescene.player.PlayerBullet
 import com.visualstudioex3.canvasgame.game.entities.gamescene.scorer.GameScore
-import com.visualstudioex3.canvasgame.game.services.explossion.ExplossionFactory
+import com.visualstudioex3.canvasgame.game.entities.gamescene.explossion.services.ExplossionFactory
 import com.visualstudioex3.canvasgame.game.services.settings.EnemySettingsData
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 import com.visualstudioex3.canvasgame.game.utils.GameObjectUtils

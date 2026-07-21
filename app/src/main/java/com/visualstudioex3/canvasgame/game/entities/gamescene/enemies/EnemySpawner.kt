@@ -2,7 +2,7 @@ package com.visualstudioex3.canvasgame.game.entities.gamescene.enemies
 
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.Timer
-import com.visualstudioex3.canvasgame.game.entities.gamescene.enemies.services.EnemyPool
+import com.visualstudioex3.canvasgame.game.entities.gamescene.enemies.systems.EnemyPool
 import com.visualstudioex3.canvasgame.game.services.settings.FactorySettingsData
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 

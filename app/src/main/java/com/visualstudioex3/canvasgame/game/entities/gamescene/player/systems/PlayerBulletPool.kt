@@ -1,4 +1,4 @@
-package com.visualstudioex3.canvasgame.game.entities.gamescene.player.services
+package com.visualstudioex3.canvasgame.game.entities.gamescene.player.systems
 
 import com.visualstudioex3.canvasgame.engine.ObjectPool
 import com.visualstudioex3.canvasgame.engine.scenes.SceneManager

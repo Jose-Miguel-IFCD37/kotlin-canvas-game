@@ -1,4 +1,4 @@
-package com.visualstudioex3.canvasgame.game.entities.gamescene
+package com.visualstudioex3.canvasgame.game.entities.gamescene.explossion
 
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.IEnableState
