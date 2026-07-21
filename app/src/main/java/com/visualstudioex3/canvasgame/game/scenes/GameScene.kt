@@ -1,7 +1,7 @@
 package com.visualstudioex3.canvasgame.game.scenes
 
 import com.visualstudioex3.canvasgame.engine.scenes.Scene
-import com.visualstudioex3.canvasgame.game.entities.gamescene.enemies.factory.EnemySpawner
+import com.visualstudioex3.canvasgame.game.entities.gamescene.enemies.EnemySpawner
 import com.visualstudioex3.canvasgame.game.entities.gamescene.player.Player
 import com.visualstudioex3.canvasgame.game.entities.gamescene.player.PlayerManager
 import com.visualstudioex3.canvasgame.game.entities.gamescene.scorer.GameScore

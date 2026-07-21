@@ -1,4 +1,4 @@
-package com.visualstudioex3.canvasgame.game.entities.gamescene.enemies.factory
+package com.visualstudioex3.canvasgame.game.entities.gamescene.enemies.services
 
 import com.visualstudioex3.canvasgame.engine.ObjectPool
 import com.visualstudioex3.canvasgame.engine.scenes.SceneManager
