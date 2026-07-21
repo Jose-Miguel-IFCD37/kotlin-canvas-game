@@ -17,7 +17,7 @@ import com.visualstudioex3.canvasgame.game.services.settings.PlayerSettingsData
 import com.visualstudioex3.canvasgame.game.utils.GameObjectUtils
 
 class Player : GameObject() {
-    private val settings: PlayerSettingsData = getService<GameSettings>()!!
+    private val settings: PlayerSettingsData = getRequiredService<GameSettings>()
         .settings.playerSettings
     private val explossionFactory = getService<ExplossionFactory>()!!
     private val invulnerability = addComponent<PlayerTemporalInvulnerability>()

@@ -7,7 +7,8 @@ import com.visualstudioex3.canvasgame.game.services.settings.FactorySettingsData
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 
 class ExplossionFactory: IService {
-    private val settings: FactorySettingsData = SceneManager.scene.getService<GameSettings>()!!
+    private val settings: FactorySettingsData =
+        SceneManager.scene.getRequiredService<GameSettings>()
         .settings.explossionSettings.factorySettings
     private val pool = ExplossionPool(settings.maxInstances)
 

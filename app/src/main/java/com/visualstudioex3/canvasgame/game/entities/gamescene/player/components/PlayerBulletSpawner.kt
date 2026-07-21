@@ -10,7 +10,7 @@ import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 class PlayerBulletSpawner(
     override val gameObject: GameObject
 ): IComponent {
-    private val settings: FactorySettingsData = gameObject.getService<GameSettings>()!!
+    private val settings: FactorySettingsData = gameObject.getRequiredService<GameSettings>()
         .settings.playerSettings.bulletsSettings.factorySettings
     private val instances = PlayerBulletPool(settings.maxInstances)
     private val timer = Timer().apply {

@@ -9,7 +9,7 @@ import com.visualstudioex3.canvasgame.game.services.settings.GameOverSettingsDat
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 
 class FadeToBlackBackground: GameObject() {
-    val settings: GameOverSettingsData = getService<GameSettings>()!!
+    val settings: GameOverSettingsData = getRequiredService<GameSettings>()
         .settings.gameOverSettings
     val fadeColor = addComponent<FadeColor>().apply {
         startColor = Color.WHITE.toColor()

@@ -18,9 +18,9 @@ import com.visualstudioex3.canvasgame.game.utils.GameObjectUtils
 import kotlin.random.Random
 
 abstract class BaseEnemy : GameObject(), IEnemy {
-    private val settings: EnemySettingsData = getService<GameSettings>()!!
+    private val settings: EnemySettingsData = getRequiredService<GameSettings>()
         .settings.enemySettings
-    private val explossionFactory = getService<ExplossionFactory>()!!
+    private val explossionFactory = getRequiredService<ExplossionFactory>()
     private val renderer = addComponent<SpriteRenderer>()
     private val collider = addComponent<SpriteCollider>().apply {
         onCollision = { other ->

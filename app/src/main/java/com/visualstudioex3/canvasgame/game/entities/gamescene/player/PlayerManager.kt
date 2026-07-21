@@ -9,7 +9,7 @@ import com.visualstudioex3.canvasgame.game.services.settings.PlayerManagerSettin
 
 class PlayerManager : GameObject() {
     private val settings: PlayerManagerSettingsData =
-        SceneManager.scene.getService<GameSettings>()!!
+        SceneManager.scene.getRequiredService<GameSettings>()
             .settings.playerSettings.playerManagerSettings
     private val timer = Timer().apply {
         enable = false

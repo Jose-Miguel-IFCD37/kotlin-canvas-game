@@ -4,7 +4,7 @@ import com.visualstudioex3.canvasgame.game.services.settings.AsteroidSettingsDat
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 
 class Asteroid: BaseEnemy() {
-    private val settings: AsteroidSettingsData = getService<GameSettings>()!!
+    private val settings: AsteroidSettingsData = getRequiredService<GameSettings>()
         .settings.enemySettings.asteroidSettings
     override val points: Int = settings.points
 

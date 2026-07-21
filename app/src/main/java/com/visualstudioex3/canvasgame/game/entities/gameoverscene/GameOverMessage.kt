@@ -9,7 +9,7 @@ import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 import com.visualstudioex3.canvasgame.game.services.settings.TextSettingsData
 
 class GameOverMessage: GameObject() {
-    val settings: TextSettingsData = getService<GameSettings>()!!
+    val settings: TextSettingsData = getRequiredService<GameSettings>()
         .settings.gameOverSettings.message
 
     init {

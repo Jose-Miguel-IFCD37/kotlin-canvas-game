@@ -6,7 +6,7 @@ import com.visualstudioex3.canvasgame.game.services.settings.FactorySettingsData
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 
 class EnemySpawner: GameObject() {
-    private val settings: FactorySettingsData = getService<GameSettings>()!!
+    private val settings: FactorySettingsData = getRequiredService<GameSettings>()
         .settings.enemySettings.factorySettings
     private val instances = EnemyPool(settings.maxInstances)
     private val timer = Timer().apply {

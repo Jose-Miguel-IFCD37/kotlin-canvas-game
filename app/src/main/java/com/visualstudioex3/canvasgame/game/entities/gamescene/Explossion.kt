@@ -9,7 +9,7 @@ import com.visualstudioex3.canvasgame.game.services.settings.ExplossionSettingsD
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 
 class Explossion: GameObject(), IEnableState {
-    private val settings: ExplossionSettingsData = getService<GameSettings>()!!
+    private val settings: ExplossionSettingsData = getRequiredService<GameSettings>()
         .settings.explossionSettings
     private val circle = addComponent<CircleRenderer>()
 

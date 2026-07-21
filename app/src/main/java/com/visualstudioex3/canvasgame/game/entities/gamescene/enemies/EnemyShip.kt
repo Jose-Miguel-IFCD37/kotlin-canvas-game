@@ -5,7 +5,7 @@ import com.visualstudioex3.canvasgame.game.services.settings.EnemyShipSettingsDa
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 
 class EnemyShip: BaseEnemy() {
-    private val settings: EnemyShipSettingsData = getService<GameSettings>()!!
+    private val settings: EnemyShipSettingsData = getRequiredService<GameSettings>()
         .settings.enemySettings.enemyShipSettings
     override val points: Int = settings.points
 

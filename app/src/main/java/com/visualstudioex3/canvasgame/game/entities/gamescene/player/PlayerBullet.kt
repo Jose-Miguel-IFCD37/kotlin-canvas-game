@@ -12,7 +12,7 @@ import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 import com.visualstudioex3.canvasgame.game.utils.GameObjectUtils
 
 class PlayerBullet: GameObject(), IEnableState {
-    private val settings: BulletSettingsData = getService<GameSettings>()!!
+    private val settings: BulletSettingsData = getRequiredService<GameSettings>()
         .settings.playerSettings.bulletsSettings
     private val collider: SpriteCollider
 

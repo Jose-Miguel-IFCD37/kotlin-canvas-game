@@ -10,7 +10,7 @@ class GameObjectUtils {
         fun addSpriteColliderRendererIfDebugEnable(
             gameObject: GameObject
         ) {
-            val settings: DebugSettingsData = gameObject.getService<GameSettings>()!!
+            val settings: DebugSettingsData = gameObject.getRequiredService<GameSettings>()
                 .settings.debugSettings
 
             if (settings.showColliders)

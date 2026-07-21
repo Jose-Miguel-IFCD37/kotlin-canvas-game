@@ -8,7 +8,7 @@ import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 import com.visualstudioex3.canvasgame.game.services.settings.ScorerSettingsData
 
 class GameScore: GameObject() {
-    private val settings: ScorerSettingsData = getService<GameSettings>()!!
+    private val settings: ScorerSettingsData = getRequiredService<GameSettings>()
         .settings.scorerSettings
     private val textRenderer = addComponent<TextRenderer>().apply {
         fontSize = settings.fontSize

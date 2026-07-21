@@ -36,6 +36,10 @@ abstract class Scene {
             it::class.java == T::class.java
         } as? T
 
+    inline fun <reified T> getRequiredService(): T
+            where T : IService =
+        getService() ?: error("No se encuentra servicio de tipo ${T::class.simpleName}")
+
     inline fun <reified T> findGameObject(): T?
             where T : GameObject =
         gameObjects.firstOrNull {
