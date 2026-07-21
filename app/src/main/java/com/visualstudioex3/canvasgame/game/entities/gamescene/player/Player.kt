@@ -1,6 +1,5 @@
 package com.visualstudioex3.canvasgame.game.entities.gamescene.player
 
-import android.graphics.PointF
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.GameResources
 import com.visualstudioex3.canvasgame.engine.MathF
@@ -55,7 +54,7 @@ class Player : GameObject() {
 
     override fun onEnable() {
         invulnerability.enable = true
-        transform.position = PointF(
+        transform.translate(
             RenderManager.camera.width / 2,
             RenderManager.camera.height - 1f
         )

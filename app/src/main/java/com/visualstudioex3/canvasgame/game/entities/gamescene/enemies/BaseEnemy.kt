@@ -1,7 +1,6 @@
 package com.visualstudioex3.canvasgame.game.entities.gamescene.enemies
 
 import android.graphics.Bitmap
-import android.graphics.PointF
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.GameResources
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
@@ -44,7 +43,7 @@ abstract class BaseEnemy : GameObject(), IEnemy {
 
     override fun onEnable() {
         renderer.image = sprites.random()
-        transform.position = PointF(
+        transform.translate(
             Random.nextDouble( // Random no implementa nextFloat(from, until)
                 1.0,
                 RenderManager.camera.width - 1.0

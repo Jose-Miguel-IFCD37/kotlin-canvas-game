@@ -1,12 +1,10 @@
 package com.visualstudioex3.canvasgame.game.entities.gamescene.scorer
 
-import android.graphics.PointF
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.graphics.components.TextRenderer
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 import com.visualstudioex3.canvasgame.game.services.settings.MainScorerSettingsData
-import com.visualstudioex3.canvasgame.game.services.settings.ScorerSettingsData
 
 class GameScore: GameObject() {
     private val settings: MainScorerSettingsData = getRequiredService<GameSettings>()
@@ -25,9 +23,8 @@ class GameScore: GameObject() {
         }
 
     init {
-        transform.position = PointF(
-            RenderManager.camera.width / 2f,
-            0f
+        transform.translate(
+            x = RenderManager.camera.width / 2f
         )
 
         score = 0
