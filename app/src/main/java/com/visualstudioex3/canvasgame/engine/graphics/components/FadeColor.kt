@@ -29,7 +29,7 @@ class FadeColor(
                 deltaTime * speed
             )
 
-            if (currentColor == stopColor) {
+            if (currentColor.toArgb() == stopColor.toArgb()) {
                 onComplete?.invoke()
                 enable = false
             }
@@ -38,5 +38,6 @@ class FadeColor(
 
     fun reset() {
         currentColor = startColor
+        enable = true
     }
 }
