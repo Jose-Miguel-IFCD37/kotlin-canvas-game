@@ -31,6 +31,7 @@ class TextDrawProcessor : IDrawProcessor {
                     textSize = command.fontSize
                     isAntiAlias = true
                     textAlign = command.align.value
+                    textScaleX = command.scale
                 },
                 maxWidth
             )
@@ -40,6 +41,7 @@ class TextDrawProcessor : IDrawProcessor {
             screenPosition.x,
             screenPosition.y
         )
+
         staticLayout.draw(canvas)
     }
 }

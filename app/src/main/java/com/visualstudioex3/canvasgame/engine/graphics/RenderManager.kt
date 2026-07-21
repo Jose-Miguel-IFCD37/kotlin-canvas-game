@@ -54,6 +54,7 @@ class RenderManager(
         addDrawCommand(
             TextDrawCommand(
                 position = PointF(camera.width, 0.5f),
+                scale = 1f,
                 color = Color.YELLOW.toColor(),
                 fontSize = 48f,
                 align = TextAlign.Right,

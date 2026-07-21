@@ -24,6 +24,7 @@ class TextRenderer(
         RenderManager.addDrawCommand(
             TextDrawCommand(
                 gameObject.transform.position,
+                gameObject.transform.scale,
                 color,
                 fontSize,
                 align,
