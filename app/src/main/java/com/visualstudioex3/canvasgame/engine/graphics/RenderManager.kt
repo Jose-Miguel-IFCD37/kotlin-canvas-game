@@ -21,6 +21,7 @@ class RenderManager(
         val camera: Camera
             get() = _camera
 
+        var clearColor: Color = Color.BLACK.toColor()
         var showFPSCounter: Boolean = false
 
         fun addDrawCommand(command: IDrawCommand) {
@@ -41,7 +42,7 @@ class RenderManager(
             addFPSCounterCommand()
 
         synchronized(surfaceHolder) {
-            canvas.drawColor(Color.BLACK)
+            canvas.drawColor(clearColor.toArgb())
 
             while (commands.isNotEmpty())
                 drawProcessors.process(canvas, commands.removeFirst())
