@@ -48,10 +48,8 @@ class Player : GameObject() {
                     onPlayerDead?.invoke()
                 }
             }
-
             GameObjectUtils.addSpriteColliderRendererIfDebugEnable(this@Player)
         }
-
         addComponent<PlayerBulletSpawner>()
     }
 

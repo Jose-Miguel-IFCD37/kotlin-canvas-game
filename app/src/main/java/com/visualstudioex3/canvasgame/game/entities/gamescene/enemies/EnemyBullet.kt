@@ -13,7 +13,8 @@ import com.visualstudioex3.canvasgame.game.utils.GameObjectUtils
 
 class EnemyBullet: GameObject(), IEnemy {
     private val gameSettings = getService<GameSettings>()!!
-    private val settings: BulletSettingsData = gameSettings.settings.enemySettings.enemyShipSettings.bulletsSettings
+    private val settings: BulletSettingsData =
+        gameSettings.settings.enemySettings.enemyShipSettings.bulletsSettings
     private val collider: SpriteCollider
 
     init {
