@@ -1,4 +1,4 @@
-package com.visualstudioex3.canvasgame.game.entities.scorer
+package com.visualstudioex3.canvasgame.game.entities.gamescene.scorer
 
 import android.graphics.PointF
 import com.visualstudioex3.canvasgame.engine.GameObject

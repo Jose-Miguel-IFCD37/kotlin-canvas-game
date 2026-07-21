@@ -1,19 +1,17 @@
-package com.visualstudioex3.canvasgame.game.entities.player
+package com.visualstudioex3.canvasgame.game.entities.gamescene.player
 
 import android.graphics.PointF
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.GameResources
 import com.visualstudioex3.canvasgame.engine.MathF
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
-import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteColliderRenderer
 import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteRenderer
 import com.visualstudioex3.canvasgame.engine.input.components.InputTouch
 import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
-import com.visualstudioex3.canvasgame.game.entities.enemies.IEnemy
-import com.visualstudioex3.canvasgame.game.entities.player.components.PlayerBulletSpawner
-import com.visualstudioex3.canvasgame.game.entities.player.components.PlayerTemporalInvulnerability
+import com.visualstudioex3.canvasgame.game.entities.gamescene.enemies.IEnemy
+import com.visualstudioex3.canvasgame.game.entities.gamescene.player.components.PlayerBulletSpawner
+import com.visualstudioex3.canvasgame.game.entities.gamescene.player.components.PlayerTemporalInvulnerability
 import com.visualstudioex3.canvasgame.game.services.explossion.ExplossionFactory
-import com.visualstudioex3.canvasgame.game.services.settings.DebugSettingsData
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 import com.visualstudioex3.canvasgame.game.services.settings.PlayerSettingsData
 import com.visualstudioex3.canvasgame.game.utils.GameObjectUtils

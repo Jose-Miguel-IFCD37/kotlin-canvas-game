@@ -1,10 +1,10 @@
-package com.visualstudioex3.canvasgame.game.entities.enemies.factory
+package com.visualstudioex3.canvasgame.game.entities.gamescene.enemies.factory
 
 import com.visualstudioex3.canvasgame.engine.ObjectPool
 import com.visualstudioex3.canvasgame.engine.scenes.SceneManager
-import com.visualstudioex3.canvasgame.game.entities.enemies.Asteroid
-import com.visualstudioex3.canvasgame.game.entities.enemies.BaseEnemy
-import com.visualstudioex3.canvasgame.game.entities.enemies.EnemyShip
+import com.visualstudioex3.canvasgame.game.entities.gamescene.enemies.Asteroid
+import com.visualstudioex3.canvasgame.game.entities.gamescene.enemies.BaseEnemy
+import com.visualstudioex3.canvasgame.game.entities.gamescene.enemies.EnemyShip
 
 class EnemyPool(
     instances: Int

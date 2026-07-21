@@ -1,8 +1,8 @@
-package com.visualstudioex3.canvasgame.game.entities.player.services
+package com.visualstudioex3.canvasgame.game.entities.gamescene.player.services
 
 import com.visualstudioex3.canvasgame.engine.ObjectPool
 import com.visualstudioex3.canvasgame.engine.scenes.SceneManager
-import com.visualstudioex3.canvasgame.game.entities.player.PlayerBullet
+import com.visualstudioex3.canvasgame.game.entities.gamescene.player.PlayerBullet
 
 class PlayerBulletPool(
     instances: Int

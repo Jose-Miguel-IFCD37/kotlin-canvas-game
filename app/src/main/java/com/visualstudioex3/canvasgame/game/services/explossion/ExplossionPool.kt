@@ -2,7 +2,7 @@ package com.visualstudioex3.canvasgame.game.services.explossion
 
 import com.visualstudioex3.canvasgame.engine.ObjectPool
 import com.visualstudioex3.canvasgame.engine.scenes.SceneManager
-import com.visualstudioex3.canvasgame.game.entities.Explossion
+import com.visualstudioex3.canvasgame.game.entities.gamescene.Explossion
 
 class ExplossionPool(
     instances: Int

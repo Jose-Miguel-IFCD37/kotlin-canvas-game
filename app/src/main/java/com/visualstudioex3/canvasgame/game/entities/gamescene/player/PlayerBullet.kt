@@ -1,4 +1,4 @@
-package com.visualstudioex3.canvasgame.game.entities.player
+package com.visualstudioex3.canvasgame.game.entities.gamescene.player
 
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.GameResources
@@ -7,7 +7,7 @@ import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteColliderRenderer
 import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteRenderer
 import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
-import com.visualstudioex3.canvasgame.game.entities.enemies.BaseEnemy
+import com.visualstudioex3.canvasgame.game.entities.gamescene.enemies.BaseEnemy
 import com.visualstudioex3.canvasgame.game.services.settings.BulletSettingsData
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 import com.visualstudioex3.canvasgame.game.utils.GameObjectUtils

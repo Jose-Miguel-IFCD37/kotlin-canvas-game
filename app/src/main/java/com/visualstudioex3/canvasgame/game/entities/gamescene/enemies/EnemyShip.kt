@@ -1,6 +1,6 @@
-package com.visualstudioex3.canvasgame.game.entities.enemies
+package com.visualstudioex3.canvasgame.game.entities.gamescene.enemies
 
-import com.visualstudioex3.canvasgame.game.entities.enemies.components.EnemyBulletSpawner
+import com.visualstudioex3.canvasgame.game.entities.gamescene.enemies.components.EnemyBulletSpawner
 import com.visualstudioex3.canvasgame.game.services.settings.EnemyShipSettingsData
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 

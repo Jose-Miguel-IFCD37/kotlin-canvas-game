@@ -1,4 +1,4 @@
-package com.visualstudioex3.canvasgame.game.entities.enemies
+package com.visualstudioex3.canvasgame.game.entities.gamescene.enemies
 
 import com.visualstudioex3.canvasgame.game.services.settings.AsteroidSettingsData
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings

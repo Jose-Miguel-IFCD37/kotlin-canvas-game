@@ -1,4 +1,4 @@
-package com.visualstudioex3.canvasgame.game.entities.enemies.factory
+package com.visualstudioex3.canvasgame.game.entities.gamescene.enemies.factory
 
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.Timer

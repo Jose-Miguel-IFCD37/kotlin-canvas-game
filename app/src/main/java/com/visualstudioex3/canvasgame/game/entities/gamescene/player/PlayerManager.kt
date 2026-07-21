@@ -1,4 +1,4 @@
-package com.visualstudioex3.canvasgame.game.entities.player
+package com.visualstudioex3.canvasgame.game.entities.gamescene.player
 
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.Timer

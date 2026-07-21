@@ -1,4 +1,4 @@
-package com.visualstudioex3.canvasgame.game.entities.enemies
+package com.visualstudioex3.canvasgame.game.entities.gamescene.enemies
 
 import android.graphics.Bitmap
 import android.graphics.PointF
@@ -9,8 +9,8 @@ import com.visualstudioex3.canvasgame.engine.graphics.components.SpriteRenderer
 import com.visualstudioex3.canvasgame.engine.graphics.extensions.BitmapExtensions.Companion.getSize
 import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
 import com.visualstudioex3.canvasgame.engine.scenes.SceneManager
-import com.visualstudioex3.canvasgame.game.entities.player.PlayerBullet
-import com.visualstudioex3.canvasgame.game.entities.scorer.GameScore
+import com.visualstudioex3.canvasgame.game.entities.gamescene.player.PlayerBullet
+import com.visualstudioex3.canvasgame.game.entities.gamescene.scorer.GameScore
 import com.visualstudioex3.canvasgame.game.services.explossion.ExplossionFactory
 import com.visualstudioex3.canvasgame.game.services.settings.EnemySettingsData
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings

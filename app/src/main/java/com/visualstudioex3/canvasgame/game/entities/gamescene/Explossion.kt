@@ -1,6 +1,5 @@
-package com.visualstudioex3.canvasgame.game.entities
+package com.visualstudioex3.canvasgame.game.entities.gamescene
 
-import android.graphics.Color
 import com.visualstudioex3.canvasgame.engine.GameObject
 import com.visualstudioex3.canvasgame.engine.IEnableState
 import com.visualstudioex3.canvasgame.engine.MathF
