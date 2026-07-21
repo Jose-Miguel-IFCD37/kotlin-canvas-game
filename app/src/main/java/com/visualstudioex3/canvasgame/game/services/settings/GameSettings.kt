@@ -80,6 +80,20 @@ class GameSettings: IService {
             align = TextAlign.Center,
             color = Color.WHITE.toColor(),
             format = "%08d",
+        ),
+        gameOverSettings = GameOverSettingsData(
+            title = TextSettingsData(
+                stringResourceId = R.string.gameover_title,
+                fontSize = 175f,
+                align = TextAlign.Center,
+                color = Color.RED.toColor(),
+            ),
+            message = TextSettingsData(
+                stringResourceId = R.string.gameover_message,
+                fontSize = 96f,
+                align = TextAlign.Center,
+                color = Color.WHITE.toColor(),
+            ),
         )
     )
 }

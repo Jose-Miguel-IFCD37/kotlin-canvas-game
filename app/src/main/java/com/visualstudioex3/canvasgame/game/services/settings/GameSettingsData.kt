@@ -9,6 +9,7 @@ data class GameSettingsData(
     val enemySettings: EnemySettingsData,
     val explossionSettings: ExplossionSettingsData,
     val scorerSettings: ScorerSettingsData,
+    val gameOverSettings: GameOverSettingsData,
 )
 
 data class DebugSettingsData(
@@ -78,4 +79,16 @@ data class ScorerSettingsData(
     val align: TextAlign,
     val color: Color,
     val format: String,
+)
+
+data class GameOverSettingsData(
+    val title: TextSettingsData,
+    val message: TextSettingsData,
+)
+
+data class TextSettingsData(
+    val stringResourceId: Int,
+    val fontSize: Float,
+    val align: TextAlign,
+    val color: Color,
 )

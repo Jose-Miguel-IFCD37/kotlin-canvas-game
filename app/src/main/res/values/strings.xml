@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CanvasGame</string>
+    <string name="gameover_title">Game Over</string>
+    <string name="gameover_message">Pulsa en la pantalla para volver a jugar</string>
 </resources>
