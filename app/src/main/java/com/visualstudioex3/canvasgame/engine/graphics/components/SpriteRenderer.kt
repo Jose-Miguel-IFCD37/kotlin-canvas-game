@@ -22,6 +22,7 @@ class SpriteRenderer(
             RenderManager.addDrawCommand(
                 SpriteDrawCommand(
                     transform.position,
+                    transform.zOrder,
                     transform.rotation,
                     transform.scale,
                     image!!

@@ -3,6 +3,7 @@ package com.visualstudioex3.canvasgame.engine.graphics.components
 import android.graphics.Color
 import androidx.core.graphics.toColor
 import com.visualstudioex3.canvasgame.engine.GameObject
+import com.visualstudioex3.canvasgame.engine.Transform
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.graphics.commands.CircleDrawCommand
 
@@ -18,9 +19,12 @@ class CircleRenderer(
     }
 
     override fun draw() {
+        val transform: Transform = gameObject.transform
+
         RenderManager.addDrawCommand(
             CircleDrawCommand(
-                gameObject.transform.position,
+                transform.position,
+                transform.zOrder,
                 radius,
                 gameObject.transform.scale,
                 color,

@@ -5,6 +5,7 @@ import android.graphics.PointF
 
 data class CircleDrawCommand(
     val position: PointF,
+    override val zOrder: Int,
     val radius: Float,
     val scale: Float,
     val color: Color,

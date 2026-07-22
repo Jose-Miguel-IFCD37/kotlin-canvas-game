@@ -44,8 +44,13 @@ class RenderManager(
         synchronized(surfaceHolder) {
             canvas.drawColor(clearColor.toArgb())
 
-            while (commands.isNotEmpty())
+            commands.sortByDescending {
+                it.zOrder
+            }
+
+            while(commands.isNotEmpty()) {
                 drawProcessors.process(canvas, commands.removeFirst())
+            }
         }
 
         surfaceHolder.unlockCanvasAndPost(canvas)
@@ -54,7 +59,8 @@ class RenderManager(
     private fun addFPSCounterCommand() {
         addDrawCommand(
             TextDrawCommand(
-                position = PointF(camera.width, 0.5f),
+                position = PointF(camera.width, 0f),
+                zOrder = Int.MIN_VALUE,
                 scale = 1f,
                 color = Color.YELLOW.toColor(),
                 fontSize = 48f,

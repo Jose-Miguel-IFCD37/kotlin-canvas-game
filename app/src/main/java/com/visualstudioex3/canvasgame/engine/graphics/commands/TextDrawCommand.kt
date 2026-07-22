@@ -13,6 +13,7 @@ enum class TextAlign(val value: Paint.Align) {
 
 data class TextDrawCommand(
     val position: PointF,
+    override val zOrder: Int,
     val scale: Float,
     val color: Color,
     val fontSize: Float,

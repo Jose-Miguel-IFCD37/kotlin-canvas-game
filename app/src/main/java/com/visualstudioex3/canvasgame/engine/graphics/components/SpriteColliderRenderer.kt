@@ -2,6 +2,7 @@ package com.visualstudioex3.canvasgame.engine.graphics.components
 
 import android.graphics.Color
 import com.visualstudioex3.canvasgame.engine.GameObject
+import com.visualstudioex3.canvasgame.engine.Transform
 import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.graphics.commands.RectDrawCommand
@@ -18,14 +19,18 @@ class SpriteColliderRenderer(
     }
 
     override fun draw() {
-        if (spriteCollider != null)
+        if (spriteCollider != null) {
+            val transform: Transform = gameObject.transform
+
             RenderManager.addDrawCommand(
                 RectDrawCommand(
                     spriteCollider.bounds,
-                    gameObject.transform.scale,
+                    transform.zOrder,
+                    transform.scale,
                     color,
                     true
                 )
             )
+        }
     }
 }

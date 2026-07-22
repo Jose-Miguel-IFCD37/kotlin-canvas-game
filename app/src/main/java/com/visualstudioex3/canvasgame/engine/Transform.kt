@@ -7,6 +7,7 @@ class Transform {
     var position = PointF()
     var rotation: Float = 0f
     var scale: Float = 1f
+    var zOrder: Int = 0
 
     fun move(x: Float = 0f, y: Float = 0f) {
         position += PointF(x, y)
