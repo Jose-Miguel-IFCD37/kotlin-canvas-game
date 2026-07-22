@@ -4,9 +4,9 @@ import android.graphics.Color
 import androidx.core.graphics.toColor
 import com.visualstudioex3.canvasgame.R
 import com.visualstudioex3.canvasgame.engine.graphics.commands.TextAlign
-import com.visualstudioex3.canvasgame.engine.IService
+import com.visualstudioex3.canvasgame.engine.GameService
 
-class GameSettings: IService {
+class GameSettings: GameService() {
     val settings = GameSettingsData(
         debugSettings = DebugSettingsData(
             showFPSCounter = true,

@@ -39,11 +39,11 @@ abstract class GameObject {
         } as? T
 
     inline fun <reified T> getService(): T?
-            where T : IService =
+            where T : GameService =
         SceneManager.scene.getService()
 
     inline fun <reified T> getRequiredService(): T
-            where T : IService =
+            where T : GameService =
         SceneManager.scene.getRequiredService()
 
     inline fun <reified T> findGameObject(): T?

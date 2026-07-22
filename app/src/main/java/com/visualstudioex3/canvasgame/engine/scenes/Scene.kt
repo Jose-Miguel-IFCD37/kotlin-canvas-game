@@ -1,14 +1,14 @@
 package com.visualstudioex3.canvasgame.engine.scenes
 
 import com.visualstudioex3.canvasgame.engine.GameObject
-import com.visualstudioex3.canvasgame.engine.IService
+import com.visualstudioex3.canvasgame.engine.GameService
 
 abstract class Scene {
     val gameObjects = mutableListOf<GameObject>()
-    val services = HashSet<IService>()
+    val services = HashSet<GameService>()
 
     inline fun <reified T> addService(): T
-            where T : IService {
+            where T : GameService {
         val instance: T =
             T::class.java
                 .getDeclaredConstructor()
@@ -32,13 +32,13 @@ abstract class Scene {
     }
 
     inline fun <reified T> getService(): T?
-            where T : IService =
+            where T : GameService =
         services.firstOrNull {
             it::class.java == T::class.java
         } as? T
 
     inline fun <reified T> getRequiredService(): T
-            where T : IService =
+            where T : GameService =
         getService() ?: error("No se encuentra servicio de tipo ${T::class.simpleName}")
 
     inline fun <reified T> findGameObject(): T?
