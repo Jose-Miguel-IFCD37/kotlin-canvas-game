@@ -2,10 +2,12 @@ package com.visualstudioex3.canvasgame.game.scenes
 
 import com.visualstudioex3.canvasgame.engine.scenes.Scene
 import com.visualstudioex3.canvasgame.game.entities.gamescene.enemies.EnemySpawner
+import com.visualstudioex3.canvasgame.game.entities.gamescene.explossion.services.ExplossionFactory
 import com.visualstudioex3.canvasgame.game.entities.gamescene.player.Player
 import com.visualstudioex3.canvasgame.game.entities.gamescene.player.PlayerManager
+import com.visualstudioex3.canvasgame.game.entities.gamescene.player.PlayerUIIcon
+import com.visualstudioex3.canvasgame.game.entities.gamescene.player.PlayerUILivesText
 import com.visualstudioex3.canvasgame.game.entities.gamescene.scorer.GameScore
-import com.visualstudioex3.canvasgame.game.entities.gamescene.explossion.services.ExplossionFactory
 import com.visualstudioex3.canvasgame.game.entities.gamescene.scorer.services.ScorePointsFactory
 import com.visualstudioex3.canvasgame.game.services.events.GameObserver
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
@@ -20,6 +22,8 @@ class GameScene: Scene() {
         addGameObject<GameScore>()
         addGameObject<Player>()
         addGameObject<PlayerManager>()
+        addGameObject<PlayerUIIcon>()
+        addGameObject<PlayerUILivesText>()
         addGameObject<EnemySpawner>()
     }
 
