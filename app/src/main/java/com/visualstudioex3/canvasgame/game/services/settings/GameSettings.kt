@@ -75,24 +75,6 @@ class GameSettings: IService {
                 maxInstances = 5
             )
         ),
-        scorerSettings = ScorerSettingsData(
-            mainScorerSettings = MainScorerSettingsData(
-                textSettings = TextSettingsData(
-                    fontSize = 128f,
-                    align = TextAlign.Center,
-                    color = Color.WHITE.toColor(),
-                ),
-                format = "%08d",
-            ),
-            scorePointsSettings = ScorePointsSettingsData(
-                textSettings = TextSettingsData(
-                    fontSize = 48f,
-                    align = TextAlign.Center,
-                    color = Color.YELLOW.toColor(),
-                ),
-                fadeOutSpeed = 3f,
-            )
-        ),
         gameOverSettings = GameOverSettingsData(
             title = TextSettingsData(
                 stringResourceId = R.string.gameover_title,
@@ -107,6 +89,36 @@ class GameSettings: IService {
                 color = Color.WHITE.toColor(),
             ),
             fadeToBlackSpeed = 3f,
+        ),
+        gameUISettings = GameUISettingsData(
+            scorerSettings = ScorerSettingsData(
+                mainScorerSettings = MainScorerSettingsData(
+                    textSettings = TextSettingsData(
+                        fontSize = 96f,
+                        align = TextAlign.Right,
+                        color = Color.WHITE.toColor(),
+                        format = "%08d 💰",
+                    )
+                ),
+                scorePointsSettings = ScorePointsSettingsData(
+                    textSettings = TextSettingsData(
+                        fontSize = 60f,
+                        align = TextAlign.Center,
+                        color = Color.YELLOW.toColor(),
+                        format = "+%d!"
+                    ),
+                    fadeOutSpeed = 1.5f,
+                )
+            ),
+            playerUILivesSettings = PlayerUILivesSettingsData(
+                bitmapResourceId = R.drawable.player_ship,
+                textSettings = TextSettingsData(
+                    fontSize = 96f,
+                    align = TextAlign.Left,
+                    color = Color.WHITE.toColor(),
+                    format = "x%d",
+                )
+            )
         )
     )
 }

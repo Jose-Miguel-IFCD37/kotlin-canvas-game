@@ -10,9 +10,9 @@ import com.visualstudioex3.canvasgame.engine.graphics.components.TextRenderer
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 import com.visualstudioex3.canvasgame.game.services.settings.ScorePointsSettingsData
 
-class ScorePoints: GameObject(), IEnableState {
+class ScorePoints : GameObject(), IEnableState {
     private val settings: ScorePointsSettingsData = getRequiredService<GameSettings>()
-        .settings.scorerSettings.scorePointsSettings
+        .settings.gameUISettings.scorerSettings.scorePointsSettings
     private val textRenderer = addComponent<TextRenderer>().apply {
         fontSize = settings.textSettings.fontSize
         align = settings.textSettings.align
@@ -33,7 +33,8 @@ class ScorePoints: GameObject(), IEnableState {
 
     fun show(position: PointF, points: Int) {
         transform.position = position
-        textRenderer.text = "+$points!"
+        textRenderer.text = settings.textSettings.format!!
+            .format(points)
         fadeColor.reset()
         enable = true
     }

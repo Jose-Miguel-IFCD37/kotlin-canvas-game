@@ -8,18 +8,26 @@ data class GameSettingsData(
     val playerSettings: PlayerSettingsData,
     val enemySettings: EnemySettingsData,
     val explossionSettings: ExplossionSettingsData,
-    val scorerSettings: ScorerSettingsData,
     val gameOverSettings: GameOverSettingsData,
+    val gameUISettings: GameUISettingsData,
 )
 
-data class DebugSettingsData(
-    val showFPSCounter: Boolean,
-    val showColliders: Boolean,
+data class TextSettingsData(
+    val stringResourceId: Int = 0,
+    val fontSize: Float,
+    val align: TextAlign,
+    val color: Color,
+    val format: String? = null
 )
 
 data class FactorySettingsData(
     val maxInstances: Int,
     val spawnTime: Float = 0f,
+)
+
+data class DebugSettingsData(
+    val showFPSCounter: Boolean,
+    val showColliders: Boolean,
 )
 
 data class PlayerSettingsData(
@@ -74,6 +82,17 @@ data class ExplossionSettingsData(
     val factorySettings: FactorySettingsData,
 )
 
+data class GameOverSettingsData(
+    val title: TextSettingsData,
+    val message: TextSettingsData,
+    val fadeToBlackSpeed: Float,
+)
+
+data class GameUISettingsData(
+    val scorerSettings: ScorerSettingsData,
+    val playerUILivesSettings: PlayerUILivesSettingsData,
+)
+
 data class ScorerSettingsData(
     val mainScorerSettings: MainScorerSettingsData,
     val scorePointsSettings: ScorePointsSettingsData,
@@ -81,7 +100,6 @@ data class ScorerSettingsData(
 
 data class MainScorerSettingsData(
     val textSettings: TextSettingsData,
-    val format: String,
 )
 
 data class ScorePointsSettingsData(
@@ -89,15 +107,7 @@ data class ScorePointsSettingsData(
     val fadeOutSpeed: Float,
 )
 
-data class GameOverSettingsData(
-    val title: TextSettingsData,
-    val message: TextSettingsData,
-    val fadeToBlackSpeed: Float,
-)
-
-data class TextSettingsData(
-    val stringResourceId: Int = 0,
-    val fontSize: Float,
-    val align: TextAlign,
-    val color: Color,
+data class PlayerUILivesSettingsData(
+    val bitmapResourceId: Int,
+    val textSettings: TextSettingsData,
 )

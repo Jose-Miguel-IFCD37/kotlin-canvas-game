@@ -6,9 +6,9 @@ import com.visualstudioex3.canvasgame.engine.graphics.components.TextRenderer
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 import com.visualstudioex3.canvasgame.game.services.settings.MainScorerSettingsData
 
-class GameScore: GameObject() {
+class GameScore : GameObject() {
     private val settings: MainScorerSettingsData = getRequiredService<GameSettings>()
-        .settings.scorerSettings.mainScorerSettings
+        .settings.gameUISettings.scorerSettings.mainScorerSettings
     private val textRenderer = addComponent<TextRenderer>().apply {
         fontSize = settings.textSettings.fontSize
         color = settings.textSettings.color
@@ -18,13 +18,13 @@ class GameScore: GameObject() {
     var score: Int = 0
         private set(value) {
             field = value
-
-            textRenderer.text = settings.format.format(score)
+            textRenderer.text = settings.textSettings.format!!
+                .format(score)
         }
 
     init {
         transform.translate(
-            x = RenderManager.camera.width / 2f
+            x = RenderManager.camera.width - 0.1f
         )
 
         score = 0
