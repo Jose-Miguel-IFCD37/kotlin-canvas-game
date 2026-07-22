@@ -18,8 +18,11 @@ class GameScore : GameObject(), IEventListener {
         color = settings.textSettings.color
         align = settings.textSettings.align
     }
-    private val gameObserver = getRequiredService<GameObserver>().apply {
-        addListener(this@GameScore)
+
+    init {
+        getRequiredService<GameObserver>().apply {
+            addListener(this@GameScore)
+        }
     }
 
     var score: Int = 0

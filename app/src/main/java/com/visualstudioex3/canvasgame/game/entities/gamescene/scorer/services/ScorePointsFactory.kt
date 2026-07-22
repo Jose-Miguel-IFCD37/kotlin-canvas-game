@@ -13,8 +13,11 @@ class ScorePointsFactory: GameService(), IEventListener {
     private val enemyFactorySettings: FactorySettingsData = getRequiredService<GameSettings>()
         .settings.enemySettings.factorySettings
     private val pool = ScorePointsPool(enemyFactorySettings.maxInstances)
-    private val gameObserver = getRequiredService<GameObserver>().apply {
-        addListener(this@ScorePointsFactory)
+
+    init {
+        getRequiredService<GameObserver>().apply {
+            addListener(this@ScorePointsFactory)
+        }
     }
 
     override fun onEvent(event: IEvent) {

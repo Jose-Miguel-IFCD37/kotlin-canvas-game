@@ -14,8 +14,11 @@ class ExplossionFactory: GameService(), IEventListener {
     private val settings: FactorySettingsData = getRequiredService<GameSettings>()
         .settings.explossionSettings.factorySettings
     private val pool = ExplossionPool(settings.maxInstances)
-    private val gameObserver = getRequiredService<GameObserver>().apply {
-        addListener(this@ExplossionFactory)
+
+    init {
+        getRequiredService<GameObserver>().apply {
+            addListener(this@ExplossionFactory)
+        }
     }
 
     override fun onEvent(event: IEvent) {
