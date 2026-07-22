@@ -10,7 +10,8 @@ import com.visualstudioex3.canvasgame.engine.physics.components.SpriteCollider
 import com.visualstudioex3.canvasgame.game.entities.gamescene.enemies.IEnemy
 import com.visualstudioex3.canvasgame.game.entities.gamescene.player.components.PlayerBulletSpawner
 import com.visualstudioex3.canvasgame.game.entities.gamescene.player.components.PlayerTemporalInvulnerability
-import com.visualstudioex3.canvasgame.game.entities.gamescene.explossion.services.ExplossionFactory
+import com.visualstudioex3.canvasgame.game.services.events.GameEvents
+import com.visualstudioex3.canvasgame.game.services.events.GameObserver
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
 import com.visualstudioex3.canvasgame.game.services.settings.PlayerSettingsData
 import com.visualstudioex3.canvasgame.game.utils.GameObjectUtils
@@ -18,11 +19,10 @@ import com.visualstudioex3.canvasgame.game.utils.GameObjectUtils
 class Player : GameObject() {
     private val settings: PlayerSettingsData = getRequiredService<GameSettings>()
         .settings.playerSettings
-    private val explossionFactory = getService<ExplossionFactory>()!!
+    private val gameObserver = getRequiredService<GameObserver>()
     private val invulnerability = addComponent<PlayerTemporalInvulnerability>()
-    private var targetPosition: Float = 0f
 
-    var onPlayerDead: (() -> Unit)? = null
+    private var targetPosition: Float = 0f
 
     init {
         addComponent<InputTouch>().apply {
@@ -42,9 +42,10 @@ class Player : GameObject() {
                 if (!invulnerability.enable &&
                     other is IEnemy
                 ) {
-                    explossionFactory.explode(this@Player.transform.position)
                     this@Player.enable = false
-                    onPlayerDead?.invoke()
+                    gameObserver.notifyEvent(
+                        GameEvents.PlayerDead(this@Player)
+                    )
                 }
             }
             GameObjectUtils.addSpriteColliderRendererIfDebugEnable(this@Player)
