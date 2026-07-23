@@ -2,4 +2,6 @@
     <string name="app_name">CanvasGame</string>
     <string name="gameover_title">Game Over</string>
     <string name="gameover_message">Pulsa en la pantalla para volver a jugar o manten presionado para salir</string>
+    <string name="home_title">Space Kotlin Shooter</string>
+    <string name="home_message">Pulsa en la pantalla para empezar a jugar o manten presionado para salir</string>
 </resources>

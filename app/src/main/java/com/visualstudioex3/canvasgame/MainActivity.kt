@@ -7,7 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import com.visualstudioex3.canvasgame.engine.GameEngine
-import com.visualstudioex3.canvasgame.game.scenes.GameScene
+import com.visualstudioex3.canvasgame.game.scenes.HomeScene
 import com.visualstudioex3.canvasgame.ui.theme.CanvasGameTheme
 
 class MainActivity : ComponentActivity() {
@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
     @Composable
     fun Game() {
         val gameEngine: GameEngine = remember {
-            GameEngine(this, GameScene())
+            GameEngine(this, HomeScene())
         }
 
         gameEngine.GameLoop()

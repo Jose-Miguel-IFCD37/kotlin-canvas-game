@@ -5,6 +5,7 @@ import com.visualstudioex3.canvasgame.engine.graphics.commands.TextAlign
 
 data class GameSettingsData(
     val debugSettings: DebugSettingsData,
+    val homeSettings: HomeSettingsData,
     val playerSettings: PlayerSettingsData,
     val enemySettings: EnemySettingsData,
     val explossionSettings: ExplossionSettingsData,
@@ -80,6 +81,14 @@ data class ExplossionSettingsData(
     val endColor: Color,
     val speed: Float,
     val factorySettings: FactorySettingsData,
+)
+
+data class HomeSettingsData(
+    val title: TextSettingsData,
+    val message: TextSettingsData,
+    val bitmapResourceId: Int,
+    val animationSpeed: Float,
+    val fadeToBlackSpeed: Float,
 )
 
 data class GameOverSettingsData(

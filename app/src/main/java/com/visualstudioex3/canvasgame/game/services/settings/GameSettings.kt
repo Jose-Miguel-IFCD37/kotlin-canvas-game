@@ -12,6 +12,23 @@ class GameSettings: GameService() {
             showFPSCounter = true,
             showColliders = false,
         ),
+        homeSettings = HomeSettingsData(
+            title = TextSettingsData(
+                stringResourceId = R.string.home_title,
+                fontSize = 175f,
+                align = TextAlign.Center,
+                color = Color.CYAN.toColor(),
+            ),
+            message = TextSettingsData(
+                stringResourceId = R.string.home_message,
+                fontSize = 96f,
+                align = TextAlign.Center,
+                color = Color.WHITE.toColor(),
+            ),
+            bitmapResourceId = R.drawable.player_ship,
+            animationSpeed = 1.5f,
+            fadeToBlackSpeed = 3f,
+        ),
         playerSettings = PlayerSettingsData(
             speed = 3f,
             bitmapResourceId = R.drawable.player_ship,
