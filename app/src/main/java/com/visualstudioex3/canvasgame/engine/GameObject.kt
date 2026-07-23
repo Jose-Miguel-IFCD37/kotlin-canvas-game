@@ -38,6 +38,10 @@ abstract class GameObject {
             it::class.java == T::class.java
         } as? T
 
+    inline fun <reified T> getRequiredComponent(): T
+            where T : IComponent =
+        getComponent() ?: error("No se encuentra componente de tipo ${T::class.simpleName}")
+
     inline fun <reified T> getService(): T?
             where T : GameService =
         SceneManager.scene.getService()
