@@ -1,4 +1,4 @@
-package com.visualstudioex3.canvasgame.game.entities.gameoverscene
+package com.visualstudioex3.canvasgame.game.entities
 
 import android.graphics.Color
 import androidx.core.graphics.toColor

@@ -4,7 +4,7 @@ import android.graphics.Color
 import androidx.core.graphics.toColor
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.scenes.Scene
-import com.visualstudioex3.canvasgame.game.entities.gameoverscene.FadeToBlackBackground
+import com.visualstudioex3.canvasgame.game.entities.FadeToBlackBackground
 import com.visualstudioex3.canvasgame.game.entities.gameoverscene.GameOverInputListener
 import com.visualstudioex3.canvasgame.game.entities.gameoverscene.GameOverMessage
 import com.visualstudioex3.canvasgame.game.entities.gameoverscene.GameOverTitle
