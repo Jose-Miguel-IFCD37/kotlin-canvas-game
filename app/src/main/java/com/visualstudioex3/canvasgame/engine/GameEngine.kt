@@ -1,5 +1,6 @@
 package com.visualstudioex3.canvasgame.engine
 
+import android.content.Context
 import android.graphics.PointF
 import android.view.SurfaceHolder
 import android.view.SurfaceView
@@ -16,6 +17,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import com.visualstudioex3.canvasgame.engine.audio.AudioManager
 import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.input.InputManager
 import com.visualstudioex3.canvasgame.engine.input.TouchGestures
@@ -29,8 +31,12 @@ class GameEngine(
     private val startScene: Scene
 ) {
     companion object {
+        private lateinit var activity: ComponentActivity
+
         var gameActive: Boolean = false
             private set
+
+        fun getContext(): Context = activity
 
         fun quit() {
             gameActive = false
@@ -43,8 +49,9 @@ class GameEngine(
     private val physicsManager = PhysicsManager()
 
     init {
+        Companion.activity = activity
         hideSystemBars(activity)
-        GameResources.setResources(activity.resources)
+        AudioManager.initialize()
     }
 
     @Composable
