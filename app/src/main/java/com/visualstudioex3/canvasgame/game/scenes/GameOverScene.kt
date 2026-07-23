@@ -1,5 +1,8 @@
 package com.visualstudioex3.canvasgame.game.scenes
 
+import android.graphics.Color
+import androidx.core.graphics.toColor
+import com.visualstudioex3.canvasgame.engine.graphics.RenderManager
 import com.visualstudioex3.canvasgame.engine.scenes.Scene
 import com.visualstudioex3.canvasgame.game.entities.gameoverscene.FadeToBlackBackground
 import com.visualstudioex3.canvasgame.game.entities.gameoverscene.GameOverInputListener
@@ -18,5 +21,6 @@ class GameOverScene: Scene() {
     }
 
     override fun onDestroy() {
+        RenderManager.clearColor = Color.BLACK.toColor()
     }
 }
