@@ -7,15 +7,18 @@ import com.visualstudioex3.canvasgame.engine.graphics.components.TextRenderer
 import com.visualstudioex3.canvasgame.game.services.events.GameEvents
 import com.visualstudioex3.canvasgame.game.services.events.GameObserver
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
-import com.visualstudioex3.canvasgame.game.services.settings.PlayerUILivesSettingsData
+import com.visualstudioex3.canvasgame.game.services.settings.GameUISettingsData
+import com.visualstudioex3.canvasgame.game.services.settings.TextSettingsData
 
 class PlayerUILivesText : GameObject(), IEventListener {
-    val settings: PlayerUILivesSettingsData = getRequiredService<GameSettings>()
-        .settings.gameUISettings.playerUILivesSettings
-    val textRenderer = addComponent<TextRenderer>().apply {
-        color = settings.textSettings.color
-        fontSize = settings.textSettings.fontSize
-        align = settings.textSettings.align
+    private val settings: GameUISettingsData = getRequiredService<GameSettings>()
+        .settings.gameUISettings
+    private val playerUILivesTextSettings: TextSettingsData = getRequiredService<GameSettings>()
+        .settings.gameUISettings.playerUILivesSettings.textSettings
+    private val textRenderer = addComponent<TextRenderer>().apply {
+        color = playerUILivesTextSettings.color
+        fontSize = playerUILivesTextSettings.fontSize
+        align = playerUILivesTextSettings.align
     }
 
     init {
@@ -23,6 +26,7 @@ class PlayerUILivesText : GameObject(), IEventListener {
             addListener(this@PlayerUILivesText)
         }
         transform.translate(1.25f)
+        transform.zOrder = settings.zOrder
     }
 
     override fun onUpdate(deltaTime: Float) {
@@ -35,7 +39,7 @@ class PlayerUILivesText : GameObject(), IEventListener {
     }
 
     private fun updateLivesCounter(lives: Int) {
-        textRenderer.text = settings.textSettings.format!!
+        textRenderer.text = playerUILivesTextSettings.format!!
             .format(lives)
     }
 }

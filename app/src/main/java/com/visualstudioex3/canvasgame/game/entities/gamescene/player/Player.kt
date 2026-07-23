@@ -51,6 +51,7 @@ class Player : GameObject() {
             GameObjectUtils.addSpriteColliderRendererIfDebugEnable(this@Player)
         }
         addComponent<PlayerBulletSpawner>()
+        transform.zOrder = -100
     }
 
     override fun onEnable() {

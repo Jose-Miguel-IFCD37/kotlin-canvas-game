@@ -89,6 +89,7 @@ data class GameOverSettingsData(
 )
 
 data class GameUISettingsData(
+    val zOrder: Int,
     val scorerSettings: ScorerSettingsData,
     val playerUILivesSettings: PlayerUILivesSettingsData,
 )

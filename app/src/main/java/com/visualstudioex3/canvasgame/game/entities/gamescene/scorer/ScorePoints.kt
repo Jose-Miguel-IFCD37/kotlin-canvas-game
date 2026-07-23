@@ -8,22 +8,32 @@ import com.visualstudioex3.canvasgame.engine.IEnableState
 import com.visualstudioex3.canvasgame.engine.graphics.components.FadeColor
 import com.visualstudioex3.canvasgame.engine.graphics.components.TextRenderer
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
+import com.visualstudioex3.canvasgame.game.services.settings.GameUISettingsData
 import com.visualstudioex3.canvasgame.game.services.settings.ScorePointsSettingsData
+import com.visualstudioex3.canvasgame.game.services.settings.TextSettingsData
 
 class ScorePoints : GameObject(), IEnableState {
-    private val settings: ScorePointsSettingsData = getRequiredService<GameSettings>()
-        .settings.gameUISettings.scorerSettings.scorePointsSettings
+    private val settings: GameUISettingsData = getRequiredService<GameSettings>()
+        .settings.gameUISettings
+    private val socrePointsSettings: ScorePointsSettingsData =
+        settings.scorerSettings.scorePointsSettings
+    private val socrePointsTextSettings: TextSettingsData =
+        settings.scorerSettings.scorePointsSettings.textSettings
     private val textRenderer = addComponent<TextRenderer>().apply {
-        fontSize = settings.textSettings.fontSize
-        align = settings.textSettings.align
+        fontSize = socrePointsTextSettings.fontSize
+        align = socrePointsTextSettings.align
     }
     private val fadeColor = addComponent<FadeColor>().apply {
-        startColor = settings.textSettings.color
+        startColor = socrePointsTextSettings.color
         stopColor = Color.TRANSPARENT.toColor()
-        speed = settings.fadeOutSpeed
+        speed = socrePointsSettings.fadeOutSpeed
         onComplete = {
             this@ScorePoints.enable = false
         }
+    }
+
+    init {
+        transform.zOrder = settings.zOrder
     }
 
     override fun onUpdate(deltaTime: Float) {
@@ -33,7 +43,7 @@ class ScorePoints : GameObject(), IEnableState {
 
     fun show(position: PointF, points: Int) {
         transform.position = position
-        textRenderer.text = settings.textSettings.format!!
+        textRenderer.text = socrePointsTextSettings.format!!
             .format(points)
         fadeColor.reset()
         enable = true

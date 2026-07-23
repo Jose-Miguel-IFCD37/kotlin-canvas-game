@@ -8,15 +8,18 @@ import com.visualstudioex3.canvasgame.engine.graphics.components.TextRenderer
 import com.visualstudioex3.canvasgame.game.services.events.GameEvents
 import com.visualstudioex3.canvasgame.game.services.events.GameObserver
 import com.visualstudioex3.canvasgame.game.services.settings.GameSettings
-import com.visualstudioex3.canvasgame.game.services.settings.MainScorerSettingsData
+import com.visualstudioex3.canvasgame.game.services.settings.GameUISettingsData
+import com.visualstudioex3.canvasgame.game.services.settings.TextSettingsData
 
 class GameScore : GameObject(), IEventListener {
-    private val settings: MainScorerSettingsData = getRequiredService<GameSettings>()
-        .settings.gameUISettings.scorerSettings.mainScorerSettings
+    private val settings: GameUISettingsData = getRequiredService<GameSettings>()
+        .settings.gameUISettings
+    private val mainScorerTextSettings: TextSettingsData =
+        settings.scorerSettings.mainScorerSettings.textSettings
     private val textRenderer = addComponent<TextRenderer>().apply {
-        fontSize = settings.textSettings.fontSize
-        color = settings.textSettings.color
-        align = settings.textSettings.align
+        fontSize = mainScorerTextSettings.fontSize
+        color = mainScorerTextSettings.color
+        align = mainScorerTextSettings.align
     }
 
     init {
@@ -28,7 +31,7 @@ class GameScore : GameObject(), IEventListener {
     var score: Int = 0
         private set(value) {
             field = value
-            textRenderer.text = settings.textSettings.format!!
+            textRenderer.text = mainScorerTextSettings.format!!
                 .format(score)
         }
 
@@ -36,7 +39,7 @@ class GameScore : GameObject(), IEventListener {
         transform.translate(
             x = RenderManager.camera.width - 0.1f
         )
-
+        transform.zOrder = settings.zOrder
         score = 0
     }
 

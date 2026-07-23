@@ -91,6 +91,7 @@ class GameSettings: GameService() {
             fadeToBlackSpeed = 3f,
         ),
         gameUISettings = GameUISettingsData(
+            zOrder = -1000,
             scorerSettings = ScorerSettingsData(
                 mainScorerSettings = MainScorerSettingsData(
                     textSettings = TextSettingsData(
