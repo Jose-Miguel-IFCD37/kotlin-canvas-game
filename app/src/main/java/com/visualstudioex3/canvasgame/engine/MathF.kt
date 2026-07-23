@@ -30,4 +30,9 @@ object MathF {
                     ),
                     EPSILON
                 )
+
+    // Basado en la funcion de Unity Mathf.PingPong:
+    // https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Mathf.PingPong.html
+    fun pingPong(value: Float, length: Float): Float =
+        length - this.abs((this.abs(value) % (2f * length)) - length)
 }
