@@ -1,6 +1,7 @@
 package com.visualstudioex3.canvasgame.game.scenes
 
 import com.visualstudioex3.canvasgame.engine.scenes.Scene
+import com.visualstudioex3.canvasgame.game.entities.FadeToBlackBackground
 import com.visualstudioex3.canvasgame.game.entities.gamescene.enemies.EnemySpawner
 import com.visualstudioex3.canvasgame.game.entities.gamescene.explossion.services.ExplossionFactory
 import com.visualstudioex3.canvasgame.game.entities.gamescene.player.Player
@@ -25,6 +26,7 @@ class GameScene: Scene() {
         addGameObject<PlayerUIIcon>()
         addGameObject<PlayerUILivesText>()
         addGameObject<EnemySpawner>()
+        addGameObject<FadeToBlackBackground>()
     }
 
     override fun onDestroy() {
