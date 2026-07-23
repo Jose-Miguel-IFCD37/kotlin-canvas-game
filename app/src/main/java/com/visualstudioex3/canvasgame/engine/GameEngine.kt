@@ -57,10 +57,11 @@ class GameEngine(
                             onStart = {
                                 renderManager = RenderManager(holder)
                                 SceneManager.loadScene(startScene)
-
                                 gameActive = true
                             },
                             onQuit = {
+                                SceneManager.scene.terminate()
+                                GameResources.release()
                                 quitApplication()
                             }
                         )

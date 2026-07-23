@@ -5,4 +5,7 @@ interface IComponent: IEnableState {
     override var enable: Boolean
 
     fun update(deltaTime: Float)
+
+    open fun onDestroy() {
+    }
 }

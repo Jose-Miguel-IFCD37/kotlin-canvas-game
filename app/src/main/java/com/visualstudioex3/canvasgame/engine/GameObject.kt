@@ -84,4 +84,10 @@ abstract class GameObject {
                 it.draw()
         }
     }
+
+    fun destroy() {
+        components.forEach {
+            it.onDestroy()
+        }
+    }
 }

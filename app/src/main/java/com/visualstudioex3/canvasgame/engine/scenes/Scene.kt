@@ -72,6 +72,14 @@ abstract class Scene {
         }
     }
 
+    fun terminate() {
+        onDestroy()
+
+        gameObjects.forEach {
+            it.destroy()
+        }
+    }
+
     fun onFrame(deltaTime: Float) {
         update(deltaTime)
         draw()
