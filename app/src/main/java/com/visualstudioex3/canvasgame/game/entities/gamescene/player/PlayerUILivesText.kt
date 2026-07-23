@@ -40,6 +40,6 @@ class PlayerUILivesText : GameObject(), IEventListener {
 
     private fun updateLivesCounter(lives: Int) {
         textRenderer.text = playerUILivesTextSettings.format!!
-            .format(lives)
+            .format(lives - 1)
     }
 }
